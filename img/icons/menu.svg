@@ -1,0 +1,9 @@
+<svg width="160" height="171" viewBox="0 0 160 171" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <radialGradient cx="96.737%" cy="50%" fx="96.737%" fy="50%" r="99.829%" id="ffvgpds9la">
+            <stop stop-color="#FFF" stop-opacity=".9" offset="0%"/>
+            <stop stop-color="#FFF" stop-opacity="0" offset="100%"/>
+        </radialGradient>
+    </defs>
+    <path d="m1020 265 60.075 80.1a9 9 0 0 1 0 10.8L1020 436h106.875l61.425-81.9a6 6 0 0 0 0-7.2l-61.425-81.9H1020z" transform="translate(-1030 -265)" fill="url(#ffvgpds9la)" fill-rule="nonzero"/>
+</svg>

@@ -1,0 +1,121 @@
+$animationTime: 2s;
+$fontSize: 238px;
+
+@media (max-width: 1500px) {
+    $fontSize: 238px;
+}
+
+.menu {
+    width: 60%;
+    height: 100%;
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (max-width: 1500px) {
+        padding-left: 80px;
+    }
+
+    &__item {
+        list-style: none;
+
+        &--link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        &--text {
+            color: #fff;
+            font-size: $fontSize;
+            font-weight: 900;
+            font-family: 'vf';
+            font-style: normal;
+            font-weight: 700;
+            transition: $animationTime;
+            position: relative;
+
+            // @media (max-width: 1500px) {
+            //     font-size: 160px;
+            // }
+        }
+
+        &:nth-of-type(1) &{
+            &--text {
+                &.glitch::before, .glitch::after {
+                    content: "WORK";
+                }
+            }
+        }
+
+        &:nth-of-type(2) &{
+            &--text {
+                &.glitch::before, .glitch::after {
+                    content: "ABOUT";
+                }
+            }
+        }
+
+        &:nth-of-type(3) &{
+            &--text {
+                &.glitch::before, .glitch::after {
+                    content: "CONTACT";
+                }
+            }
+        }
+    }
+
+}
+
+.glitch::before, .glitch::after {
+    // padding: 30px;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    font-size: $fontSize;
+}
+
+.glitch::before {
+    left: 5px;
+    text-shadow: -5px 0 red;
+    animation-name: glitch-animation-1;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    // დაყოვნება
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse-alternate;
+}
+.glitch::after {
+    left: -5px;
+    text-shadow: -5px 0 blue;
+    animation-name: glitch-animation-2;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    // დაყოვნება
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse-alternate;
+}
+
+@keyframes glitch-animation-1{
+    $steps: 20;
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} 
+        {clip: rect(random(150)+px, 350px, random(150)+px, 0px)}
+    }
+}
+    
+@keyframes glitch-animation-2{
+    $steps: 20;
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} 
+        {clip: rect(random(150)+px, 350px, random(150)+px, 0px)}
+    }
+}
