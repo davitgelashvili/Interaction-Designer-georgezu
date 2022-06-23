@@ -3,7 +3,7 @@ let loadingNumber = 0;
 function Loading(){
     loadingNumber += 1;
     if(loadingNumber > 9) {
-        $('.loading__img').attr('src', `./../img/loading/Intro_000${loadingNumber}.png`)
+        $('.loading__img').attr('src', `./img/loading/Intro_000${loadingNumber}.png`)
         if(loadingNumber == 24){
             clearInterval(LoadingInterval);
             coverImage()
@@ -11,7 +11,7 @@ function Loading(){
             $('.loading').remove();
         }
     }else {
-        $('.loading__img').attr('src', `./../img/loading/Intro_0000${loadingNumber}.png`)
+        $('.loading__img').attr('src', `./img/loading/Intro_0000${loadingNumber}.png`)
     }
 }
 Loading();
@@ -20,13 +20,16 @@ let coverNumber = 107;
 function coverImage(){
     console.log(coverNumber)
     coverNumber += 1;
+
     if(coverNumber == 213){
         coverNumber = 107;
     }
+
+    // if menu hover 
     if( $('.menu__item--text').hasClass('glitch') ){
-        $('.avatar__cover').attr('src', `./../img/Work_Idle/Work_Idle_00${coverNumber}.png`)
+        $('.avatar__cover').attr('src', `./img/Work_Idle/Work_Idle_00${coverNumber}.png`)
     }else {
-        $('.avatar__cover').attr('src', `./../img/idle/Idle_00${coverNumber}.png`)
+        $('.avatar__cover').attr('src', `./img/idle/Idle_00${coverNumber}.png`)
     }
 }
 
