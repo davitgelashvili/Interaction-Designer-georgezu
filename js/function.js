@@ -22,69 +22,6 @@ for (coverNumber; coverNumber <= 213; coverNumber++) {
     `)
 }
 
-$( document ).ready(function() {
-    
-    function mainStart(){
-        const LoadingInterval = setInterval(Loading, 100)
-
-        let loadingNumber = 0;
-        function Loading (){
-            $(`.loading__img`).hide()
-            loadingNumber += 1;
-            $(`.loading__img.${loadingNumber}`).show()
-            if(loadingNumber == 24){
-                clearInterval(LoadingInterval);
-                setInterval(coverImage, 100)
-                $('.loading').remove();
-            }
-        }
-
-        let coverNumber = 107;
-        function coverImage(){
-            $(`.avatar__cover`).hide()
-            coverNumber += 1;
-
-            // if menu hover 
-            if( $('.menu__item--text').hasClass('glitch') ){
-                $(`.avatar__cover.hover__cover.${coverNumber}`).show()
-            }else {
-                $(`.avatar__cover.default__cover.${coverNumber}`).show()
-            }
-
-            if(coverNumber == 213){
-                coverNumber = 107;
-            }
-        }
-    }
-    mainStart()
-});
-
-
-
-
-    $('.open-second-page').on("click", function(){
-        $('.main').removeClass('active');
-        $('.second').addClass('active');
-    })
-    $('.second-close').on("click", function(){
-        $('.main').addClass('active');
-        $('.second').removeClass('active');
-    })
-
-    $('.menu__item--text').on("mouseenter", function(){
-        $(this).addClass('glitch');
-    })
-    $('.menu__item--text').on("mouseleave", function(){
-        $('.menu__item--text').removeClass('glitch');
-    })
-
-
-
-
-
-
-
-
 // let array = [];
 const token = 'd820991ca43cc815adf1a0a4a2e08a';
 fetch('https://graphql.datocms.com/', {
@@ -123,3 +60,67 @@ fetch('https://graphql.datocms.com/', {
         `)
     })
 })
+
+
+$( document ).ready(function() {
+    $('.load').remove();
+    $(`.loading__img`).hide();
+    $(`.avatar__cover`).hide();
+    
+    const LoadingInterval = setInterval(Loading, 100)
+
+    let loadingNumber = 0;
+    function Loading (){
+        $(`.loading__img`).hide()
+        loadingNumber += 1;
+        $(`.loading__img.${loadingNumber}`).show()
+        if(loadingNumber == 24){
+            clearInterval(LoadingInterval);
+            setInterval(coverImage, 100)
+            $('.loading').remove();
+        }
+    }
+
+    let coverNumber = 107;
+    function coverImage(){
+        $(`.avatar__cover`).hide()
+        coverNumber += 1;
+
+        // if menu hover 
+        if( $('.menu__item--text').hasClass('glitch') ){
+            $(`.avatar__cover.hover__cover.${coverNumber}`).show()
+        }else {
+            $(`.avatar__cover.default__cover.${coverNumber}`).show()
+        }
+
+        if(coverNumber == 213){
+            coverNumber = 107;
+        }
+    }
+});
+
+
+
+
+$('.open-second-page').on("click", function(){
+    $('.main').removeClass('active');
+    $('.second').addClass('active');
+})
+$('.second-close').on("click", function(){
+    $('.main').addClass('active');
+    $('.second').removeClass('active');
+})
+
+$('.menu__item--text').on("mouseenter", function(){
+    $(this).addClass('glitch');
+})
+$('.menu__item--text').on("mouseleave", function(){
+    $('.menu__item--text').removeClass('glitch');
+})
+
+
+
+
+
+
+

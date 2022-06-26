@@ -26,15 +26,20 @@ body {
     overflow: hidden;
 }
 
+.load {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: block;
+}
+
 .loading {
     position: absolute;
     width: 100%;
     height: 100%;
     // background: orange;
 
-    &__img {
-        display: none;
-    }
 }
 
 .main {
