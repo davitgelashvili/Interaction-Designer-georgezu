@@ -6,7 +6,7 @@ $fontSize: 238px;
 }
 
 .menu {
-    width: 60%;
+    width: 58%;
     height: 100%;
     padding-left: 100px;
     display: flex;
@@ -35,6 +35,8 @@ $fontSize: 238px;
             font-weight: 700;
             transition: $animationTime;
             position: relative;
+            line-height: 180px;
+            
 
             // @media (max-width: 1500px) {
             //     font-size: 160px;
