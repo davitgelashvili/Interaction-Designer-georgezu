@@ -59,7 +59,7 @@ $( document ).ready(function() {
                 coverNumber = 107;
             }
         }
-    }, 2000);
+    }, 4000);
 
     // let array = [];
     const token = 'd820991ca43cc815adf1a0a4a2e08a';
@@ -99,6 +99,7 @@ $( document ).ready(function() {
             `)
         })
     })
+
 });
 
 
