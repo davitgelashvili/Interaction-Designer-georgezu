@@ -2,12 +2,12 @@ var loadingNumber = 0;
 for (loadingNumber; loadingNumber <= 24; loadingNumber++) {
     if(loadingNumber > 9) {
         $('.loading').append(`
-            <img src="./img/loading/Intro_000${loadingNumber}-min.png" class="loading__img ${loadingNumber}" alt="">
+            <img src="./img/loading/Intro_000${loadingNumber}.png" class="loading__img ${loadingNumber}" alt="">
         `)
 
     }else {
         $('.loading').append(`
-            <img src="./img/loading/Intro_0000${loadingNumber}-min.png" class="loading__img ${loadingNumber}" alt="">
+            <img src="./img/loading/Intro_0000${loadingNumber}.png" class="loading__img ${loadingNumber}" alt="">
         `)
     }
 }
@@ -18,7 +18,7 @@ for (coverNumber; coverNumber <= 213; coverNumber++) {
         <img src="./img/native/Idle_00${coverNumber}.png" alt="" class="avatar__cover default__cover ${coverNumber}">
     `)
     $('.avatar.hover').append(`
-        <img src="./img/hover/Work_Idle_00${coverNumber}-min.png" alt="" class="avatar__cover hover__cover ${coverNumber}">
+        <img src="./img/hover/Work_Idle_00${coverNumber}.png" alt="" class="avatar__cover hover__cover ${coverNumber}">
     `)
 }
 
