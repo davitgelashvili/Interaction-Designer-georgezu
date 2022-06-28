@@ -2,19 +2,20 @@ $animationTime: 2s;
 $fontSize: 238px;
 
 @media (max-width: 1500px) {
-    $fontSize: 238px;
+    $fontSize: 100px;
 }
 
 .menu {
-    width: 58%;
+    // width: 58%;
     height: 100%;
-    padding-left: 100px;
+    // padding-left: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-right: 200px;
 
     @media (max-width: 1500px) {
-        padding-left: 80px;
+        // padding-left: 80px;
     }
 
     &__item {
@@ -33,9 +34,13 @@ $fontSize: 238px;
             font-family: 'vf';
             font-style: normal;
             font-weight: 700;
-            transition: $animationTime;
+            // transition: $animationTime;
             position: relative;
-            line-height: 180px;
+            line-height: 170px;
+
+            span {
+                display: none;
+            }
             
 
             // @media (max-width: 1500px) {
@@ -43,81 +48,67 @@ $fontSize: 238px;
             // }
         }
 
-        &:nth-of-type(1) &{
-            &--text {
-                &.glitch::before, .glitch::after {
-                    content: "WORK";
-                }
-            }
-        }
-
-        &:nth-of-type(2) &{
-            &--text {
-                &.glitch::before, .glitch::after {
-                    content: "ABOUT";
-                }
-            }
-        }
-
-        &:nth-of-type(3) &{
-            &--text {
-                &.glitch::before, .glitch::after {
-                    content: "CONTACT";
-                }
-            }
-        }
     }
 
 }
 
-.glitch::before, .glitch::after {
-    // padding: 30px;
-    color: #fff;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    font-size: $fontSize;
+
+.glitch {
+text-transform: uppercase;
+text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+    0.025em 0.04em 0 #fffc00;
+animation: glitch 725ms infinite;
 }
 
-.glitch::before {
-    left: 5px;
-    text-shadow: -5px 0 red;
-    animation-name: glitch-animation-1;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    // დაყოვნება
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: reverse-alternate;
+.glitch span {
+position: absolute;
+top: 0;
+left: 0;
+display: block;
 }
-.glitch::after {
-    left: -5px;
-    text-shadow: -5px 0 blue;
-    animation-name: glitch-animation-2;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    // დაყოვნება
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: reverse-alternate;
+  
+.glitch span:first-child {
+animation: glitch 500ms infinite;
+clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+transform: translate(-0.04em, -0.03em);
+opacity: 0.75;
 }
-
-@keyframes glitch-animation-1{
-    $steps: 20;
-    @for $i from 0 through $steps {
-        #{percentage($i*(1/$steps))} 
-        {clip: rect(random(150)+px, 350px, random(150)+px, 0px)}
+  
+.glitch span:last-child {
+animation: glitch 375ms infinite;
+clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+transform: translate(0.04em, 0.03em);
+opacity: 0.75;
+}
+  
+@keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+        0.025em 0.04em 0 #fffc00;
+    }
+    15% {
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+        0.025em 0.04em 0 #fffc00;
+    }
+    16% {
+      text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+        -0.05em -0.05em 0 #fffc00;
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+        -0.05em -0.05em 0 #fffc00;
+    }
+    50% {
+      text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+        0 -0.04em 0 #fffc00;
+    }
+    99% {
+      text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+        0 -0.04em 0 #fffc00;
+    }
+    100% {
+      text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+        -0.04em -0.025em 0 #fffc00;
     }
 }
-    
-@keyframes glitch-animation-2{
-    $steps: 20;
-    @for $i from 0 through $steps {
-        #{percentage($i*(1/$steps))} 
-        {clip: rect(random(150)+px, 350px, random(150)+px, 0px)}
-    }
-}
+  
