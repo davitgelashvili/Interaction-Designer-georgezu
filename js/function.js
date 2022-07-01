@@ -24,12 +24,13 @@ for (coverNumber; coverNumber <= 213; coverNumber++) {
 
 
 $( document ).ready(function() {
+    let intervalTime = 1000;
     setTimeout(() => {
         $('.load').remove();
-        $(`.loading__img`).hide();
+        // $(`.loading__img`).hide();
         $(`.avatar__cover`).hide();
     
-        const LoadingInterval = setInterval(Loading, 100)
+        const LoadingInterval = setInterval(Loading, intervalTime)
     
         let loadingNumber = 0;
         function Loading (){
@@ -38,8 +39,8 @@ $( document ).ready(function() {
             $(`.loading__img.${loadingNumber}`).show()
             if(loadingNumber == 24){
                 clearInterval(LoadingInterval);
-                setInterval(coverImage, 100)
-                $('.loading').remove();
+                setInterval(coverImage, intervalTime)
+                // $('.loading').remove();
             }
         }
     
