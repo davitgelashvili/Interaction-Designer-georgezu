@@ -27,7 +27,7 @@ $( document ).ready(function() {
     let intervalTime = 100;
     setTimeout(() => {
         $('.load').remove();
-        // $(`.loading__img`).hide();
+        $(`.loading__img`).hide();
         $(`.avatar__cover`).hide();
     
         const LoadingInterval = setInterval(Loading, intervalTime)
@@ -40,7 +40,7 @@ $( document ).ready(function() {
             if(loadingNumber == 24){
                 clearInterval(LoadingInterval);
                 setInterval(coverImage, intervalTime)
-                // $('.loading').remove();
+                $('.loading').remove();
             }
         }
     
