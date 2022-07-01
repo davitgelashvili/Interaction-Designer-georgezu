@@ -24,7 +24,7 @@ for (coverNumber; coverNumber <= 213; coverNumber++) {
 
 
 $( document ).ready(function() {
-    let intervalTime = 1000;
+    let intervalTime = 100;
     setTimeout(() => {
         $('.load').remove();
         // $(`.loading__img`).hide();
