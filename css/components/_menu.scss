@@ -1,9 +1,4 @@
 $animationTime: 2s;
-$fontSize: 238px;
-
-@media (max-width: 1500px) {
-    $fontSize: 100px;
-}
 
 .menu {
     width: 100%;
@@ -12,6 +7,15 @@ $fontSize: 238px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 1024px) {
+      padding-top: 44px;
+      padding-left: 15px;
+      justify-content: start;
+      align-items: flex-start;
+      z-index: -1;
+    }
+
 
     &__item {
         list-style: none;
@@ -25,7 +29,7 @@ $fontSize: 238px;
 
         &--text {
             color: #fff;
-            font-size: $fontSize;
+            font-size: 238px;
             font-weight: 900;
             font-family: 'vf';
             font-style: normal;
@@ -38,10 +42,15 @@ $fontSize: 238px;
                 display: none;
             }
             
+            @media (max-width: 1300px) {
+              font-size: 200px;
+              line-height: 145px;
+            }
 
-            // @media (max-width: 1500px) {
-            //     font-size: 160px;
-            // }
+            @media (max-width: 1024px) {
+                font-size: 134px;
+                line-height: 100px;
+            }
         }
 
     }

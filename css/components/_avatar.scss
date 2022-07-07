@@ -18,6 +18,10 @@
         @media (max-width: 1200px) {
             left: -400px;
         }
+        @media (max-width: 1024px) {
+            left: -165px;
+            height: 76%;
+        }
 
         &.active {
             display: block;
