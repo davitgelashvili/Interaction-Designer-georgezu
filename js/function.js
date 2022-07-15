@@ -1,27 +1,18 @@
+var loadNumber = 0;
+for (loadNumber; loadNumber <= 24; loadNumber++) {
+    if(loadNumber > 9) {
+        $('.loading').append(`
+            <img src="./img/loading/Intro_000${loadNumber}.png" class="loading__img ${loadNumber}" alt="">
+        `)
+
+    }else {
+        $('.loading').append(`
+            <img src="./img/loading/Intro_0000${loadNumber}.png" class="loading__img ${loadNumber}" alt="">
+        `)
+    }
+}
+
 $(window).on('load', function(){
-    var loadNumber = 0;
-    for (loadNumber; loadNumber <= 24; loadNumber++) {
-        if(loadNumber > 9) {
-            $('.loading').append(`
-                <img src="./img/loading/Intro_000${loadNumber}.png" class="loading__img ${loadNumber}" alt="">
-            `)
-
-        }else {
-            $('.loading').append(`
-                <img src="./img/loading/Intro_0000${loadNumber}.png" class="loading__img ${loadNumber}" alt="">
-            `)
-        }
-    }
-
-    var loadCoverNum = 107;
-    for (loadCoverNum; loadCoverNum <= 213; loadCoverNum++) {
-        $('.avatar.default').append(`
-            <img src="./img/native/Idle_00${loadCoverNum}.png" alt="" class="avatar__cover default__cover ${loadCoverNum}">
-        `)
-        $('.avatar.hover').append(`
-            <img src="./img/hover/Work_Idle_00${loadCoverNum}.png" alt="" class="avatar__cover hover__cover ${loadCoverNum}">
-        `)
-    }
 
     $('.load').remove();
     $(`.loading__img`).hide();
