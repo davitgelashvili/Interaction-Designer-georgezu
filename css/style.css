@@ -423,6 +423,17 @@ body {
           align-items: flex-start;
 }
 
+.second--title {
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  font-family: 'vf';
+  font-size: 350px;
+  color: #fff;
+  opacity: .5;
+  text-align: center;
+}
+
 .second.active {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -430,18 +441,36 @@ body {
 }
 
 .second__avatar {
+  -webkit-transition: 2s;
+  transition: 2s;
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: -1;
+  bottom: 0;
+  left: unset;
+}
+
+.second__avatar.active {
+  width: 80%;
+  height: 80%;
+  left: 0;
 }
 
 .second__avatar--cover {
+  width: unset;
   position: absolute;
   -o-object-fit: cover;
      object-fit: cover;
   bottom: 0;
   left: 0;
+  display: none;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+.second__avatar--cover.active {
+  width: 100%;
+  display: block;
 }
 
 @media (max-width: 1600px) {
@@ -452,13 +481,13 @@ body {
 
 @media (max-width: 1500px) {
   .second__avatar--cover {
-    left: -300px;
+    left: -200px;
   }
 }
 
 @media (max-width: 1200px) {
   .second__avatar--cover {
-    left: -400px;
+    left: -100px;
   }
 }
 
@@ -489,6 +518,7 @@ body {
       -ms-flex-align: start;
           align-items: flex-start;
   padding-top: 50px;
+  position: relative;
   /* width */
   /* Track */
   /* Handle */
@@ -528,6 +558,7 @@ body {
   max-width: 100%;
   padding: 35px;
   border: 1px solid transparent;
+  margin-top: 50px;
 }
 
 .list__item--cover {

@@ -32,7 +32,7 @@ function workAnimation(){
     var index = 311;
     for (index; index <= 349; index++) {
         $('.second__avatar').append(`
-            <img src="./img/work/0${index}_optimized.png" alt="" class="second__avatar--cover ${index}" style="display: none;">
+            <img src="./img/work/0${index}_optimized.png" alt="" class="second__avatar--cover ${index}">
         `)
     }
 }
@@ -41,14 +41,15 @@ $('.open-second-page').on("click", function(){
     $('.main').removeClass('active');
     $('.second').addClass('active');
 
-    const LoadingInterval = setInterval(Loading, intervalTime)
+    const LoadingInterval = setInterval(Loading, 30)
 
     let loadingNumber = 310;
     function Loading (){
         $('.avatar').hide();
         loadingNumber += 1;
-        $(`.second__avatar--cover`).hide()
-        $(`.second__avatar--cover.${loadingNumber}`).show()
+        $(`.second__avatar--cover`).removeClass('active');
+        $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
+        $(`.second__avatar`).addClass('active')
         if(loadingNumber == 349){
             postedWork();
             clearInterval(LoadingInterval);
@@ -57,8 +58,21 @@ $('.open-second-page').on("click", function(){
 })
 
 $('.second-close').on("click", function(){
-    $('.main').addClass('active');
-    $('.second').removeClass('active');
+    const LoadingInterval = setInterval(Loading, 30)
+    
+    let loadingNumber = 349;
+    function Loading (){
+        loadingNumber -= 1;
+        $(`.second__avatar--cover`).removeClass('active');
+        $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
+        $(`.second__avatar`).removeClass('active')
+        if(loadingNumber == 310){
+            $('.main').addClass('active');
+            $('.second').removeClass('active');
+            $('.avatar').show();
+            clearInterval(LoadingInterval);
+        }
+    }
 })
 
 $('.menu__item--text').on("mouseenter", function(){
