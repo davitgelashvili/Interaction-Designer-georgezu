@@ -2,19 +2,22 @@ $(window).on('load', function(){
     $('.load').remove();
 
     let intervalTime = 100;
-    const LoadingInterval = setInterval(Loading, intervalTime)
+    // const LoadingInterval = setInterval(Loading, intervalTime)
 
-    let loadingNumber = 0;
-    function Loading (){
-        $(`.loading__img`).hide()
-        loadingNumber += 1;
-        $(`.loading__img.${loadingNumber}`).show()
-        if(loadingNumber == 24){
-            clearInterval(LoadingInterval);
-            setInterval(coverImage, intervalTime)
-            $('.loading').remove();
-        }
-    }
+    // let loadingNumber = 0;
+    // function Loading (){
+    //     $(`.loading__img`).hide()
+    //     loadingNumber += 1;
+    //     $(`.loading__img.${loadingNumber}`).show()
+    //     if(loadingNumber == 24){
+    //         clearInterval(LoadingInterval);
+    //         setInterval(coverImage, intervalTime)
+    //         $('.loading').remove();
+    //     }
+    // }
+
+    // თუ ინტრო ლოადინგი არ არის 
+    setInterval(coverImage, intervalTime)
     
     let coverNumber = 107;
     function coverImage(){
@@ -24,8 +27,10 @@ $(window).on('load', function(){
         // if menu hover 
         if( $('.menu__item--text').hasClass('glitch') ){
             $(`.avatar__cover.hover__cover.${coverNumber}`).show()
+            $(`.avatar__cover.default__cover.${coverNumber}`).show()
         }else {
             $(`.avatar__cover.default__cover.${coverNumber}`).show()
+            $(`.avatar__cover.skins__cover.${coverNumber}`).show()
         }
 
         if(coverNumber == 213){
