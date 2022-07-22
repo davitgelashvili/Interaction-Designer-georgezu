@@ -441,35 +441,28 @@ body {
 }
 
 .second__avatar {
-  -webkit-transition: 2s;
-  transition: 2s;
   width: 100%;
   height: 100%;
   position: absolute;
-  bottom: 0;
-  left: unset;
-}
-
-.second__avatar.active {
-  width: 80%;
-  height: 80%;
+  -webkit-transition: 2s;
+  transition: 2s;
   left: 0;
 }
 
+.second__avatar.active {
+  left: -300px;
+}
+
 .second__avatar--cover {
-  width: unset;
   position: absolute;
   -o-object-fit: cover;
      object-fit: cover;
   bottom: 0;
   left: 0;
   display: none;
-  -webkit-filter: blur(5px);
-          filter: blur(5px);
 }
 
 .second__avatar--cover.active {
-  width: 100%;
   display: block;
 }
 
@@ -481,13 +474,13 @@ body {
 
 @media (max-width: 1500px) {
   .second__avatar--cover {
-    left: -200px;
+    left: -300px;
   }
 }
 
 @media (max-width: 1200px) {
   .second__avatar--cover {
-    left: -100px;
+    left: -400px;
   }
 }
 
@@ -495,6 +488,106 @@ body {
   .second__avatar--cover {
     left: -165px;
     height: 76%;
+  }
+}
+
+.second.post-animation-on .list__item {
+  -webkit-animation-name: example1;
+          animation-name: example1;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes example1 {
+  0% {
+    margin-top: 800px;
+  }
+  100% {
+    margin-top: 50px;
+  }
+}
+
+@keyframes example1 {
+  0% {
+    margin-top: 800px;
+  }
+  100% {
+    margin-top: 50px;
+  }
+}
+
+.second.post-animation-on .list__item:nth-of-type(2) {
+  -webkit-animation-name: example2;
+          animation-name: example2;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+@-webkit-keyframes example2 {
+  0% {
+    margin-top: 800px;
+  }
+  100% {
+    margin-top: 300px;
+  }
+}
+
+@keyframes example2 {
+  0% {
+    margin-top: 800px;
+  }
+  100% {
+    margin-top: 300px;
+  }
+}
+
+.second.post-animation-off .list__item {
+  -webkit-animation-name: example3;
+          animation-name: example3;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes example3 {
+  0% {
+    margin-top: 50px;
+  }
+  100% {
+    margin-top: 800px;
+  }
+}
+
+@keyframes example3 {
+  0% {
+    margin-top: 50px;
+  }
+  100% {
+    margin-top: 800px;
+  }
+}
+
+.second.post-animation-off .list__item:nth-of-type(2) {
+  -webkit-animation-name: example4;
+          animation-name: example4;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+@-webkit-keyframes example4 {
+  0% {
+    margin-top: 300px;
+  }
+  100% {
+    margin-top: 800px;
+  }
+}
+
+@keyframes example4 {
+  0% {
+    margin-top: 300px;
+  }
+  100% {
+    margin-top: 800px;
   }
 }
 

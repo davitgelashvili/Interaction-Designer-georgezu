@@ -37,9 +37,11 @@ function workAnimation(){
     }
 }
 
-$('.open-second-page').on("click", function(){
+$('body').on('click', '.open-second-page', function(){
     $('.main').removeClass('active');
     $('.second').addClass('active');
+    $('.second').addClass('post-animation-on');
+    $('.second').removeClass('post-animation-off');
 
     const LoadingInterval = setInterval(Loading, 30)
 
@@ -58,7 +60,9 @@ $('.open-second-page').on("click", function(){
 })
 
 $('.second-close').on("click", function(){
-    const LoadingInterval = setInterval(Loading, 30)
+    $('.second').removeClass('post-animation-on');
+    $('.second').addClass('post-animation-off');
+    const LoadingInterval = setInterval(Loading, 20)
     
     let loadingNumber = 349;
     function Loading (){
