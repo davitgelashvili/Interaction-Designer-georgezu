@@ -227,7 +227,7 @@ body {
 
 @media (max-width: 1600px) {
   .avatar__cover {
-    left: -100px;
+    left: -250px;
   }
 }
 
