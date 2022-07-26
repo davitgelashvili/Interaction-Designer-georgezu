@@ -33,6 +33,8 @@ $(window).on('load', function(){
     }
 
     workAnimation();
+    workHover();
+    aboutHover();
 });
 
 function workAnimation(){
@@ -40,6 +42,24 @@ function workAnimation(){
     for (index; index <= 349; index++) {
         $('.second__avatar').append(`
             <img src="./img/work/0${index}_optimized.png" alt="" class="second__avatar--cover ${index}">
+        `)
+    }
+}
+
+function workHover(){
+    var index = 107;
+    for (index; index <= 213; index++) {
+        $('.avatar.hover.work').append(`
+            <img src="./img/hover-work/Idle_Avatar_Animation _Work_00${index}.png" alt="" class="avatar__cover hover__cover work ${index}" style="display: none;">
+        `)
+    }
+}
+
+function aboutHover(){
+    var index = 107;
+    for (index; index <= 213; index++) {
+        $('.avatar.hover.about').append(`
+            <img src="./img/hover-about/Idle_Avatar_Animation _About_00${index}.png" alt="" class="avatar__cover hover__cover about ${index}" style="display: none;">
         `)
     }
 }
