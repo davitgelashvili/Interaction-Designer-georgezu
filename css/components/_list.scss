@@ -26,13 +26,15 @@
         height: 100%;
         position: absolute;
         transition: 1s;
-        left: 0;
+        left: -100px;
 
         &.active {
             left: -300px;
+            filter: blur(6px);
         }
         
         &--cover {
+            height: 100%;
             position: absolute;
             object-fit: cover;
             bottom: 0;
@@ -152,8 +154,8 @@
     &__item {
         width: 100%;
         max-width: 100%;
-        padding: 35px;
-        border: 1px solid transparent;
+        padding: 40px;
+        border: 2px solid transparent;
         margin-top: 50px;
 
         &--cover {
@@ -163,7 +165,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: rgba(#fff, .2);
+            border-radius: 4px;
+            backdrop-filter: blur(3px);
+            background-image: linear-gradient(152deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.02) 99%);
         }
 
         &:nth-of-type(1) {
@@ -192,21 +196,28 @@
         }
         
         &:hover {
-            border: 1px solid #212121;
+            border-radius: 4px;
+            border: solid 2px #bcaaf5;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.02), rgba(254, 194, 199, 0.1) 99%);
         }
 
         &--cat {
+            color: #b4b4b4;
+            font-size: 14px;
             text-align: end;
-            color: #fff;
-            font-size: 18px;
+            font-family: 'PPMori-Regular';
+            letter-spacing: -0.01px;
         }
 
         &--number {
             position: absolute;
             top: -25px;
-            left: 0;
-            font-size: 42px;
-            color: #000;
+            left: 15px;
+            color: #fff;
+            font-size: 64px;
+            font-family: 'vf';
+            font-weight: 300;
+            letter-spacing: -0.03px;
         }
 
         &--img {
@@ -215,18 +226,41 @@
         }
 
         &--title {
-            font-size: 42px;
+            margin-top: 20px;
             color: #fff;
+            font-size: 48px;
+            font-family: 'PPMori-Regular';
+            letter-spacing: 0.4px;
         }
 
         &--desc {
+            margin-top: 5px;
+            margin-bottom: 30px;
             color: #fff;
+            font-size: 14px;
+            font-family: 'PPMori-SemiBold';
+            font-weight: 600;
+            line-height: 1.43;
+            letter-spacing: -0.01px;
         }
 
         &--link {
-            color: #000;
+            width: 0px;
+            height: 15px;
+            display: block;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'PPMori-RegularItalic';
+            font-style: italic;
+            letter-spacing: 0.13px;
+            overflow: hidden;
         }
 
+        &:hover &{
+            &--link {
+                width: 100%;
+            }
+        }
 
     }
 }

@@ -65,6 +65,7 @@ function aboutHover(){
 }
 
 $('body').on('click', '.open-second-page', function(){
+    $('body').addClass('work');
     $('.main').removeClass('active');
     $('.second').addClass('active');
     $('.second').addClass('post-animation-on');
@@ -87,6 +88,7 @@ $('body').on('click', '.open-second-page', function(){
 })
 
 $('.second-close').on("click", function(){
+    $('body').removeClass('work');
     $('.second').removeClass('post-animation-on');
     $('.second').addClass('post-animation-off');
     const LoadingInterval = setInterval(Loading, 20)
@@ -156,7 +158,7 @@ function postedWork(){
                 <li>
                     <a href="https://${item.link}" class="list__item--link" target="_blank">
                         Case Study
-                        --->
+                        <img src="./img/icons/link-arrow.svg" alt="">
                     </a>
                 </li>
             </div>

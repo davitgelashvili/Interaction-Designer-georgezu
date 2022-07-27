@@ -11,6 +11,30 @@
     font-family: 'vf';
     src: url(../fonts/Thunder-BlackLC.ttf);
 }
+@font-face {
+    font-family: 'PPMori-Extralight';
+    src: url(../fonts/PPMori-Extralight.otf);
+}
+@font-face {
+    font-family: 'PPMori-ExtralightItalic';
+    src: url(../fonts/PPMori-ExtralightItalic.otf);
+}
+@font-face {
+    font-family: 'PPMori-Regular';
+    src: url(../fonts/PPMori-Regular.otf);
+}
+@font-face {
+    font-family: 'PPMori-RegularItalic';
+    src: url(../fonts/PPMori-RegularItalic.otf);
+}
+@font-face {
+    font-family: 'PPMori-SemiBold';
+    src: url(../fonts/PPMori-SemiBold.otf);
+}
+@font-face {
+    font-family: 'PPMori-SemiBoldItalic';
+    src: url(../fonts/PPMori-SemiBoldItalic.otf);
+}
 
 html {
     font-size: 16px;
@@ -27,6 +51,10 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+    &.work {
+        background-image: url(../img/bg/BG_Black.jpg);
+    }
 }
 
 .load {
