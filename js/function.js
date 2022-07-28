@@ -1,5 +1,18 @@
 let intervalTime = 100;
 
+var secondRender = `
+    <div class="container">
+        <button class="second-close">
+            <img src="./img/icons/back-arrow.svg" alt="">
+        </button>
+        <div class="list">
+            <h1 class="second--title">WORK</h1>
+        </div>
+    </div>
+`;
+
+$('.second').append(secondRender);
+
 $(window).on('load', function(){
     $('.load').remove();
 
@@ -65,6 +78,8 @@ function aboutHover(){
 }
 
 $('body').on('click', '.open-second-page', function(){
+    $('.second').html(' ');
+    $('.second').append(secondRender);
     $('body').addClass('work');
     $('.main').removeClass('active');
     $('.second').addClass('active');
@@ -87,7 +102,7 @@ $('body').on('click', '.open-second-page', function(){
     }
 })
 
-$('.second-close').on("click", function(){
+$('body').on('click', '.second-close', function(){
     $('body').removeClass('work');
     $('.second').removeClass('post-animation-on');
     $('.second').addClass('post-animation-off');
@@ -104,6 +119,7 @@ $('.second-close').on("click", function(){
             $('.main').addClass('active');
             $('.second').removeClass('active');
             $('.avatar').show();
+            $('.second').html(' ');
         }
     }
 })
