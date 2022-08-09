@@ -6,7 +6,6 @@ var secondRender = `
             <img src="./img/icons/back-arrow.svg" alt="">
         </button>
         <div class="list">
-            <h1 class="second--title">WORK</h1>
         </div>
     </div>
 `;
@@ -35,6 +34,10 @@ $(window).on('load', function(){
             if($('.menu__item--about').hasClass('active')){
                 $(`.avatar__cover.hover__cover.about.${coverNumber}`).show()
             }
+
+            if($('.menu__item--contact').hasClass('active')){
+                $(`.avatar__cover.hover__cover.contact.${coverNumber}`).show()
+            }
         }else {
             $(`.avatar__cover.default__cover.${coverNumber}`).show()
             $(`.avatar__cover.skins__cover.${coverNumber}`).show()
@@ -45,16 +48,18 @@ $(window).on('load', function(){
         }
     }
 
-    workAnimation();
+    pageAnimation();
     workHover();
     aboutHover();
+    contactHover();
+    bgChangeList();
 });
 
-function workAnimation(){
-    var index = 311;
-    for (index; index <= 349; index++) {
+function pageAnimation(){
+    var index = 535;
+    for (index; index <= 600; index++) {
         $('.second__avatar').append(`
-            <img src="./img/work/0${index}_optimized.png" alt="" class="second__avatar--cover ${index}">
+            <img src="./img/page-avatar/Trigger_Work_Animation_00${index}.png" alt="" class="second__avatar--cover ${index}">
         `)
     }
 }
@@ -72,7 +77,25 @@ function aboutHover(){
     var index = 107;
     for (index; index <= 213; index++) {
         $('.avatar.hover.about').append(`
-            <img src="./img/hover-about/Idle_Avatar_Animation _About_00${index}.png" alt="" class="avatar__cover hover__cover about ${index}" style="display: none;">
+            <img src="./img/hover-about/Idle_Avatar_Animation_About_V2_00${index}.png" alt="" class="avatar__cover hover__cover about ${index}" style="display: none;">
+        `)
+    }
+}
+
+function contactHover(){
+    var index = 107;
+    for (index; index <= 213; index++) {
+        $('.avatar.hover.contact').append(`
+            <img src="./img/hover-contact/Idle_Avatar_Animation _Contact_00${index}.png" alt="" class="avatar__cover hover__cover contact ${index}" style="display: none;">
+        `)
+    }
+}
+
+function bgChangeList(){
+    var index = 535;
+    for (index; index <= 592; index++) {
+        $('.bg').append(`
+            <img src="./img/bg/Transition_00${index}.png" alt="" class="bg__cover ${index}" style="display: none;">
         `)
     }
 }
@@ -80,22 +103,22 @@ function aboutHover(){
 $('body').on('click', '.open-second-page', function(){
     $('.second').html(' ');
     $('.second').append(secondRender);
-    $('body').addClass('work');
-    $('.main').removeClass('active');
+    // $('.main').removeClass('active');
     $('.second').addClass('active');
     $('.second').addClass('post-animation-on');
     $('.second').removeClass('post-animation-off');
 
     const LoadingInterval = setInterval(Loading, 30)
 
-    let loadingNumber = 310;
+    let loadingNumber = 535;
     function Loading (){
+        console.log(1)
         $('.avatar').hide();
         loadingNumber += 1;
         $(`.second__avatar--cover`).removeClass('active');
         $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.second__avatar`).addClass('active')
-        if(loadingNumber == 349){
+        if(loadingNumber == 600){
             postedWork();
             clearInterval(LoadingInterval);
         }
@@ -103,25 +126,35 @@ $('body').on('click', '.open-second-page', function(){
 })
 
 $('body').on('click', '.second-close', function(){
-    $('body').removeClass('work');
+    changeUnSetBg();
     $('.second').removeClass('post-animation-on');
     $('.second').addClass('post-animation-off');
     const LoadingInterval = setInterval(Loading, 20)
     
-    let loadingNumber = 349;
+    let loadingNumber = 600;
     function Loading (){
         loadingNumber -= 1;
         $(`.second__avatar--cover`).removeClass('active');
         $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.second__avatar`).removeClass('active')
-        if(loadingNumber == 309){
+        if(loadingNumber == 535){
             clearInterval(LoadingInterval);
             $('.main').addClass('active');
             $('.second').removeClass('active');
             $('.avatar').show();
             $('.second').html(' ');
+            $('.menu__item--text').removeClass('page-active');
+            $('.menu__item--text').show();
+            $(`.second__avatar--cover`).removeClass('active')
         }
     }
+})
+
+// menu click active
+$('.menu__item--text').on("click", function(){
+    changeSetBg();
+    $('.menu__item--text').hide();
+    $(this).addClass('page-active');
 })
 
 // menu glich effect 
@@ -134,6 +167,9 @@ $('.menu__item--work').on("mouseenter", function(){
     $(this).addClass('active')
 })
 $('.menu__item--about').on("mouseenter", function(){
+    $(this).addClass('active')
+})
+$('.menu__item--contact').on("mouseenter", function(){
     $(this).addClass('active')
 })
 
@@ -181,4 +217,35 @@ function postedWork(){
             `)
         })
     })
+}
+
+
+
+function changeSetBg(){
+    const LoadingInterval = setInterval(Loading, 10)
+
+    let loadingNumber = 535;
+    function Loading (){
+        loadingNumber += 1;
+
+        $(`.bg__cover`).hide();
+        $(`.bg__cover.${loadingNumber}`).show();
+        if(loadingNumber == 592){
+            clearInterval(LoadingInterval);
+        }
+    }
+}
+
+function changeUnSetBg(){
+    const LoadingInterval = setInterval(Loading, 10)
+
+    let loadingNumber = 592;
+    function Loading (){
+        loadingNumber -= 1;
+        $(`.bg__cover`).hide();
+        $(`.bg__cover.${loadingNumber}`).show();
+        if(loadingNumber == 534){
+            clearInterval(LoadingInterval);
+        }
+    }
 }

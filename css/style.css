@@ -55,15 +55,16 @@ html {
 
 body {
   background-color: #cecece;
-  background-image: url(../img/bg/BG_Blue.jpg);
+  background-image: url(../img/bg/Transition_00534.jpg);
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-body.work {
-  background-image: url(../img/bg/BG_Black.jpg);
+.bg__cover {
+  position: absolute;
+  z-index: -1;
 }
 
 .load {
@@ -334,6 +335,7 @@ body.work {
       -ms-flex-align: center;
           align-items: center;
   text-decoration: none;
+  height: 170px;
 }
 
 .menu__item--text {
@@ -343,8 +345,12 @@ body.work {
   font-family: 'vf';
   font-style: normal;
   font-weight: 700;
+  -webkit-transition: 1s;
+  transition: 1s;
   position: relative;
   line-height: 170px;
+  position: absolute;
+  top: 0;
 }
 
 .menu__item--text span {
@@ -363,6 +369,30 @@ body.work {
     font-size: 134px;
     line-height: 100px;
   }
+}
+
+.menu__item--text.page-active {
+  display: block !important;
+  top: 114px;
+  z-index: -1;
+  position: absolute;
+  font-family: 'vf';
+  font-size: 350px;
+  color: #fff;
+  opacity: .5;
+  text-align: center;
+}
+
+.menu__item--work {
+  top: 265px;
+}
+
+.menu__item--about {
+  top: 436px;
+}
+
+.menu__item--contact {
+  top: 609px;
 }
 
 .glitch {
@@ -448,7 +478,6 @@ body.work {
 }
 
 .second {
-  display: none;
   width: 100%;
   height: 100%;
   position: fixed;

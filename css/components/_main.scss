@@ -46,14 +46,17 @@ html {
 
 body {
     background-color: #cecece;
-    background-image: url(../img/bg/BG_Blue.jpg);
+    background-image: url(../img/bg/Transition_00534.jpg);
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
 
-    &.work {
-        background-image: url(../img/bg/BG_Black.jpg);
+.bg {
+    &__cover {
+        position: absolute;
+        z-index: -1;
     }
 }
 

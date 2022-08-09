@@ -1,4 +1,4 @@
-$animationTime: 2s;
+$animationTime: 1s;
 
 .menu {
     width: 100%;
@@ -25,6 +25,8 @@ $animationTime: 2s;
             display: flex;
             align-items: center;
             text-decoration: none;
+            height: 170px;
+            // position: relative;
         }
 
         &--text {
@@ -34,9 +36,11 @@ $animationTime: 2s;
             font-family: 'vf';
             font-style: normal;
             font-weight: 700;
-            // transition: $animationTime;
+            transition: $animationTime;
             position: relative;
             line-height: 170px;
+            position: absolute;
+            top: 0;
 
             span {
                 display: none;
@@ -51,8 +55,29 @@ $animationTime: 2s;
                 font-size: 134px;
                 line-height: 100px;
             }
+
+            &.page-active {
+              display: block !important;
+              top: 114px;
+              z-index: -1;
+              position: absolute;
+              font-family: 'vf';
+              font-size: 350px;
+              color: #fff;
+              opacity: .5;
+              text-align: center;
+            }
         }
 
+        &--work {
+          top: 265px;
+        }
+        &--about {
+          top: 436px;
+        }
+        &--contact {
+          top: 609px;
+        }
     }
 
 }
