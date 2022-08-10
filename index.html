@@ -465,8 +465,8 @@
     <main class="main active">
         <ul class="menu">
             <li class="menu__item">
-                <a href="javascript:;" class="menu__item--link open-second-page">
-                    <p class="menu__item--text menu__item--work">
+                <a href="javascript:;" class="menu__item--link">
+                    <p class="menu__item--text menu__item--work" data-link="work">
                         <span aria-hidden="true">WORK</span>
                         WORK
                         <span aria-hidden="true">WORK</span>
@@ -475,7 +475,7 @@
             </li>
             <li class="menu__item">
                 <a href="javascript:;" class="menu__item--link">
-                    <p class="menu__item--text menu__item--about">
+                    <p class="menu__item--text menu__item--about" data-link="about">
                         <span aria-hidden="true">ABOUT</span>
                         ABOUT
                         <span aria-hidden="true">ABOUT</span>
@@ -484,7 +484,7 @@
             </li>
             <li class="menu__item">
                 <a href="javascript:;" class="menu__item--link">
-                    <p class="menu__item--text menu__item--contact">
+                    <p class="menu__item--text menu__item--contact" data-link="contact">
                         <span aria-hidden="true">CONTACT</span>
                         CONTACT
                         <span aria-hidden="true">CONTACT</span>
@@ -494,7 +494,25 @@
         </ul>
     </main>
 
-    <section class="second">
+    <section class="work-page work page" data-page="work">
+    </section>
+
+    <section class="about-page about page" data-page="about">
+        <div class="container">
+            <button class="close-page">
+                <img src="./img/icons/back-arrow.svg" alt="">
+            </button>
+            <h1>title About</h1>
+        </div>
+    </section>
+
+    <section class="contact-page about page" data-page="contact">
+        <div class="container">
+            <button class="close-page">
+                <img src="./img/icons/back-arrow.svg" alt="">
+            </button>
+            <h1>title Contact</h1>
+        </div>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

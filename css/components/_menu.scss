@@ -66,6 +66,11 @@ $animationTime: 1s;
               color: #fff;
               opacity: .5;
               text-align: center;
+
+              &.menu__item--about {
+                margin-left: -50%;
+                transform: translate(50%);
+              }
             }
         }
 
