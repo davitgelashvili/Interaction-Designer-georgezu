@@ -38,7 +38,7 @@ $animationTime: 1s;
             font-weight: 700;
             transition: $animationTime;
             position: relative;
-            line-height: 170px;
+            // line-height: 170px;
             position: absolute;
             top: 0;
 
@@ -67,9 +67,9 @@ $animationTime: 1s;
               opacity: .5;
               text-align: center;
 
-              &.menu__item--about {
-                margin-left: -50%;
-                transform: translate(50%);
+              &.menu__item--text {
+                margin-right: -50%;
+                transform: translate(-50%);
               }
             }
         }

@@ -43,6 +43,36 @@
   src: url(../fonts/PPMori-SemiBoldItalic.otf);
 }
 
+@font-face {
+  font-family: 'PPNeue-Thin';
+  src: url(../fonts/PPNeueMontreal-Thin.otf);
+}
+
+@font-face {
+  font-family: 'PPNeue-SemiBolditalic';
+  src: url(../fonts/PPNeueMontreal-SemiBolditalic.otf);
+}
+
+@font-face {
+  font-family: 'PPNeue-Medium';
+  src: url(../fonts/PPNeueMontreal-Medium.otf);
+}
+
+@font-face {
+  font-family: 'PPNeue-Italic';
+  src: url(../fonts/PPNeueMontreal-Italic.otf);
+}
+
+@font-face {
+  font-family: 'PPNeue-Book';
+  src: url(../fonts/PPNeueMontreal-Book.otf);
+}
+
+@font-face {
+  font-family: 'PPNeue-Bold';
+  src: url(../fonts/PPNeueMontreal-Bold.otf);
+}
+
 html {
   font-size: 16px;
 }
@@ -223,22 +253,12 @@ body {
 
 .container {
   width: 100%;
-  height: 100%;
   max-width: 1400px;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
 }
 
 .close-page {
-  margin-top: 180px;
+  margin-top: 140px;
   background-color: transparent;
   outline: none;
   border: none;
@@ -348,7 +368,6 @@ body {
   -webkit-transition: 1s;
   transition: 1s;
   position: relative;
-  line-height: 170px;
   position: absolute;
   top: 0;
 }
@@ -383,10 +402,10 @@ body {
   text-align: center;
 }
 
-.menu__item--text.page-active.menu__item--about {
-  margin-left: -50%;
-  -webkit-transform: translate(50%);
-          transform: translate(50%);
+.menu__item--text.page-active.menu__item--text {
+  margin-right: -50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
 }
 
 .menu__item--work {
@@ -481,6 +500,20 @@ body {
   100% {
     text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff, -0.04em -0.025em 0 #fffc00;
   }
+}
+
+.second {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .second--title {
@@ -770,7 +803,7 @@ body {
   color: #b4b4b4;
   font-size: 14px;
   text-align: end;
-  font-family: 'PPMori-Regular';
+  font-family: 'PPNeue-Book';
   letter-spacing: -0.01px;
 }
 
@@ -780,7 +813,7 @@ body {
   left: 15px;
   color: #fff;
   font-size: 64px;
-  font-family: 'vf';
+  font-family: 'PPNeue-Thin';
   font-weight: 300;
   letter-spacing: -0.03px;
 }
@@ -794,7 +827,7 @@ body {
   margin-top: 20px;
   color: #fff;
   font-size: 48px;
-  font-family: 'PPMori-Regular';
+  font-family: 'PPNeue-Book';
   letter-spacing: 0.4px;
 }
 
@@ -803,7 +836,7 @@ body {
   margin-bottom: 30px;
   color: #fff;
   font-size: 14px;
-  font-family: 'PPMori-SemiBold';
+  font-family: 'PPNeue-Book';
   font-weight: 600;
   line-height: 1.43;
   letter-spacing: -0.01px;
@@ -811,12 +844,11 @@ body {
 
 .list__item--link {
   width: 0px;
-  height: 15px;
+  height: 19px;
   display: block;
   color: #fff;
   font-size: 16px;
-  font-family: 'PPMori-RegularItalic';
-  font-style: italic;
+  font-family: 'PPNeue-Italic';
   letter-spacing: 0.13px;
   overflow: hidden;
 }
@@ -830,14 +862,173 @@ body {
   height: 100%;
   position: fixed;
   display: none;
+  overflow: auto;
+}
+
+.page.active {
+  display: block;
+}
+
+.about-page--desc {
+  width: 100%;
+  max-width: 964px;
+  margin: 298px auto 100px auto;
+  text-align: center;
+  line-height: 1.09;
+  letter-spacing: 0.37px;
+  font-size: 32px;
+  font-family: 'PPNeue-Book';
+  color: #fff;
+}
+
+.about-page__footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  position: absolute;
+  right: 0;
+}
+
+.about-page__footer--email {
+  margin-right: 100px;
+}
+
+.about-page__footer--slider {
+  width: calc(100% - 450px);
+}
+
+.contact-page--content {
+  margin-top: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact-page__title {
+  padding: 0 75px 31px 75px;
+  border-bottom: 2px solid #fff;
+  font-family: 'PPNeue-Book';
+  font-size: 172px;
+  letter-spacing: 1.97px;
+  color: #fff;
+  text-align: center;
+}
+
+.contact-page__desc {
+  width: 100%;
+  max-width: 832px;
+  margin: 40px auto 0 auto;
+  font-family: 'PPNeue-Book';
+  font-size: 24px;
+  line-height: 1.33;
+  letter-spacing: 0.28px;
+  text-align: center;
+  color: #fff;
+}
+
+.contact-page__footer {
+  padding: 80px 50px 0 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.contact-page__footer--email {
+  font-size: 32px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.77px;
+  color: #fff;
+  font-family: 'PPNeue-Book';
+}
+
+.contact-page__footer--right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact-page__footer--soc {
+  margin-left: 50px;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.01px;
+  color: #fff;
+  font-family: 'PPNeue-Book';
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact-page__footer--soc img {
+  margin-right: 12px;
+}
+
+.slider__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
 }
 
-.page.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.slider__item--title {
+  padding: 14px 32px;
+  font-size: 32px;
+  font-family: 'PPNeue-Book';
+  color: #fff;
+  line-height: 1.09;
+  letter-spacing: 0.37px;
+  border-radius: 35px;
+  border: 1px solid #fff;
+  margin-bottom: 14px;
+}
+
+.slider__item--desc {
+  max-width: 412px;
+  font-size: 24px;
+  font-family: 'PPNeue-Thin';
+  font-weight: 100;
+  line-height: 1.33;
+  letter-spacing: 0.28px;
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,10 +2,12 @@ let intervalTime = 50;
 
 var secondRender = `
     <div class="container">
-        <button class="close-page">
-            <img src="./img/icons/back-arrow.svg" alt="">
-        </button>
-        <div class="list">
+        <div class="second">
+            <button class="close-page">
+                <img src="./img/icons/back-arrow.svg" alt="">
+            </button>
+            <div class="list">
+            </div>
         </div>
     </div>
 `;
@@ -57,7 +59,7 @@ $(window).on('load', function(){
 });
 
 // menu click
-$('.menu__item--text').on("click", function(){
+$('body').on('click', '.menu__item--text', function(){
     $('.menu__item--text').hide();
     $(this).addClass('page-active');
 
@@ -145,23 +147,20 @@ function openPage(element){
 function closePage(element) {
     changeUnSetBg();
     $(element).removeClass('active')
-    $(element).removeClass('post-animation-on');
     $(element).addClass('post-animation-off');
+    $(element).removeClass('post-animation-on');
 }
 
 // open page function
 function workPageOpen(element){
-    console.log(1)
     $(element).html(' ');
     $(element).append(secondRender);
-    // $('.main').removeClass('active');
     $(element).addClass('active');
 
     const LoadingInterval = setInterval(Loading, 30)
 
     let loadingNumber = 535;
     function Loading (){
-        console.log(1)
         $('.avatar').hide();
         loadingNumber += 1;
         $(`.second__avatar--cover`).removeClass('active');
@@ -174,46 +173,33 @@ function workPageOpen(element){
     }
 }
 function aboutPageOpen(element){
-    $(element).html(' ');
-    $(element).append(secondRender);
-    // $('.main').removeClass('active');
     $(element).addClass('active');
-
-    const LoadingInterval = setInterval(Loading, 30)
+    const LoadingInterval = setInterval(Loading, 10)
 
     let loadingNumber = 286;
     function Loading (){
-        console.log(1)
         $('.avatar').hide();
         loadingNumber += 1;
         $(`.second__avatar--cover`).removeClass('active');
         $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.second__avatar`).addClass('active')
         if(loadingNumber == 449){
-            postedWork();
             clearInterval(LoadingInterval);
         }
     }
 }
 function contactPageOpen(element){
-    console.log(1)
-    $(element).html(' ');
-    $(element).append(secondRender);
-    // $('.main').removeClass('active');
     $(element).addClass('active');
-
     const LoadingInterval = setInterval(Loading, 30)
 
     let loadingNumber = 535;
     function Loading (){
-        console.log(1)
         $('.avatar').hide();
         loadingNumber += 1;
         $(`.second__avatar--cover`).removeClass('active');
         $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.second__avatar`).addClass('active')
         if(loadingNumber == 600){
-            postedWork();
             clearInterval(LoadingInterval);
         }
     }
@@ -255,7 +241,6 @@ function aboutPageClose(element){
             $('.main').addClass('active');
             $(element).removeClass('active');
             $('.avatar').show();
-            $(element).html(' ');
             $(`.second__avatar--cover`).removeClass('active')
         }
     }
@@ -275,7 +260,6 @@ function contactPageClose(element){
             $('.main').addClass('active');
             $(element).removeClass('active');
             $('.avatar').show();
-            $(element).html(' ');
             $(`.second__avatar--cover`).removeClass('active')
         }
     }
@@ -388,4 +372,24 @@ $('.menu__item--text').on("mouseenter", function(){
 $('.menu__item--text').on("mouseleave", function(){
     $('.menu__item--text').removeClass('glitch');
     $('.menu__item--text').removeClass('active');
+})
+
+
+$('.owl-carousel').owlCarousel({
+    loop:false,
+    margin:230,
+    nav: false,
+    dots: false,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+        },
+        600:{
+            items:2,
+        },
+        1000:{
+            items:2,
+        }
+    }
 })

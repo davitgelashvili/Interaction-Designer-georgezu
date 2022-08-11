@@ -1,4 +1,10 @@
 .second {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
     &--title {
         width: 100%;
         z-index: -1;
@@ -194,7 +200,7 @@
             color: #b4b4b4;
             font-size: 14px;
             text-align: end;
-            font-family: 'PPMori-Regular';
+            font-family: 'PPNeue-Book';
             letter-spacing: -0.01px;
         }
 
@@ -204,7 +210,7 @@
             left: 15px;
             color: #fff;
             font-size: 64px;
-            font-family: 'vf';
+            font-family: 'PPNeue-Thin';
             font-weight: 300;
             letter-spacing: -0.03px;
         }
@@ -218,7 +224,7 @@
             margin-top: 20px;
             color: #fff;
             font-size: 48px;
-            font-family: 'PPMori-Regular';
+            font-family: 'PPNeue-Book';
             letter-spacing: 0.4px;
         }
 
@@ -227,7 +233,7 @@
             margin-bottom: 30px;
             color: #fff;
             font-size: 14px;
-            font-family: 'PPMori-SemiBold';
+            font-family: 'PPNeue-Book';
             font-weight: 600;
             line-height: 1.43;
             letter-spacing: -0.01px;
@@ -235,12 +241,12 @@
 
         &--link {
             width: 0px;
-            height: 15px;
+            height: 19px;
             display: block;
             color: #fff;
             font-size: 16px;
-            font-family: 'PPMori-RegularItalic';
-            font-style: italic;
+            font-family: 'PPNeue-Italic';
+            // font-style: italic;
             letter-spacing: 0.13px;
             overflow: hidden;
         }
@@ -261,10 +267,146 @@
     height: 100%;
     position: fixed;
     display: none;
-    align-items: flex-start;
+    overflow: auto;
 
     &.active {
-        display: flex;
+        display: block;
     }
     
+}
+
+
+.about-page {
+    &--desc {
+        width: 100%;
+        max-width: 964px;
+        margin: 298px auto 100px auto;
+        text-align: center;
+        line-height: 1.09;
+        letter-spacing: 0.37px;
+        font-size: 32px;
+        font-family: 'PPNeue-Book';
+        color: #fff;
+    }
+
+    &__footer {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        position: absolute;
+        right: 0;
+
+        &--email {
+            margin-right: 100px;
+        }
+
+        &--slider {
+            width: calc(100% - 450px);
+        }
+    }
+}
+
+.contact-page {
+    &--content {
+        margin-top: 300px;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__title {
+        padding: 0 75px 31px 75px;
+        border-bottom: 2px solid #fff;
+        font-family: 'PPNeue-Book';
+        font-size: 172px;
+        // line-height: 0.2;
+        letter-spacing: 1.97px;
+        color: #fff;
+        text-align: center;
+    }
+
+    &__desc {
+        width: 100%;
+        max-width: 832px;
+        margin: 40px auto 0 auto;
+        font-family: 'PPNeue-Book';
+        font-size: 24px;
+        line-height: 1.33;
+        letter-spacing: 0.28px;
+        text-align: center;
+        color: #fff;
+    }
+
+    &__footer {
+        padding: 80px 50px 0 50px;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+
+        &--email {
+            font-size: 32px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: 0.77px;
+            color: #fff;
+            font-family: 'PPNeue-Book';
+        }
+
+        &--right {
+            display: flex;
+            align-items: center;
+        }
+
+        &--soc {
+            margin-left: 50px;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: -0.01px;
+            color: #fff;
+            font-family: 'PPNeue-Book';
+            display: flex;
+            align-items: center;
+
+            img {
+                margin-right: 12px;
+            }
+        }
+    }
+}
+
+.slider {
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &--title {
+            padding: 14px 32px;
+            font-size: 32px;
+            font-family: 'PPNeue-Book';
+            color: #fff;
+            line-height: 1.09;
+            letter-spacing: 0.37px;
+            border-radius: 35px;
+            border: 1px solid #fff;
+            margin-bottom: 14px;
+        }
+
+        &--desc {
+            max-width: 412px;
+            font-size: 24px;
+            font-family: 'PPNeue-Thin';
+            font-weight: 100;
+            line-height: 1.33;
+            letter-spacing: 0.28px;
+            color: #fff;
+        }
+    }
 }
