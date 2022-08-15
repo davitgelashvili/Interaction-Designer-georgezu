@@ -116,6 +116,7 @@
     align-items: flex-start;
     padding-top: 50px;
     position: relative;
+    margin-top: 500px;
 
     /* width */
     &::-webkit-scrollbar {
@@ -272,15 +273,16 @@
     &.active {
         display: block;
     }
-    
 }
 
 
 .about-page {
+    overflow: hidden;
+
     &--desc {
         width: 100%;
         max-width: 964px;
-        margin: 298px auto 100px auto;
+        margin: 90px auto 100px auto;
         text-align: center;
         line-height: 1.09;
         letter-spacing: 0.37px;
@@ -308,8 +310,10 @@
 }
 
 .contact-page {
+    overflow: hidden;
+
     &--content {
-        margin-top: 300px;
+        margin-top: 150px;
         display: flex;
         width: 100%;
         flex-direction: column;
@@ -407,6 +411,17 @@
             line-height: 1.33;
             letter-spacing: 0.28px;
             color: #fff;
+        }
+
+        & .contact-page__title {
+            width: 100%;
+            padding: 0;
+            border-bottom: 2px solid #fff;
+            font-family: 'PPNeue-Book';
+            font-size: 70px;
+            letter-spacing: 1.97px;
+            color: #fff;
+            text-align: center;
         }
     }
 }

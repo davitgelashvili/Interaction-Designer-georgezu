@@ -3,16 +3,16 @@ let intervalTime = 50;
 var secondRender = `
     <div class="container">
         <div class="second">
-            <button class="close-page">
+            <button class="close-page close-work">
                 <img src="./img/icons/back-arrow.svg" alt="">
             </button>
-            <div class="list">
+            <div class="list card-cntr">
             </div>
         </div>
     </div>
 `;
 
-$('.work-page').append(secondRender);
+// $('.work-page').append(secondRender);
 
 $(window).on('load', function(){
     $('.load').remove();
@@ -50,12 +50,12 @@ $(window).on('load', function(){
         }
     }
 
-    workAnimation();
-    aboutAnimation();
     workHover();
     aboutHover();
     contactHover();
     bgChangeList();
+    workAnimation();
+    aboutAnimation();
 });
 
 // menu click
@@ -84,32 +84,33 @@ $('body').on('click', '.menu__item--text', function(){
 })
 
 // close click
-$('body').on('click', '.close-page', function(){
+$('body').on('click', '.close-work', function(){
     $('.menu__item--text').show();
     $('.menu__item--text').removeClass('page-active');
+    
+    workPageClose($('.work-page'));
+    closePage(('.work-page'));
+})
 
-    $('.page').each((key, element)=>{
-        if( $(element).hasClass('active') ) {
-            closePage(element);
-            
-            if( $(element).hasClass('work') ){
-                workPageClose(element);
-            }
+$('body').on('click', '.close-about', function(){
+    $('.menu__item--text').show();
+    $('.menu__item--text').removeClass('page-active');
+    
+    aboutPageClose($('.about-page'));
+    closePage(('.about-page'));
+})
 
-            if( $(element).hasClass('about') ){
-                aboutPageClose(element);
-            }
-
-            if( $(element).hasClass('contact') ){
-                contactPageClose(element);
-            }
-        }
-    })
+$('body').on('click', '.close-contact', function(){
+    $('.menu__item--text').show();
+    $('.menu__item--text').removeClass('page-active');
+    
+    contactPageClose($('.contact-page'));
+    closePage(('.contact-page'));
 })
 
 // all pae function 
 function changeSetBg(){
-    const LoadingInterval = setInterval(Loading, 10)
+    const LoadingInterval = setInterval(Loading, 15)
 
     let loadingNumber = 535;
     function Loading (){
@@ -124,7 +125,7 @@ function changeSetBg(){
 }
 
 function changeUnSetBg(){
-    const LoadingInterval = setInterval(Loading, 10)
+    const LoadingInterval = setInterval(Loading, 15)
 
     let loadingNumber = 592;
     function Loading (){
@@ -138,10 +139,13 @@ function changeUnSetBg(){
 }
 
 function openPage(element){
+    $('.menu__item--text').removeClass('glitch');
+    $('.menu__item--text').removeClass('active');
     changeSetBg();
     $(element).addClass('active')
     $(element).addClass('post-animation-on');
     $(element).removeClass('post-animation-off');
+    setTimeout(scrollcard, 2000);
 }
 
 function closePage(element) {
@@ -149,12 +153,13 @@ function closePage(element) {
     $(element).removeClass('active')
     $(element).addClass('post-animation-off');
     $(element).removeClass('post-animation-on');
+    unScrollcard();
 }
 
 // open page function
 function workPageOpen(element){
-    $(element).html(' ');
-    $(element).append(secondRender);
+    // $(element).html(' ');
+    // $(element).append(secondRender);
     $(element).addClass('active');
 
     const LoadingInterval = setInterval(Loading, 30)
@@ -166,15 +171,16 @@ function workPageOpen(element){
         $(`.second__avatar--cover`).removeClass('active');
         $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.second__avatar`).addClass('active')
-        if(loadingNumber == 600){
+        if(loadingNumber == 586){
             postedWork();
-            clearInterval(LoadingInterval);
+            clearInterval(LoadingInterval);  
+
         }
     }
 }
 function aboutPageOpen(element){
     $(element).addClass('active');
-    const LoadingInterval = setInterval(Loading, 10)
+    const LoadingInterval = setInterval(Loading, 3)
 
     let loadingNumber = 286;
     function Loading (){
@@ -208,9 +214,9 @@ function contactPageOpen(element){
 
 // close page function 
 function workPageClose(element){
-    const LoadingInterval = setInterval(Loading, 10)
+    const LoadingInterval = setInterval(Loading, 30)
     
-    let loadingNumber = 600;
+    let loadingNumber = 586;
     function Loading (){
         loadingNumber -= 1;
         $(`.second__avatar--cover`).removeClass('active');
@@ -228,7 +234,7 @@ function workPageClose(element){
 }
 
 function aboutPageClose(element){
-    const LoadingInterval = setInterval(Loading, 10)
+    const LoadingInterval = setInterval(Loading, 3)
     
     let loadingNumber = 449;
     function Loading (){
@@ -269,7 +275,7 @@ function contactPageClose(element){
 // page animations 
 function workAnimation(){
     var index = 535;
-    for (index; index <= 600; index++) {
+    for (index; index <= 586; index++) {
         $('.second__avatar').append(`
             <img src="./img/work-avatar/Trigger_Work_Animation_00${index}.png" alt="" class="second__avatar--cover ${index}">
         `)
@@ -342,7 +348,7 @@ function postedWork(){
         let data = res.data.allPortfolios;
         data.map( (item,id) => {
             $('.list').append(`
-            <div class="list__item">
+            <div class="list__item card styling">
                 <div class="list__item--cat">${item.role}</div>
                 <div class="list__item--cover">
                     <p class="list__item--number">${(id+1) < 10 ? '0'+(id + 1) : id}</p>
@@ -393,3 +399,62 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
+
+
+function scrollcard(){
+    // Declaring the cards
+    const cards = document.querySelectorAll(".card")
+
+
+    // Intersection Observer function
+    const observer = new IntersectionObserver( 
+        entries => {
+            entries.forEach(entry => {
+                // When an entry enters the viewport, add the class "show":
+                entry.target.classList.add("show", entry.isIntersecting)
+
+                // To keep entries from fading out after, unobserve the entry with:
+                    // if (entry.isIntersecting) observer.unobserve(entry.target)
+            })
+        }, 
+        {
+            // Threshold of 1 = 100% - entry needed to be in viewport before the class "show" is added
+            threshold: 0,
+        }        
+    )
+
+
+    // Intersection Observer to observe the cards
+    cards.forEach(card => { 
+        observer.observe(card) 
+    })
+}
+
+function unScrollcard(){
+    // Declaring the cards
+    const cards = document.querySelectorAll(".card")
+
+
+    // Intersection Observer function
+    const observer = new IntersectionObserver( 
+        entries => {
+            entries.forEach(entry => {
+                // When an entry enters the viewport, add the class "show":
+                entry.target.classList.remove("show", entry.isIntersecting)
+
+                // To keep entries from fading out after, unobserve the entry with:
+                    // if (entry.isIntersecting) observer.unobserve(entry.target)
+            })
+        }, 
+        {
+            // Threshold of 1 = 100% - entry needed to be in viewport before the class "show" is added
+            threshold: 0,
+        }        
+    )
+
+
+    // Intersection Observer to observe the cards
+    cards.forEach(card => { 
+        observer.observe(card) 
+    })
+}

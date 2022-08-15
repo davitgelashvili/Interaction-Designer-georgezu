@@ -266,6 +266,25 @@ body {
   color: #fff;
 }
 
+.card-cntr {
+  height: auto;
+  width: 100%;
+}
+
+.card-cntr .card {
+  opacity: 0;
+  -webkit-transform: translateY(150px);
+          transform: translateY(150px);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.card-cntr .card.show {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
 .avatar {
   width: 100%;
   height: 100%;
@@ -365,8 +384,8 @@ body {
   font-family: 'vf';
   font-style: normal;
   font-weight: 700;
-  -webkit-transition: 1s;
-  transition: 1s;
+  -webkit-transition: 1.2s;
+  transition: 1.2s;
   position: relative;
   position: absolute;
   top: 0;
@@ -398,7 +417,7 @@ body {
   font-family: 'vf';
   font-size: 350px;
   color: #fff;
-  opacity: .5;
+  opacity: .08;
   text-align: center;
 }
 
@@ -702,6 +721,7 @@ body {
           align-items: flex-start;
   padding-top: 50px;
   position: relative;
+  margin-top: 500px;
   /* width */
   /* Track */
   /* Handle */
@@ -869,10 +889,14 @@ body {
   display: block;
 }
 
+.about-page {
+  overflow: hidden;
+}
+
 .about-page--desc {
   width: 100%;
   max-width: 964px;
-  margin: 298px auto 100px auto;
+  margin: 90px auto 100px auto;
   text-align: center;
   line-height: 1.09;
   letter-spacing: 0.37px;
@@ -904,8 +928,12 @@ body {
   width: calc(100% - 450px);
 }
 
+.contact-page {
+  overflow: hidden;
+}
+
 .contact-page--content {
-  margin-top: 300px;
+  margin-top: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1030,5 +1058,16 @@ body {
   line-height: 1.33;
   letter-spacing: 0.28px;
   color: #fff;
+}
+
+.slider__item .contact-page__title {
+  width: 100%;
+  padding: 0;
+  border-bottom: 2px solid #fff;
+  font-family: 'PPNeue-Book';
+  font-size: 70px;
+  letter-spacing: 1.97px;
+  color: #fff;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
