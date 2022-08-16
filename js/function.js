@@ -145,7 +145,6 @@ function openPage(element){
     $(element).addClass('active')
     $(element).addClass('post-animation-on');
     $(element).removeClass('post-animation-off');
-    setTimeout(scrollcard, 2000);
 }
 
 function closePage(element) {
@@ -153,7 +152,9 @@ function closePage(element) {
     $(element).removeClass('active')
     $(element).addClass('post-animation-off');
     $(element).removeClass('post-animation-on');
-    unScrollcard();
+    $('.animation').removeClass('show');
+    $('.animation').removeClass('true');
+    $('.animation').removeClass('false');
 }
 
 // open page function
@@ -191,6 +192,7 @@ function aboutPageOpen(element){
         $(`.second__avatar`).addClass('active')
         if(loadingNumber == 449){
             clearInterval(LoadingInterval);
+            aboutScrollAnimation()
         }
     }
 }
@@ -207,6 +209,7 @@ function contactPageOpen(element){
         $(`.second__avatar`).addClass('active')
         if(loadingNumber == 600){
             clearInterval(LoadingInterval);
+            contactScrollAnimation();
         }
     }
 }
@@ -227,7 +230,7 @@ function workPageClose(element){
             $('.main').addClass('active');
             $(element).removeClass('active');
             $('.avatar').show();
-            $(element).html(' ');
+            // $(element).html(' ');
             $(`.second__avatar--cover`).removeClass('active')
         }
     }
@@ -348,7 +351,7 @@ function postedWork(){
         let data = res.data.allPortfolios;
         data.map( (item,id) => {
             $('.list').append(`
-            <div class="list__item card styling">
+            <div class="list__item work-animation animation">
                 <div class="list__item--cat">${item.role}</div>
                 <div class="list__item--cover">
                     <p class="list__item--number">${(id+1) < 10 ? '0'+(id + 1) : id}</p>
@@ -365,7 +368,7 @@ function postedWork(){
             </div>
             `)
         })
-    })
+    }).finally(() => workScrollAnimation())
 }
 
 // menu glich effect 
@@ -401,10 +404,37 @@ $('.owl-carousel').owlCarousel({
 })
 
 
-function scrollcard(){
+function workScrollAnimation(){
     // Declaring the cards
-    const cards = document.querySelectorAll(".card")
+    const cards = document.querySelectorAll(".work-animation")
 
+    // Intersection Observer function
+    const observer = new IntersectionObserver( 
+        entries => {
+            entries.forEach(entry => {
+                // When an entry enters the viewport, add the class "show":
+                entry.target.classList.add("show", entry.isIntersecting)
+
+                // To keep entries from fading out after, unobserve the entry with:
+                    // if (entry.isIntersecting) observer.unobserve(entry.target)
+            })
+        }, 
+        {
+            // Threshold of 1 = 100% - entry needed to be in viewport before the class "show" is added
+            threshold: 1,
+        }        
+    )
+
+
+    // Intersection Observer to observe the cards
+    cards.forEach(card => { 
+        observer.observe(card) 
+    })
+}
+
+function aboutScrollAnimation(){
+    // Declaring the cards
+    const cards = document.querySelectorAll(".about-animation")
 
     // Intersection Observer function
     const observer = new IntersectionObserver( 
@@ -430,17 +460,16 @@ function scrollcard(){
     })
 }
 
-function unScrollcard(){
+function contactScrollAnimation(){
     // Declaring the cards
-    const cards = document.querySelectorAll(".card")
-
+    const cards = document.querySelectorAll(".contact-animation")
 
     // Intersection Observer function
     const observer = new IntersectionObserver( 
         entries => {
             entries.forEach(entry => {
                 // When an entry enters the viewport, add the class "show":
-                entry.target.classList.remove("show", entry.isIntersecting)
+                entry.target.classList.add("show", entry.isIntersecting)
 
                 // To keep entries from fading out after, unobserve the entry with:
                     // if (entry.isIntersecting) observer.unobserve(entry.target)
