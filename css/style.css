@@ -407,11 +407,11 @@ body {
   font-family: 'vf';
   font-style: normal;
   font-weight: 700;
-  -webkit-transition: 1.2s;
-  transition: 1.2s;
-  position: relative;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
   position: absolute;
-  top: 0;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 
 .menu__item--text span {
@@ -434,14 +434,13 @@ body {
 
 .menu__item--text.page-active {
   display: block !important;
-  top: 114px;
   z-index: -1;
-  position: absolute;
-  font-family: 'vf';
   font-size: 350px;
-  color: #fff;
   opacity: .08;
   text-align: center;
+  -webkit-animation-name: menuPosition;
+          animation-name: menuPosition;
+  top: unset;
 }
 
 .menu__item--text.page-active.menu__item--text {
@@ -460,6 +459,30 @@ body {
 
 .menu__item--contact {
   top: 609px;
+}
+
+@-webkit-keyframes menuPosition {
+  0% {
+    top: 265px;
+  }
+  50% {
+    top: 200px;
+  }
+  100% {
+    top: 114px;
+  }
+}
+
+@keyframes menuPosition {
+  0% {
+    top: 265px;
+  }
+  50% {
+    top: 200px;
+  }
+  100% {
+    top: 114px;
+  }
 }
 
 .glitch {

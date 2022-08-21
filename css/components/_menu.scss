@@ -1,4 +1,4 @@
-$animationTime: 1.2s;
+$animationTime: .8s;
 
 .menu {
     width: 100%;
@@ -37,10 +37,9 @@ $animationTime: 1.2s;
             font-style: normal;
             font-weight: 700;
             transition: $animationTime;
-            position: relative;
             // line-height: 170px;
             position: absolute;
-            top: 0;
+            // top: 0;
 
             span {
                 display: none;
@@ -58,20 +57,21 @@ $animationTime: 1.2s;
 
             &.page-active {
               display: block !important;
-              top: 114px;
+              // top: 114px;
               z-index: -1;
-              position: absolute;
-              font-family: 'vf';
               font-size: 350px;
-              color: #fff;
               opacity: .08;
               text-align: center;
-
+              animation-name: menuPosition;
+              top: unset;
+              
               &.menu__item--text {
                 margin-right: -50%;
                 transform: translate(-50%);
               }
             }
+
+            animation-duration: 1s;
         }
 
         &--work {
@@ -82,6 +82,12 @@ $animationTime: 1.2s;
         }
         &--contact {
           top: 609px;
+        }
+
+        @keyframes menuPosition {
+          0%   {top: 265px}
+          50%   {top: 200px}
+          100% {top: 114px}
         }
     }
 
