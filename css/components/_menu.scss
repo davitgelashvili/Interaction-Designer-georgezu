@@ -67,6 +67,11 @@ $animationTime: .8s;
               &.menu__item--text {
                 margin-right: -50%;
                 transform: translate(-50%);
+
+                @media (max-width: 1024px) {
+                  transform: translate(0%);
+                  margin-right: 0%;
+                }
               }
             }
             
@@ -87,7 +92,7 @@ $animationTime: .8s;
 
         &--about {
           top: 436px;
-          animation-duration: 4s;
+          animation-duration: .8s;
 
           &.page-active {
             animation-name: aboutPosition;
