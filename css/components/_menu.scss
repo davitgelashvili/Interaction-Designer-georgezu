@@ -62,31 +62,77 @@ $animationTime: .8s;
               font-size: 350px;
               opacity: .08;
               text-align: center;
-              animation-name: menuPosition;
-              top: unset;
+              top: 114px;
               
               &.menu__item--text {
                 margin-right: -50%;
                 transform: translate(-50%);
               }
             }
-
+            
+          }
+          
+          &--work {
+            top: 265px;
             animation-duration: 1s;
+            
+          &.page-active {
+            animation-name: workPosition;
+          }
+
+          @media (max-width: 1024px) {
+            top: 60px;
+          }
         }
 
-        &--work {
-          top: 265px;
-        }
         &--about {
           top: 436px;
+          animation-duration: 4s;
+
+          &.page-active {
+            animation-name: aboutPosition;
+          }
+
+          @media (max-width: 1300px) {
+            top: 410px;
+          }
+
+          @media (max-width: 1024px) {
+            top: 160px;
+          }
         }
         &--contact {
           top: 609px;
+          animation-duration: 1s;
+
+          &.page-active {
+            animation-name: contactPosition;
+          }
+
+          @media (max-width: 1300px) {
+            top: 558px;
+          }
+
+          @media (max-width: 1024px) {
+            top: 260px;
+          }
         }
 
-        @keyframes menuPosition {
+        @keyframes workPosition {
           0%   {top: 265px}
-          50%   {top: 200px}
+          50%   {top: 150px}
+          100% {top: 114px}
+        }
+
+        @keyframes aboutPosition {
+          0%   {top: 436px}
+          50%   {top: 150px}
+          100% {top: 114px}
+        }
+
+        @keyframes contactPosition {
+          0%   {top: 609px}
+          50%   {top: 150px}
           100% {top: 114px}
         }
     }

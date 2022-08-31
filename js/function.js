@@ -172,8 +172,12 @@ function workPageOpen(element){
         $(`.second__avatar--cover`).removeClass('active');
         $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.second__avatar`).addClass('active')
-        if(loadingNumber == 586){
+
+        if(loadingNumber == 550) {
             postedWork();
+        }
+
+        if(loadingNumber == 586){
             clearInterval(LoadingInterval);  
 
         }
@@ -181,7 +185,7 @@ function workPageOpen(element){
 }
 function aboutPageOpen(element){
     $(element).addClass('active');
-    const LoadingInterval = setInterval(Loading, 3)
+    const LoadingInterval = setInterval(Loading, 20)
 
     let loadingNumber = 286;
     function Loading (){
@@ -190,10 +194,15 @@ function aboutPageOpen(element){
         $(`.second__avatar--cover`).removeClass('active');
         $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.second__avatar`).addClass('active')
+
+        if(loadingNumber == 400) {
+            aboutScrollAnimation();
+        }
+
         if(loadingNumber == 449){
             clearInterval(LoadingInterval);
-            aboutScrollAnimation()
         }
+        
     }
 }
 function contactPageOpen(element){
@@ -237,7 +246,7 @@ function workPageClose(element){
 }
 
 function aboutPageClose(element){
-    const LoadingInterval = setInterval(Loading, 3)
+    const LoadingInterval = setInterval(Loading, 20)
     
     let loadingNumber = 449;
     function Loading (){
@@ -382,7 +391,6 @@ $('.menu__item--text').on("mouseleave", function(){
     $('.menu__item--text').removeClass('glitch');
     $('.menu__item--text').removeClass('active');
 })
-
 
 $('.owl-carousel').owlCarousel({
     loop:false,
