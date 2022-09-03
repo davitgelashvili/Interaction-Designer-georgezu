@@ -58,7 +58,7 @@ $animationTime: .8s;
             &.page-active {
               display: block !important;
               // top: 114px;
-              z-index: -1;
+              z-index: -5;
               font-size: 350px;
               opacity: .08;
               text-align: center;

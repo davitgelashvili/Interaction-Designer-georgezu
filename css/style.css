@@ -320,32 +320,6 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
   bottom: 0;
-  left: -100px;
-}
-
-@media (max-width: 1600px) {
-  .avatar__cover {
-    left: -250px;
-  }
-}
-
-@media (max-width: 1500px) {
-  .avatar__cover {
-    left: -300px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .avatar__cover {
-    left: -400px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .avatar__cover {
-    left: -165px;
-    height: 76%;
-  }
 }
 
 .avatar__cover.active {
@@ -432,7 +406,7 @@ body {
 
 .menu__item--text.page-active {
   display: block !important;
-  z-index: -1;
+  z-index: -5;
   font-size: 350px;
   opacity: .08;
   text-align: center;
@@ -670,6 +644,29 @@ body {
   }
 }
 
+.animation-avatar {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: 1s;
+  transition: 1s;
+  left: 0;
+}
+
+.animation-avatar.active {
+  z-index: 1;
+  -webkit-filter: blur(6px);
+          filter: blur(6px);
+}
+
+.work-page__avatar.active {
+  left: -300px;
+}
+
+.about-page__avatar.active {
+  left: 0;
+}
+
 .second {
   width: 100%;
   height: 100%;
@@ -694,58 +691,17 @@ body {
   text-align: center;
 }
 
-.second__avatar {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  -webkit-transition: 1s;
-  transition: 1s;
-  left: 0;
-}
-
-.second__avatar.active {
-  left: -300px;
-  -webkit-filter: blur(6px);
-          filter: blur(6px);
-}
-
 .second__avatar--cover {
   height: 100%;
   position: absolute;
   -o-object-fit: cover;
      object-fit: cover;
   bottom: 0;
-  left: -100px;
   display: none;
 }
 
 .second__avatar--cover.active {
   display: block;
-}
-
-@media (max-width: 1600px) {
-  .second__avatar--cover {
-    left: -250px;
-  }
-}
-
-@media (max-width: 1500px) {
-  .second__avatar--cover {
-    left: -300px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .second__avatar--cover {
-    left: -400px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .second__avatar--cover {
-    left: -165px;
-    height: 76%;
-  }
 }
 
 .second.post-animation-on .list__item {
@@ -1034,6 +990,7 @@ body {
 
 .page.active {
   display: block;
+  z-index: 2;
 }
 
 .about-page {
@@ -1043,7 +1000,7 @@ body {
 .about-page--desc {
   width: 100%;
   max-width: 964px;
-  margin: 90px auto 100px auto;
+  margin: 150px auto 100px auto;
   text-align: center;
   line-height: 1.09;
   letter-spacing: 0.37px;
@@ -1117,17 +1074,18 @@ body {
 }
 
 .contact-page__footer {
-  padding: 80px 50px 0 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
 }
 
 .contact-page__footer--email {
@@ -1139,6 +1097,9 @@ body {
   letter-spacing: 0.77px;
   color: #fff;
   font-family: 'PPNeue-Book';
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
 }
 
 .contact-page__footer--right {
