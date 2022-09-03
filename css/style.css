@@ -322,6 +322,31 @@ body {
   bottom: 0;
 }
 
+@media (max-width: 1600px) {
+  .avatar__cover {
+    left: -60px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .avatar__cover {
+    left: -120px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .avatar__cover {
+    left: -260px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .avatar__cover {
+    left: -165px;
+    height: 76%;
+  }
+}
+
 .avatar__cover.active {
   display: block;
 }
@@ -702,6 +727,31 @@ body {
 
 .second__avatar--cover.active {
   display: block;
+}
+
+@media (max-width: 1600px) {
+  .second__avatar--cover {
+    left: -60px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .second__avatar--cover {
+    left: -120px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .second__avatar--cover {
+    left: -260px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .second__avatar--cover {
+    left: -165px;
+    height: 76%;
+  }
 }
 
 .second.post-animation-on .list__item {

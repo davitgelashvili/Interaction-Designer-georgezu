@@ -169,7 +169,7 @@ function workPageOpen(element){
         $(element).addClass('active');
     }, 1000);
 
-    const LoadingInterval = setInterval(Loading, 50)
+    const LoadingInterval = setInterval(Loading, 40)
 
     let loadingNumber = 535;
     function Loading (){
@@ -237,7 +237,7 @@ function contactPageOpen(element){
 
 // close page function 
 function workPageClose(element){
-    const LoadingInterval = setInterval(Loading, 30)
+    const LoadingInterval = setInterval(Loading, 40)
     
     let loadingNumber = 586;
     function Loading (){
@@ -257,7 +257,7 @@ function workPageClose(element){
 }
 
 function aboutPageClose(element){
-    const LoadingInterval = setInterval(Loading, 20)
+    const LoadingInterval = setInterval(Loading, 15)
     
     let loadingNumber = 449;
     function Loading (){
