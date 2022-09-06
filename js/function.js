@@ -56,6 +56,7 @@ $(window).on('load', function(){
     bgChangeList();
     workAnimation();
     aboutAnimation();
+    contactAnimation();
 });
 
 // menu click
@@ -175,8 +176,8 @@ function workPageOpen(element){
     function Loading (){
         $('.avatar').hide();
         loadingNumber += 1;
-        $(`.second__avatar--cover`).removeClass('active');
-        $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
+        $(`.work-page__avatar--cover`).removeClass('active');
+        $(`.work-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.work-page__avatar`).addClass('active')
 
         if(loadingNumber == 570) {
@@ -199,8 +200,8 @@ function aboutPageOpen(element){
     function Loading (){
         $('.avatar').hide();
         loadingNumber += 1;
-        $(`.second__avatar--cover`).removeClass('active');
-        $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
+        $(`.about-page__avatar--cover`).removeClass('active');
+        $(`.about-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.about-page__avatar`).addClass('active')
 
         if(loadingNumber == 400) {
@@ -218,18 +219,18 @@ function contactPageOpen(element){
         $(element).addClass('active');
     }, 1000);
 
-    const LoadingInterval = setInterval(Loading, 30)
+    const LoadingInterval = setInterval(Loading, 40)
 
-    let loadingNumber = 535;
+    let loadingNumber = 300;
     function Loading (){
         $('.avatar').hide();
         loadingNumber += 1;
-        $(`.second__avatar--cover`).removeClass('active');
-        $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
+        $(`.contact-page__avatar--cover`).removeClass('active');
+        $(`.contact-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.contact-page__avatar`).addClass('active')
-        if(loadingNumber == 600){
-            clearInterval(LoadingInterval);
+        if(loadingNumber == 370){
             contactScrollAnimation();
+            clearInterval(LoadingInterval);
         }
     }
 }
@@ -242,8 +243,8 @@ function workPageClose(element){
     let loadingNumber = 586;
     function Loading (){
         loadingNumber -= 1;
-        $(`.second__avatar--cover`).removeClass('active');
-        $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
+        $(`.work-page__avatar--cover`).removeClass('active');
+        $(`.work-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.work-page__avatar`).removeClass('active')
         if(loadingNumber == 535){
             clearInterval(LoadingInterval);
@@ -251,7 +252,7 @@ function workPageClose(element){
             $(element).removeClass('active');
             $('.avatar').show();
             // $(element).html(' ');
-            $(`.second__avatar--cover`).removeClass('active')
+            $(`.work-page__avatar--cover`).removeClass('active')
         }
     }
 }
@@ -262,34 +263,34 @@ function aboutPageClose(element){
     let loadingNumber = 449;
     function Loading (){
         loadingNumber -= 1;
-        $(`.second__avatar--cover`).removeClass('active');
-        $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
+        $(`.about-page__avatar--cover`).removeClass('active');
+        $(`.about-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.about-page__avatar`).removeClass('active')
         if(loadingNumber == 286){
             clearInterval(LoadingInterval);
             $('.main').addClass('active');
             $(element).removeClass('active');
             $('.avatar').show();
-            $(`.second__avatar--cover`).removeClass('active')
+            $(`.about-page__avatar--cover`).removeClass('active')
         }
     }
 }
 
 function contactPageClose(element){
-    const LoadingInterval = setInterval(Loading, 10)
+    const LoadingInterval = setInterval(Loading, 40)
     
-    let loadingNumber = 600;
+    let loadingNumber = 370;
     function Loading (){
         loadingNumber -= 1;
-        $(`.second__avatar--cover`).removeClass('active');
-        $(`.second__avatar--cover.${loadingNumber}`).addClass('active')
+        $(`.contact-page__avatar--cover`).removeClass('active');
+        $(`.contact-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.contact-page__avatar`).removeClass('active')
-        if(loadingNumber == 535){
+        if(loadingNumber == 300){
             clearInterval(LoadingInterval);
             $('.main').addClass('active');
             $(element).removeClass('active');
             $('.avatar').show();
-            $(`.second__avatar--cover`).removeClass('active')
+            $(`.contact-page__avatar--cover`).removeClass('active')
         }
     }
 }
@@ -300,7 +301,7 @@ function workAnimation(){
     var index = 535;
     for (index; index <= 586; index++) {
         $('.work-page__avatar').append(`
-            <img src="./img/work-avatar/Trigger_Work_Animation_00${index}.png" alt="" class="second__avatar--cover ${index}">
+            <img src="./img/work-avatar/Trigger_Work_Animation_00${index}.png" alt="" class="animation-avatar__cover work-page__avatar--cover ${index}">
         `)
     }
 }
@@ -309,7 +310,16 @@ function aboutAnimation(){
     var index = 286;
     for (index; index <= 449; index++) {
         $('.about-page__avatar').append(`
-            <img src="./img/about-avatar/0${index}_optimized.png" alt="" class="second__avatar--cover ${index}">
+            <img src="./img/about-avatar/0${index}_optimized.png" alt="" class="animation-avatar__cover about-page__avatar--cover ${index}">
+        `)
+    }
+}
+
+function contactAnimation(){
+    var index = 300;
+    for (index; index <= 370; index++) {
+        $('.contact-page__avatar').append(`
+            <img src="./img/contact-avatar/0${index}-min.png" alt="" class="animation-avatar__cover contact-page__avatar--cover ${index}">
         `)
     }
 }
