@@ -7,7 +7,6 @@
 
     &.active {
         z-index: 1;
-        filter: blur(6px);
     }
 
     &__cover {
@@ -42,6 +41,7 @@
 .work-page__avatar {
     &.active {
         left: -300px;
+        filter: blur(6px);
     }
 }
 
@@ -367,7 +367,7 @@
         bottom: 50px;
 
         &--email {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: normal;
             font-stretch: normal;
             font-style: normal;

@@ -194,7 +194,7 @@ function aboutPageOpen(element){
         $(element).addClass('active');
     }, 1000);
 
-    const LoadingInterval = setInterval(Loading, 15)
+    const LoadingInterval = setInterval(Loading, 25)
 
     let loadingNumber = 286;
     function Loading (){
@@ -219,7 +219,7 @@ function contactPageOpen(element){
         $(element).addClass('active');
     }, 1000);
 
-    const LoadingInterval = setInterval(Loading, 40)
+    const LoadingInterval = setInterval(Loading, 50)
 
     let loadingNumber = 300;
     function Loading (){
@@ -258,7 +258,7 @@ function workPageClose(element){
 }
 
 function aboutPageClose(element){
-    const LoadingInterval = setInterval(Loading, 15)
+    const LoadingInterval = setInterval(Loading, 25)
     
     let loadingNumber = 449;
     function Loading (){
@@ -277,7 +277,7 @@ function aboutPageClose(element){
 }
 
 function contactPageClose(element){
-    const LoadingInterval = setInterval(Loading, 40)
+    const LoadingInterval = setInterval(Loading, 50)
     
     let loadingNumber = 370;
     function Loading (){
@@ -464,11 +464,11 @@ function workScrollAnimation(){
 function aboutScrollAnimation(){
     setTimeout(() => {
         $('p.about-animation').addClass('show')
-    }, 200);
+    }, 700);
 
     setTimeout(() => {
         $('div.about-animation').addClass('show')
-    }, 400);
+    }, 1300);
 }
 
 function contactScrollAnimation(){
