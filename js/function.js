@@ -57,6 +57,20 @@ $(window).on('load', function(){
     workAnimation();
     aboutAnimation();
     contactAnimation();
+
+
+    const scrollContainer = document.querySelector(".about-page__footer--slider");
+    const highlightedItems = document.querySelectorAll(".slider__item");
+
+    scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+        highlightedItems.forEach(userItem => {
+            console.log(userItem)
+            userItem.style = `'transform': 'translateX(${evt.deltaY})'`;
+        });
+    });
+
 });
 
 // menu click
@@ -381,20 +395,41 @@ function postedWork(){
         let data = res.data.allPortfolios;
         data.map( (item,id) => {
             $('.list').append(`
-            <div class="list__item work-animation animation">
-                <div class="list__item--cat">${item.role}</div>
-                <div class="list__item--cover">
-                    <p class="list__item--number">${(id+1) < 10 ? '0'+(id + 1) : id}</p>
-                    <img src="${item.cover.url}" alt="" class="list__item--img">
+            <div class="list__item--out">
+                <div class="list__item work-animation animation">
+                    <div class="list__item--cat">${item.role}</div>
+                    <div class="list__item--cover">
+                        <p class="list__item--number">${(id+1) < 10 ? '0'+(id + 1) : id}</p>
+                        <img src="${item.cover.url}" alt="" class="list__item--img">
+                    </div>
+                    <h1 class="list__item--title">${item.title}</h1>
+                    <div class="list__item--desc">${item.description}</div>
+                    <li>
+                        <a href="https://${item.link}" class="list__item--link" target="_blank">
+                            Case Study
+                            <img src="./img/icons/link-arrow.svg" alt="">
+                        </a>
+                    </li>
                 </div>
-                <h1 class="list__item--title">${item.title}</h1>
-                <div class="list__item--desc">${item.description}</div>
-                <li>
-                    <a href="https://${item.link}" class="list__item--link" target="_blank">
-                        Case Study
-                        <img src="./img/icons/link-arrow.svg" alt="">
-                    </a>
-                </li>
+            </div>
+            `)
+            $('.list').append(`
+            <div class="list__item--out">
+                <div class="list__item work-animation animation">
+                    <div class="list__item--cat">${item.role}</div>
+                    <div class="list__item--cover">
+                        <p class="list__item--number">${(id+1) < 10 ? '0'+(id + 1) : id}</p>
+                        <img src="${item.cover.url}" alt="" class="list__item--img">
+                    </div>
+                    <h1 class="list__item--title">${item.title}</h1>
+                    <div class="list__item--desc">${item.description}</div>
+                    <li>
+                        <a href="https://${item.link}" class="list__item--link" target="_blank">
+                            Case Study
+                            <img src="./img/icons/link-arrow.svg" alt="">
+                        </a>
+                    </li>
+                </div>
             </div>
             `)
         })
@@ -434,7 +469,7 @@ $('.owl-carousel').owlCarousel({
 
 
 function workScrollAnimation(){
-    // Declaring the cards
+
     const cards = document.querySelectorAll(".work-animation")
 
     // Intersection Observer function
@@ -442,7 +477,12 @@ function workScrollAnimation(){
         entries => {
             entries.forEach(entry => {
                 // When an entry enters the viewport, add the class "show":
-                entry.target.classList.add("show", entry.isIntersecting)
+                // entry.target.classList.add("show", entry.isIntersecting)
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show")
+                  } else {
+                    entry.target.classList.remove("show")
+                  }
 
                 // To keep entries from fading out after, unobserve the entry with:
                     // if (entry.isIntersecting) observer.unobserve(entry.target)
@@ -450,7 +490,7 @@ function workScrollAnimation(){
         }, 
         {
             // Threshold of 1 = 100% - entry needed to be in viewport before the class "show" is added
-            threshold: 1,
+            threshold: 0.1,
         }        
     )
 

@@ -56,7 +56,7 @@
     height: 100%;
     display: flex;
     // justify-content: space-between;
-    justify-content: space-around;
+    justify-content: center;
     align-items: flex-start;
 
     &--title {
@@ -120,6 +120,7 @@
 }
 
 .list {
+    padding-bottom: 150px;
     width: 820px;
     height: 100%;
     display: flex;
@@ -161,6 +162,45 @@
 
 
     &__item {
+
+        &--out {
+            width: 100%;
+            overflow: hidden;
+
+            &:nth-of-type(1) {
+                max-width: 380px;
+
+                .list__item {
+                    width: 100%;
+        
+                    @media (max-width:1200px) {
+                        max-width: 340px;
+                    }
+                    
+                    &--cover{
+                        height: 580px;
+                    }
+                
+                }
+            }
+    
+            &:nth-of-type(2){
+                max-width: 380px;
+                
+                .list__item {
+                    margin-top: 390px;
+                    
+                    @media (max-width:1200px) {
+                        max-width: 340px;
+                    }
+
+                    &--cover{
+                        height: 580px;
+                    }
+                }
+            }
+        }
+
         width: 100%;
         max-width: 100%;
         padding: 40px;
@@ -177,31 +217,6 @@
             border-radius: 4px;
             backdrop-filter: blur(3px);
             background-image: linear-gradient(152deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.02) 99%);
-        }
-
-        &:nth-of-type(1) {
-            max-width: 380px;
-
-            @media (max-width:1200px) {
-                max-width: 340px;
-            }
-
-            .list__item--cover{
-                height: 580px;
-            }
-        }
-
-        &:nth-of-type(2){
-            margin-top: 390px;
-            max-width: 380px;
-
-            @media (max-width:1200px) {
-                max-width: 340px;
-            }
-
-            .list__item--cover{
-                height: 580px;
-            }
         }
         
         &:hover {
@@ -296,7 +311,7 @@
     &--desc {
         width: 100%;
         max-width: 964px;
-        margin: 150px auto 100px auto;
+        margin: 280px auto 100px auto;
         text-align: center;
         line-height: 1.09;
         letter-spacing: 0.37px;
@@ -319,6 +334,8 @@
 
         &--slider {
             width: calc(100% - 450px);
+            overflow-x: hidden;
+            display: flex;
         }
     }
 }
@@ -327,7 +344,7 @@
     overflow: hidden;
 
     &--content {
-        margin-top: 150px;
+        margin-top: 280px;
         display: flex;
         width: 100%;
         flex-direction: column;
@@ -408,6 +425,7 @@
 
 .slider {
     &__item {
+        min-width: 50vw;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
