@@ -758,6 +758,7 @@ body {
   }
 }
 .list__item {
+  display: block;
   width: 100%;
   max-width: 100%;
   padding: 40px;

@@ -393,7 +393,10 @@ function postedWork(){
     .then(res => res.json())
     .then((res) => {
         let data = res.data.allPortfolios;
+        console.log(res)
+
         data.map( (item,id) => {
+            console.log(id)
             $('.list').append(`
             <div class="list__item--out">
                 <div class="list__item work-animation animation">
@@ -405,26 +408,7 @@ function postedWork(){
                     <h1 class="list__item--title">${item.title}</h1>
                     <div class="list__item--desc">${item.description}</div>
                     <li>
-                        <a href="https://${item.link}" class="list__item--link" target="_blank">
-                            Case Study
-                            <img src="./img/icons/link-arrow.svg" alt="">
-                        </a>
-                    </li>
-                </div>
-            </div>
-            `)
-            $('.list').append(`
-            <div class="list__item--out">
-                <div class="list__item work-animation animation">
-                    <div class="list__item--cat">${item.role}</div>
-                    <div class="list__item--cover">
-                        <p class="list__item--number">${(id+1) < 10 ? '0'+(id + 1) : id}</p>
-                        <img src="${item.cover.url}" alt="" class="list__item--img">
-                    </div>
-                    <h1 class="list__item--title">${item.title}</h1>
-                    <div class="list__item--desc">${item.description}</div>
-                    <li>
-                        <a href="https://${item.link}" class="list__item--link" target="_blank">
+                        <a href="./detail/?filter=${item.id}" class="list__item--link">
                             Case Study
                             <img src="./img/icons/link-arrow.svg" alt="">
                         </a>
@@ -447,26 +431,6 @@ $('.menu__item--text').on("mouseleave", function(){
     $('.menu__item--text').removeClass('glitch');
     $('.menu__item--text').removeClass('active');
 })
-
-$('.owl-carousel').owlCarousel({
-    loop:false,
-    margin:230,
-    nav: false,
-    dots: false,
-    responsiveClass:true,
-    responsive:{
-        0:{
-            items:1,
-        },
-        600:{
-            items:2,
-        },
-        1000:{
-            items:2,
-        }
-    }
-})
-
 
 function workScrollAnimation(){
 
