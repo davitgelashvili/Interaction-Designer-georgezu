@@ -24,15 +24,6 @@
     </div>
 
     <section class="detail">
-        <div class="container">
-            <div class="second">
-                <button class="close-page close-work">
-                    <img src="./../img/icons/back-arrow.svg" alt="">
-                </button>
-                <div class="detail__item card-cntr">
-                </div>
-            </div>
-        </div>
     </section>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -56,29 +47,35 @@ $(window).on('load', function(){
                 },
                 body: JSON.stringify({
                     query: `{ 
-                        allPortfolios(filter: {id: {in: "${localId[1]}"}}) { id, role, title, description, cover {url}, link },
+                        allPortfolios(filter: {id: {in: "${localId[1]}"}}) { id, role, detailTitle, description, coverDetail {url}, link },
                     }`
                 }),
         })
         .then(res => res.json())
         .then((res) => {
             let item = res.data.allPortfolios[0];
-            $('.detail__item').append(`
-            <div class="detail__item--content">
-                <div class="detail__item--content-in">
-                    <div class="list__item--cat">${item.role}</div>
-                    <div class="list__item--cover">
-                        <p class="list__item--number">${(item.id+1) < 10 ? '0'+(item.id + 1) : item.id}</p>
-                        <img src="${item.cover.url}" alt="" class="list__item--img">
+            $('.detail').append(`
+            <div class="detail__head">
+                <div class="detail__head--left">
+                    <div class="detail__head--title">
+                        ${item.detailTitle}
                     </div>
-                    <h1 class="list__item--title">${item.title}</h1>
-                    <div class="list__item--desc">${item.description}</div>
-                    <li>
+                </div>
+                <div class="detail__head--right">
+                    <img src="${item.coverDetail.url}" alt="" class="detail__head--cover">
+                </div>
+            </div>
+            <div class="container">
+                <button class="close-page close-work">
+                    <a href="./../"><img src="./../img/icons/back-arrow.svg" alt=""></a>
+                </button>
+                <div class="detail__body">
+                    <div>
+                        ${item.description}
                         <a href="https://${item.link}" class="list__item--link" target="_blank">
-                            Case Study
-                            <img src="./img/icons/link-arrow.svg" alt="">
+                            link
                         </a>
-                    </li>
+                    </div>
                 </div>
             </div>
             `)
