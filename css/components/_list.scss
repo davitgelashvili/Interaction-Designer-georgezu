@@ -336,7 +336,7 @@
         &--slider {
             width: calc(100% - 450px);
             overflow-x: hidden;
-            display: flex;
+            display: -webkit-inline-box;
         }
     }
 }
@@ -426,10 +426,12 @@
 
 .slider {
     &__item {
-        min-width: 50vw;
+        width: 50%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        transform: translateY(120px);
+        transition: .4s;
 
         &--title {
             padding: 14px 32px;

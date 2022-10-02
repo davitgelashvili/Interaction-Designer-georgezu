@@ -65,9 +65,9 @@ $(window).on('load', function(){
     scrollContainer.addEventListener("wheel", (evt) => {
         evt.preventDefault();
         scrollContainer.scrollLeft += evt.deltaY;
+        console.log(evt)
         highlightedItems.forEach(userItem => {
-            console.log(userItem)
-            userItem.style = `'transform': 'translateX(${evt.deltaY})'`;
+            evt.path[1].target.style.transform  = `translateY(0px)`;
         });
     });
 
