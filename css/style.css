@@ -1338,14 +1338,26 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   padding: 119px 0;
 }
 
 .detail__body--title {
   width: 40%;
+}
+
+.detail__body--title-text {
+  top: 119px;
   padding-right: 20px;
   font-size: 60px;
   font-family: 'PPNeue-Bold';
+}
+
+.detail__body--title-text.active {
+  position: fixed;
+  z-index: 1;
 }
 
 .detail__body--desc {

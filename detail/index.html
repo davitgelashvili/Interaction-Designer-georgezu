@@ -30,6 +30,8 @@
 <script>
 
 $(window).on('load', function(){
+    let item1,item2, item3, item4;
+    let title1,title2, title3, title4 
     $('.load').remove();
 
     const localFilter = document.location.search;
@@ -76,10 +78,12 @@ $(window).on('load', function(){
             </div>
             <div class="detail__body">
                 ${item.detailSectionTitle1 && `
-                    <div class="detail__body--item">
+                    <div class="detail__body--item 1">
                         <div class="container">
                             <div class="detail__body--item-in">
-                                <h1 class="detail__body--title">${item.detailSectionTitle1}</h1>
+                                <div class="detail__body--title">
+                                    <h1 class="detail__body--title-text 1">${item.detailSectionTitle1}</h1>
+                                </div>
                                 <div class="detail__body--desc">
                                     ${item.detailSectionDescription1}
                                 </div>
@@ -88,10 +92,12 @@ $(window).on('load', function(){
                     </div>
                 `}
                 ${item.detailSectionTitle2 && `
-                    <div class="detail__body--item">
+                    <div class="detail__body--item 2">
                         <div class="container">
                             <div class="detail__body--item-in">
-                                <h1 class="detail__body--title">${item.detailSectionTitle2}</h1>
+                                <div class="detail__body--title">
+                                    <h1 class="detail__body--title-text 2">${item.detailSectionTitle2}</h1>
+                                </div>
                                 <div class="detail__body--desc">
                                     ${item.detailSectionDescription2}
                                 </div>
@@ -100,10 +106,12 @@ $(window).on('load', function(){
                     </div>
                 `}
                 ${item.detailSectionTitle3 && `
-                    <div class="detail__body--item">
+                    <div class="detail__body--item 3">
                         <div class="container">
                             <div class="detail__body--item-in">
-                                <h1 class="detail__body--title">${item.detailSectionTitle3}</h1>
+                                <div class="detail__body--title">
+                                    <h1 class="detail__body--title-text 3">${item.detailSectionTitle3}</h1>
+                                </div>
                                 <div class="detail__body--desc">
                                     ${item.detailSectionDescription3}
                                 </div>
@@ -112,10 +120,12 @@ $(window).on('load', function(){
                     </div>
                 `}
                 ${item.detailSectionTitle4 && `
-                    <div class="detail__body--item">
+                    <div class="detail__body--item 4">
                         <div class="container">
                             <div class="detail__body--item-in">
-                                <h1 class="detail__body--title">${item.detailSectionTitle4}</h1>
+                                <div class="detail__body--title">
+                                    <h1 class="detail__body--title-text 4">${item.detailSectionTitle4}</h1>
+                                </div>
                                 <div class="detail__body--desc">
                                     ${item.detailSectionDescription4}
                                 </div>
@@ -125,9 +135,31 @@ $(window).on('load', function(){
                 `}
             </div>
             `)
-        }).finally((e) => console.log(e))
+        }).finally((e) => {
+            // console.log($('.detail__body--title').offset().top)
+            item1 = ( $('.detail__body--item.1').offset().top );
+            item2 = ( $('.detail__body--item.2').offset().top );
+            item3 = ( $('.detail__body--item.3').offset().top );
+            item4 = ( $('.detail__body--item.4').offset().top );
+        })
     }
     postedWork()
+
+    $('.detail').scroll(function() {
+        $('.detail__body--title-text').removeClass('active')
+        if($(this).scrollTop() > item1 && $(this).scrollTop() < item2 ) {
+            $('.detail__body--title-text.1').addClass('active')
+        }else if($(this).scrollTop() > item2 && $(this).scrollTop() < item3 ) {
+            $('.detail__body--title-text.2').addClass('active')
+        }else if($(this).scrollTop() > item3 && $(this).scrollTop() < item4) {
+            $('.detail__body--title-text.3').addClass('active')
+        }else if($(this).scrollTop() > item4 ) {
+            $('.detail__body--title-text.4').addClass('active')
+        }else {
+           $('.detail__body--title-text').removeClass('active')
+        }
+    });
+
 });
 </script>
 
