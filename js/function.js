@@ -59,24 +59,17 @@ $(window).on('load', function(){
     contactAnimation();
 
 
-    // const scrollContainer = document.querySelector(".about-page__footer--slider");
-    // const highlightedItems = document.querySelectorAll(".slider__item");
+    const scrollContainer = document.querySelector(".about-page__footer--slider");
+    const highlightedItems = document.querySelectorAll(".slider__item");
 
-    // scrollContainer.addEventListener("wheel", (evt) => {
-
-    //     evt.preventDefault();
-    //     if(scrollContainer.scrollLeft ){
-    //         console.log('left')
-    //     }
-    //     scrollContainer.scrollLeft += evt.deltaY;
-    //     highlightedItems.forEach(userItem => {
-    //         evt.path[1].style.background  = `red`;
-    //     });
-
-    //     highlightedItems.forEach(item => {
-    //         item.style.background  = `transparent`
-    //     });
-    // });
+    scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+        console.log(evt)
+        highlightedItems.forEach(userItem => {
+            evt.path[1].target.style.transform  = `translateY(0px)`;
+        });
+    });
 
 });
 
@@ -441,35 +434,35 @@ $('.menu__item--text').on("mouseleave", function(){
 
 function workScrollAnimation(){
 
-    // const cards = document.querySelectorAll(".work-animation")
+    const cards = document.querySelectorAll(".work-animation")
 
-    // // Intersection Observer function
-    // const observer = new IntersectionObserver( 
-    //     entries => {
-    //         entries.forEach(entry => {
-    //             // When an entry enters the viewport, add the class "show":
-    //             // entry.target.classList.add("show", entry.isIntersecting)
-    //             if (entry.isIntersecting) {
-    //                 entry.target.classList.add("show")
-    //               } else {
-    //                 entry.target.classList.remove("show")
-    //               }
+    // Intersection Observer function
+    const observer = new IntersectionObserver( 
+        entries => {
+            entries.forEach(entry => {
+                // When an entry enters the viewport, add the class "show":
+                // entry.target.classList.add("show", entry.isIntersecting)
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show")
+                  } else {
+                    entry.target.classList.remove("show")
+                  }
 
-    //             // To keep entries from fading out after, unobserve the entry with:
-    //                 // if (entry.isIntersecting) observer.unobserve(entry.target)
-    //         })
-    //     }, 
-    //     {
-    //         // Threshold of 1 = 100% - entry needed to be in viewport before the class "show" is added
-    //         threshold: 0.1,
-    //     }        
-    // )
+                // To keep entries from fading out after, unobserve the entry with:
+                    // if (entry.isIntersecting) observer.unobserve(entry.target)
+            })
+        }, 
+        {
+            // Threshold of 1 = 100% - entry needed to be in viewport before the class "show" is added
+            threshold: 0.1,
+        }        
+    )
 
 
-    // // Intersection Observer to observe the cards
-    // cards.forEach(card => { 
-    //     observer.observe(card) 
-    // })
+    // Intersection Observer to observe the cards
+    cards.forEach(card => { 
+        observer.observe(card) 
+    })
 }
 
 function aboutScrollAnimation(){

@@ -47,12 +47,16 @@ $(window).on('load', function(){
                 },
                 body: JSON.stringify({
                     query: `{ 
-                        allPortfolios(filter: {id: {in: "${localId[1]}"}}) { id, role, detailTitle, description, coverDetail {url}, link },
+                        allPortfolios(filter: {id: {in: "${localId[1]}"}}) { id, role, detailTitle, description, coverDetail {url}, link, 
+                        detailSectionTitle1, detailSectionTitle2, detailSectionTitle3, detailSectionTitle4,
+                        detailSectionDescription1, detailSectionDescription2, detailSectionDescription3, detailSectionDescription4
+                    },
                     }`
                 }),
         })
         .then(res => res.json())
         .then((res) => {
+            console.log(res)
             let item = res.data.allPortfolios[0];
             $('.detail').append(`
             <div class="detail__head">
@@ -69,12 +73,46 @@ $(window).on('load', function(){
                 <button class="close-page close-work">
                     <a href="./../"><img src="./../img/icons/back-arrow.svg" alt=""></a>
                 </button>
-                <div class="detail__body">
-                    <div>
-                        ${item.description}
-                        <a href="https://${item.link}" class="list__item--link" target="_blank">
-                            link
-                        </a>
+            </div>
+            <div class="detail__body">
+                <div class="detail__body--item">
+                    <div class="container">
+                        <div class="detail__body--item-in">
+                            <h1 class="detail__body--title">${item.detailSectionTitle1}</h1>
+                            <div class="detail__body--desc">
+                                ${item.detailSectionDescription1}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail__body--item">
+                    <div class="container">
+                        <div class="detail__body--item-in">
+                            <h1 class="detail__body--title">${item.detailSectionTitle2}</h1>
+                            <div class="detail__body--desc">
+                                ${item.detailSectionDescription2}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail__body--item">
+                    <div class="container">
+                        <div class="detail__body--item-in">
+                            <h1 class="detail__body--title">${item.detailSectionTitle3}</h1>
+                            <div class="detail__body--desc">
+                                ${item.detailSectionDescription3}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail__body--item">
+                    <div class="container">
+                        <div class="detail__body--item-in">
+                            <h1 class="detail__body--title">${item.detailSectionTitle4}</h1>
+                            <div class="detail__body--desc">
+                                ${item.detailSectionDescription4}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
