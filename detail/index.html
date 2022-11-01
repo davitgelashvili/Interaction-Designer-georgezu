@@ -75,46 +75,54 @@ $(window).on('load', function(){
                 </button>
             </div>
             <div class="detail__body">
-                <div class="detail__body--item">
-                    <div class="container">
-                        <div class="detail__body--item-in">
-                            <h1 class="detail__body--title">${item.detailSectionTitle1}</h1>
-                            <div class="detail__body--desc">
-                                ${item.detailSectionDescription1}
+                ${item.detailSectionTitle1 && `
+                    <div class="detail__body--item">
+                        <div class="container">
+                            <div class="detail__body--item-in">
+                                <h1 class="detail__body--title">${item.detailSectionTitle1}</h1>
+                                <div class="detail__body--desc">
+                                    ${item.detailSectionDescription1}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="detail__body--item">
-                    <div class="container">
-                        <div class="detail__body--item-in">
-                            <h1 class="detail__body--title">${item.detailSectionTitle2}</h1>
-                            <div class="detail__body--desc">
-                                ${item.detailSectionDescription2}
+                `}
+                ${item.detailSectionTitle2 && `
+                    <div class="detail__body--item">
+                        <div class="container">
+                            <div class="detail__body--item-in">
+                                <h1 class="detail__body--title">${item.detailSectionTitle2}</h1>
+                                <div class="detail__body--desc">
+                                    ${item.detailSectionDescription2}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="detail__body--item">
-                    <div class="container">
-                        <div class="detail__body--item-in">
-                            <h1 class="detail__body--title">${item.detailSectionTitle3}</h1>
-                            <div class="detail__body--desc">
-                                ${item.detailSectionDescription3}
+                `}
+                ${item.detailSectionTitle3 && `
+                    <div class="detail__body--item">
+                        <div class="container">
+                            <div class="detail__body--item-in">
+                                <h1 class="detail__body--title">${item.detailSectionTitle3}</h1>
+                                <div class="detail__body--desc">
+                                    ${item.detailSectionDescription3}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="detail__body--item">
-                    <div class="container">
-                        <div class="detail__body--item-in">
-                            <h1 class="detail__body--title">${item.detailSectionTitle4}</h1>
-                            <div class="detail__body--desc">
-                                ${item.detailSectionDescription4}
+                `}
+                ${item.detailSectionTitle4 && `
+                    <div class="detail__body--item">
+                        <div class="container">
+                            <div class="detail__body--item-in">
+                                <h1 class="detail__body--title">${item.detailSectionTitle4}</h1>
+                                <div class="detail__body--desc">
+                                    ${item.detailSectionDescription4}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>    
+                `}
             </div>
             `)
         }).finally((e) => console.log(e))
