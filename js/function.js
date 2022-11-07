@@ -75,6 +75,7 @@ $(window).on('load', function(){
 
 // menu click
 $('body').on('click', '.menu__item--text', function(){
+
     setTimeout(() => {
         $('.menu__item--text').hide();
         $(this).addClass('page-active');
@@ -156,6 +157,7 @@ function changeUnSetBg(){
 }
 
 function openPage(element){
+    $('body').addClass('not-click');
     $('.menu__item--text').removeClass('glitch');
     $('.menu__item--text').removeClass('active');
     changeSetBg();
@@ -167,6 +169,7 @@ function openPage(element){
 }
 
 function closePage(element) {
+    $('body').addClass('not-click');
     changeUnSetBg();
     $(element).removeClass('active')
     $(element).addClass('post-animation-off');
@@ -199,7 +202,8 @@ function workPageOpen(element){
         }
 
         if(loadingNumber == 586){
-            clearInterval(LoadingInterval);  
+            clearInterval(LoadingInterval); 
+            $('body').removeClass('not-click'); 
         }
     }
 }
@@ -224,6 +228,7 @@ function aboutPageOpen(element){
 
         if(loadingNumber == 449){
             clearInterval(LoadingInterval);
+            $('body').removeClass('not-click'); 
         }
         
     }
@@ -245,6 +250,7 @@ function contactPageOpen(element){
         if(loadingNumber == 370){
             contactScrollAnimation();
             clearInterval(LoadingInterval);
+            $('body').removeClass('not-click'); 
         }
     }
 }
@@ -267,6 +273,7 @@ function workPageClose(element){
             $('.avatar').show();
             // $(element).html(' ');
             $(`.work-page__avatar--cover`).removeClass('active')
+            $('body').removeClass('not-click'); 
         }
     }
 }
@@ -286,6 +293,7 @@ function aboutPageClose(element){
             $(element).removeClass('active');
             $('.avatar').show();
             $(`.about-page__avatar--cover`).removeClass('active')
+            $('body').removeClass('not-click'); 
         }
     }
 }
@@ -305,6 +313,7 @@ function contactPageClose(element){
             $(element).removeClass('active');
             $('.avatar').show();
             $(`.contact-page__avatar--cover`).removeClass('active')
+            $('body').removeClass('not-click'); 
         }
     }
 }

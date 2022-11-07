@@ -78,6 +78,7 @@ body {
     background-attachment: fixed;
     position: absolute;
     height: 100%;
+    width: 100%;
 }
 
 .bg {
@@ -189,11 +190,13 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1600px;
+    padding: 0 100px;
     margin: auto;
 }
 
 .close-page {
+    width: 50px;
     // margin-top: 140px;
     background-color: transparent;
     outline: none;
@@ -201,23 +204,35 @@ body {
     font-size: 52px;
     color: #fff;
     position: fixed;
-    top: 280px;
+    top: 50px;
     left: 50px;
-}
+    cursor: pointer;
 
-.work-page {
-    .close-page {
-        top: 170px;
+    a {
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+
+        &.black {
+            display: none;
+        }
     }
 }
 
-
-.detail {
-    .close-page {
-        top: 120px;
+.not-click {
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        background-color: transparent;
+        position: fixed;
+        left: 0;
+        right: 0;
     }
 }
-
 
 
 

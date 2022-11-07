@@ -313,7 +313,7 @@
     &--desc {
         width: 100%;
         max-width: 964px;
-        margin: 280px auto 100px auto;
+        margin: 370px auto 50px auto;
         text-align: center;
         line-height: 1.09;
         letter-spacing: 0.37px;
@@ -346,7 +346,8 @@
     overflow: hidden;
 
     &--content {
-        margin-top: 280px;
+        // margin-top: 280px;
+        margin-top: 360px;
         display: flex;
         width: 100%;
         flex-direction: column;
@@ -431,7 +432,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        transform: translateY(120px);
+        // transform: translateY(120px);
         transition: .4s;
 
         &--title {

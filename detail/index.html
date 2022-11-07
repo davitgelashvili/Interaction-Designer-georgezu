@@ -74,8 +74,11 @@ $(window).on('load', function(){
             <div class="detail__head">
                 <div class="detail__head--left">
                     <div class="detail__head--title">
-                        ${item.detailTitle}
-                        
+                        <div class="container">
+                            <div class="detail__head--text">
+                                ${item.detailTitle}
+                            </div>    
+                        </div>
                     </div>
                 </div>
                 <div class="detail__head--right">
@@ -84,7 +87,10 @@ $(window).on('load', function(){
             </div>
             <div class="container">
                 <button class="close-page close-work">
-                    <a href="./../"><img src="./../img/icons/back-arrow.svg" alt=""></a>
+                    <a href="./../">
+                        <img src="./../img/icons/back-arrow.svg" class="white" alt="">
+                        <img src="./../img/icons/back-arrow-black.svg" class="black" alt="">    
+                    </a>
                 </button>
             </div>
             <div class="detail__body">
@@ -97,9 +103,6 @@ $(window).on('load', function(){
                                 </div>
                                 <div class="detail__body--desc">
                                     ${item.detailSectionDescription1}
-                                    <div class="detail__gallery">
-                                        ${ item.gallery.map( i => gallery(i) ) }
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -147,6 +150,16 @@ $(window).on('load', function(){
                         </div>
                     </div>    
                 `}
+                ${item.gallery && `   
+                    <div class="container">
+                        <div style="text-align: center">
+                            <h1 class="detail__body--title-text">Finaly</h1>
+                        </div>
+                        <div class="detail__gallery">
+                            ${ item.gallery.map( i => gallery(i) ) }
+                        </div>
+                    </div>
+                `}
             </div>
             `)
         }).finally((e) => {
@@ -158,19 +171,30 @@ $(window).on('load', function(){
         })
     }
     postedWork()
-
+    var headHeight;
+    var scroll
     $('.detail').scroll(function() {
+        headHeight = $('.detail__head').height();
+        scroll = ( $(this).scrollTop() - headHeight )
         $('.detail__body--title-text').removeClass('active')
-        if($(this).scrollTop() > item1 && $(this).scrollTop() < item2 ) {
-            $('.detail__body--title-text.1').addClass('active')
-        }else if($(this).scrollTop() > item2 && $(this).scrollTop() < item3 ) {
-            $('.detail__body--title-text.2').addClass('active')
+        if($(this).scrollTop() > item1 && ($(this).scrollTop() < (item2 - 300)) ) {
+            $('.detail__body--title-text.1').css({'transform': `translateY(${ scroll }px)`})
+        }else if($(this).scrollTop() > item2 && $(this).scrollTop() < (item3 - 100) ) {
+            $('.detail__body--title-text.2').css({'transform': `translateY(${ scroll }px)`})
         }else if($(this).scrollTop() > item3 && $(this).scrollTop() < item4) {
-            $('.detail__body--title-text.3').addClass('active')
+            $('.detail__body--title-text.3').css({'transform': `translateY(${ scroll }px)`})
         }else if($(this).scrollTop() > item4 ) {
-            $('.detail__body--title-text.4').addClass('active')
+            $('.detail__body--title-text.4').css({'transform': `translateY(${ scroll }px)`})
         }else {
            $('.detail__body--title-text').removeClass('active')
+        }
+
+        if($(this).scrollTop() > ($('.detail__head').height() - 100 ) ) {
+            $('.white').hide()
+            $('.black').show()
+        }else {
+            $('.white').show()
+            $('.black').hide()
         }
     });
 
