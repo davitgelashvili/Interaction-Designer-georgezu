@@ -59,10 +59,11 @@ $(window).on('load', function(){
     contactAnimation();
 
 
+    const mouseWheel = document.querySelector("body");
     const scrollContainer = document.querySelector(".about-page__footer--slider");
     const highlightedItems = document.querySelectorAll(".slider__item");
 
-    scrollContainer.addEventListener("wheel", (evt) => {
+    mouseWheel.addEventListener("wheel", (evt) => {
         evt.preventDefault();
         scrollContainer.scrollLeft += evt.deltaY;
         console.log(evt)
@@ -214,7 +215,7 @@ function aboutPageOpen(element){
 
     const LoadingInterval = setInterval(Loading, 25)
 
-    let loadingNumber = 286;
+    let loadingNumber = 107;
     function Loading (){
         $('.avatar').hide();
         loadingNumber += 1;
@@ -222,11 +223,11 @@ function aboutPageOpen(element){
         $(`.about-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.about-page__avatar`).addClass('active')
 
-        if(loadingNumber == 400) {
+        if(loadingNumber == 180) {
             aboutScrollAnimation();
         }
 
-        if(loadingNumber == 449){
+        if(loadingNumber == 218){
             clearInterval(LoadingInterval);
             $('body').removeClass('not-click'); 
         }
@@ -281,13 +282,13 @@ function workPageClose(element){
 function aboutPageClose(element){
     const LoadingInterval = setInterval(Loading, 25)
     
-    let loadingNumber = 449;
+    let loadingNumber = 218;
     function Loading (){
         loadingNumber -= 1;
         $(`.about-page__avatar--cover`).removeClass('active');
         $(`.about-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.about-page__avatar`).removeClass('active')
-        if(loadingNumber == 286){
+        if(loadingNumber == 107){
             clearInterval(LoadingInterval);
             $('.main').addClass('active');
             $(element).removeClass('active');
@@ -330,10 +331,10 @@ function workAnimation(){
 }
 
 function aboutAnimation(){
-    var index = 286;
-    for (index; index <= 449; index++) {
+    var index = 107;
+    for (index; index <= 218; index++) {
         $('.about-page__avatar').append(`
-            <img src="./img/about-avatar/0${index}_optimized.png" alt="" class="animation-avatar__cover about-page__avatar--cover ${index}">
+            <img src="./img/about-avatar/About-Click${index}.png" alt="" class="animation-avatar__cover about-page__avatar--cover ${index}">
         `)
     }
 }
