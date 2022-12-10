@@ -227,7 +227,7 @@ function aboutPageOpen(element){
             aboutScrollAnimation();
         }
 
-        if(loadingNumber == 218){
+        if(loadingNumber == 223){
             clearInterval(LoadingInterval);
             $('body').removeClass('not-click'); 
         }
@@ -241,14 +241,14 @@ function contactPageOpen(element){
 
     const LoadingInterval = setInterval(Loading, 50)
 
-    let loadingNumber = 300;
+    let loadingNumber = 0;
     function Loading (){
         $('.avatar').hide();
         loadingNumber += 1;
         $(`.contact-page__avatar--cover`).removeClass('active');
         $(`.contact-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.contact-page__avatar`).addClass('active')
-        if(loadingNumber == 370){
+        if(loadingNumber == 70){
             contactScrollAnimation();
             clearInterval(LoadingInterval);
             $('body').removeClass('not-click'); 
@@ -282,7 +282,7 @@ function workPageClose(element){
 function aboutPageClose(element){
     const LoadingInterval = setInterval(Loading, 25)
     
-    let loadingNumber = 218;
+    let loadingNumber = 223;
     function Loading (){
         loadingNumber -= 1;
         $(`.about-page__avatar--cover`).removeClass('active');
@@ -302,13 +302,13 @@ function aboutPageClose(element){
 function contactPageClose(element){
     const LoadingInterval = setInterval(Loading, 50)
     
-    let loadingNumber = 370;
+    let loadingNumber = 70;
     function Loading (){
         loadingNumber -= 1;
         $(`.contact-page__avatar--cover`).removeClass('active');
         $(`.contact-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.contact-page__avatar`).removeClass('active')
-        if(loadingNumber == 300){
+        if(loadingNumber == 0){
             clearInterval(LoadingInterval);
             $('.main').addClass('active');
             $(element).removeClass('active');
@@ -332,7 +332,7 @@ function workAnimation(){
 
 function aboutAnimation(){
     var index = 107;
-    for (index; index <= 218; index++) {
+    for (index; index <= 223; index++) {
         $('.about-page__avatar').append(`
             <img src="./img/about-avatar/About-Click${index}.png" alt="" class="animation-avatar__cover about-page__avatar--cover ${index}">
         `)
@@ -340,10 +340,10 @@ function aboutAnimation(){
 }
 
 function contactAnimation(){
-    var index = 300;
-    for (index; index <= 370; index++) {
+    var index = 0;
+    for (index; index <= 70; index++) {
         $('.contact-page__avatar').append(`
-            <img src="./img/contact-avatar/0${index}-min.png" alt="" class="animation-avatar__cover contact-page__avatar--cover ${index}">
+            <img src="./img/contact-avatar/ContactClick${index}.png" alt="" class="animation-avatar__cover contact-page__avatar--cover ${index}">
         `)
     }
 }

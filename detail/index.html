@@ -279,11 +279,11 @@ $(window).on('load', function(){
                 dataNext = nextDataAll[nextItemKey];
 
                 $('.next-item').html(`
-                    <div>
+                    <div class="next-item__content">
                         <h1>${dataNext.title}</h1>
                         <a href="/detail/?filter=${dataNext.id}">
+                            <img src="./../img/icons/back-arrow-black.svg" alt="">
                             Case Study
-                            <img src="/img/icons/link-arrow.svg" alt="">
                         </a>
                     </div>
                 `)
