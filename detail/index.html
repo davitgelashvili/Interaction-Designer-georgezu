@@ -236,6 +236,24 @@ $(window).on('load', function(){
             loop:true,
             margin:10,
             responsiveClass:true,
+            navText: [
+                `
+                <svg width="82" height="82" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" fill-rule="evenodd">
+                        <path d="M0 0h82v82H0z"/>
+                        <path stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M69 41H13M36 18 13 41l23 23"/>
+                    </g>
+                </svg>
+                `,
+                `
+                <svg width="82" height="82" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" fill-rule="evenodd">
+                        <path d="M82 0H0v82h82z"/>
+                        <path stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M13 41h56M46 18l23 23-23 23"/>
+                    </g>
+                </svg>
+                `
+            ],
             responsive:{
                 0:{
                     items:1,
@@ -282,7 +300,7 @@ $(window).on('load', function(){
                     <div class="next-item__content">
                         <h1>${dataNext.title}</h1>
                         <a href="/detail/?filter=${dataNext.id}">
-                            <img src="./../img/icons/back-arrow-black.svg" alt="">
+                            <img src="./../img/icons/back-arrow-blue.svg" alt="">
                             Case Study
                         </a>
                     </div>

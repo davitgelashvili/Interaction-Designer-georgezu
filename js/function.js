@@ -215,7 +215,7 @@ function aboutPageOpen(element){
 
     const LoadingInterval = setInterval(Loading, 25)
 
-    let loadingNumber = 107;
+    let loadingNumber = 601;
     function Loading (){
         $('.avatar').hide();
         loadingNumber += 1;
@@ -223,11 +223,11 @@ function aboutPageOpen(element){
         $(`.about-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.about-page__avatar`).addClass('active')
 
-        if(loadingNumber == 180) {
+        if(loadingNumber == 680) {
             aboutScrollAnimation();
         }
 
-        if(loadingNumber == 223){
+        if(loadingNumber == 714){
             clearInterval(LoadingInterval);
             $('body').removeClass('not-click'); 
         }
@@ -282,13 +282,13 @@ function workPageClose(element){
 function aboutPageClose(element){
     const LoadingInterval = setInterval(Loading, 25)
     
-    let loadingNumber = 223;
+    let loadingNumber = 714;
     function Loading (){
         loadingNumber -= 1;
         $(`.about-page__avatar--cover`).removeClass('active');
         $(`.about-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.about-page__avatar`).removeClass('active')
-        if(loadingNumber == 107){
+        if(loadingNumber == 601){
             clearInterval(LoadingInterval);
             $('.main').addClass('active');
             $(element).removeClass('active');
@@ -331,10 +331,10 @@ function workAnimation(){
 }
 
 function aboutAnimation(){
-    var index = 107;
-    for (index; index <= 223; index++) {
+    var index = 601;
+    for (index; index <= 714; index++) {
         $('.about-page__avatar').append(`
-            <img src="./img/about-avatar/About-Click${index}.png" alt="" class="animation-avatar__cover about-page__avatar--cover ${index}">
+            <img src="./img/about-avatar/Trigger_About_Animation_00${index}.png" alt="" class="animation-avatar__cover about-page__avatar--cover ${index}">
         `)
     }
 }
