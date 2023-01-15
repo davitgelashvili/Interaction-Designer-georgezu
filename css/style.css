@@ -346,36 +346,12 @@ body {
 }
 
 .avatar__cover {
+  width: 100%;
   height: 100%;
   position: absolute;
   -o-object-fit: cover;
      object-fit: cover;
   bottom: 0;
-}
-
-@media (max-width: 1600px) {
-  .avatar__cover {
-    left: -60px;
-  }
-}
-
-@media (max-width: 1500px) {
-  .avatar__cover {
-    left: -120px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .avatar__cover {
-    left: -260px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .avatar__cover {
-    left: -165px;
-    height: 76%;
-  }
 }
 
 .avatar__cover.active {
@@ -714,6 +690,7 @@ body {
 }
 
 .animation-avatar__cover {
+  width: 100%;
   height: 100%;
   position: absolute;
   -o-object-fit: cover;
@@ -724,31 +701,6 @@ body {
 
 .animation-avatar__cover.active {
   display: block;
-}
-
-@media (max-width: 1600px) {
-  .animation-avatar__cover {
-    left: -60px;
-  }
-}
-
-@media (max-width: 1500px) {
-  .animation-avatar__cover {
-    left: -120px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .animation-avatar__cover {
-    left: -260px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .animation-avatar__cover {
-    left: -165px;
-    height: 76%;
-  }
 }
 
 .work-page__avatar.active {
@@ -1636,6 +1588,7 @@ body {
 
 .next-item {
   margin-top: 144px;
+  margin-bottom: 144px;
 }
 
 .next-item__content {
