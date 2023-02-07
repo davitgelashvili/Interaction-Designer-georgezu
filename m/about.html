@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body style="background-image: url(./img/bg/Transition_00592.png);">
+    <div class="bg">
+    </div>
+
+    <div class="load">
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+    </div>
+
+    
+    <main class="main active">
+        <ul class="menu">
+            <li class="menu__item">
+                <a href="./about.html" class="menu__item--link">
+                    <p class="menu__item--text menu__item--about page-active" data-link="about">
+                        <span aria-hidden="true">ABOUT</span>
+                        ABOUT
+                        <span aria-hidden="true">ABOUT</span>
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </main>
+
+    <section class="about-page about page active" data-page="about">
+        <div class="container">
+            <a href="./index.html" class="close-page close-about">
+                <img src="./img/icons/back-arrow.svg" alt="">
+            </a>
+            <div class="about-page--desc">
+                <p class="about-animation">
+                    Interaction & Visual designer observing and doubting the ordinary to move toward the forrest of creativity, gathering narratives to prompt and ilicit the power of visual art.
+                </p>
+            </div>
+            <div class="about-page__footer">
+                <div class="about-page__footer--slider about-animation">
+                    <div class="slider__item">
+                        <h1 class="slider__item--title">
+                            Art Direction
+                        </h1>
+                    </div>
+                    <div class="slider__item">
+                        <h1 class="slider__item--title">
+                            User Interface Design
+                        </h1>
+                    </div>
+                    <div class="slider__item">
+                        <h1 class="slider__item--title">
+                            User Experience Design
+                        </h1>
+                    </div>
+                </div>
+                <div class="about-page__footer--slider about-animation">
+                    <div class="slider__item">
+                        <h1 class="slider__item--title">
+                            Art Direction
+                        </h1>
+                    </div>
+                    <div class="slider__item">
+                        <h1 class="slider__item--title">
+                            User Interface Design
+                        </h1>
+                    </div>
+                    <div class="slider__item">
+                        <h1 class="slider__item--title">
+                            User Experience Design
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <a href="e-mail:Giorgizhuz@gmail.com" class="contact-page__footer--email">
+            Giorgizhuz@gmail.com
+        </a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/function.js"></script>
+
+    <script>
+        postedWork()
+    </script>
+
+</body>
+</html>

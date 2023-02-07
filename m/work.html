@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body style="background-image: url(./img/bg/Transition_00592.png);">
+    <div class="bg">
+    </div>
+
+    <div class="load">
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+    </div>
+
+    
+    <main class="main active">
+        <ul class="menu">
+            <li class="menu__item">
+                <a href="./work.html" class="menu__item--link">
+                    <p class="menu__item--text menu__item--work page-active" data-link="work">
+                        <span aria-hidden="true">WORK</span>
+                        WORK
+                        <span aria-hidden="true">WORK</span>
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </main>
+
+    <section class="work-page work page active" data-page="work">
+        <div class="container">
+            <div class="second">
+                <a href="./index.html" class="close-page close-work">
+                    <img src="./img/icons/back-arrow.svg" alt="">
+                </a>
+                <div class="list card-cntr">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <a href="e-mail:Giorgizhuz@gmail.com" class="contact-page__footer--email">
+        Giorgizhuz@gmail.com
+    </a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/function.js"></script>
+
+    <script>
+        postedWork()
+    </script>
+
+</body>
+</html>

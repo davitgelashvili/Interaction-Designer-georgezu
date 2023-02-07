@@ -1,3 +1,13 @@
+function mobileOrDesktop() {
+    if( $(window).width() < 1024 ) {
+        window.location.href = './../m';
+    }
+}
+mobileOrDesktop()
+$( window ).resize(function() {
+    mobileOrDesktop()
+});
+
 let intervalTime = 50;
 
 var secondRender = `
@@ -16,6 +26,7 @@ var secondRender = `
 
 $(window).on('load', function(){
     $('.load').remove();
+   
 
     // თუ ინტრო ლოადინგი არ არის 
     setInterval(coverImage, intervalTime)
@@ -57,21 +68,6 @@ $(window).on('load', function(){
     workAnimation();
     aboutAnimation();
     contactAnimation();
-
-
-    const mouseWheel = document.querySelector("body");
-    const scrollContainer = document.querySelector(".about-page__footer--slider");
-    const highlightedItems = document.querySelectorAll(".slider__item");
-
-    mouseWheel.addEventListener("wheel", (evt) => {
-        evt.preventDefault();
-        scrollContainer.scrollLeft += evt.deltaY;
-        console.log(evt)
-        highlightedItems.forEach(userItem => {
-            evt.path[1].target.style.transform  = `translateY(0px)`;
-        });
-    });
-
 });
 
 // menu click

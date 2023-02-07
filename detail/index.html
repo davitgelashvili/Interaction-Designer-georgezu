@@ -30,6 +30,16 @@
 <script src="./../js/owl.carousel.min.js"></script>
 <script>
 
+function mobileOrDesktop() {
+    if( $(window).width() < 1024 ) {
+        window.location.href = './../m';
+    }
+}
+mobileOrDesktop()
+$( window ).resize(function() {
+    mobileOrDesktop()
+});
+
 $(window).on('load', function(){
     let item1;
     let item2;

@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+}
+
+@font-face {
+    font-family: 'vf';
+    src: url(../fonts/Thunder-BlackLC.ttf);
+}
+@font-face {
+    font-family: 'PPMori-Extralight';
+    src: url(../fonts/PPMori-Extralight.otf);
+}
+@font-face {
+    font-family: 'PPMori-ExtralightItalic';
+    src: url(../fonts/PPMori-ExtralightItalic.otf);
+}
+@font-face {
+    font-family: 'PPMori-Regular';
+    src: url(../fonts/PPMori-Regular.otf);
+}
+@font-face {
+    font-family: 'PPMori-RegularItalic';
+    src: url(../fonts/PPMori-RegularItalic.otf);
+}
+@font-face {
+    font-family: 'PPMori-SemiBold';
+    src: url(../fonts/PPMori-SemiBold.otf);
+}
+@font-face {
+    font-family: 'PPMori-SemiBoldItalic';
+    src: url(../fonts/PPMori-SemiBoldItalic.otf);
+}
+
+@font-face {
+    font-family: 'PPNeue-Thin';
+    src: url(../fonts/PPNeueMontreal-Thin.otf);
+}
+@font-face {
+    font-family: 'PPNeue-SemiBolditalic';
+    src: url(../fonts/PPNeueMontreal-SemiBolditalic.otf);
+}
+@font-face {
+    font-family: 'PPNeue-Medium';
+    src: url(../fonts/PPNeueMontreal-Medium.otf);
+}
+@font-face {
+    font-family: 'PPNeue-Italic';
+    src: url(../fonts/PPNeueMontreal-Italic.otf);
+}
+@font-face {
+    font-family: 'PPNeue-Book';
+    src: url(../fonts/PPNeueMontreal-Book.otf);
+}
+@font-face {
+    font-family: 'PPNeue-Bold';
+    src: url(../fonts/PPNeueMontreal-Bold.otf);
+}
+
+html {
+    font-size: 16px;
+
+    @media (max-width: 2000px) {
+        font-size: 11px;
+    }
+}
+
+body {
+    background-color: #cecece;
+    background-image: url(../img/bg/Transition_00534.jpg);
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.bg {
+    &__cover {
+        position: absolute;
+        z-index: -1;
+    }
+}
+
+.load {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    &__item {
+        width: 10px;
+        height: 80px;
+        margin: 20px;
+        border-radius: 5px;
+        background: #fff;
+        animation: animate 1.4s linear infinite; 
+        box-shadow: 0 0 0 rgba(0,0,0, 1);
+
+        :nth-child(1) {
+            animation-delay: 0s;
+        }
+        :nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        :nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        :nth-child(4) {
+            animation-delay: 0.6s;
+        }
+        :nth-child(5) {
+            animation-delay: 0.8s;
+        }
+        :nth-child(6) {
+            animation-delay: 1s;
+        }
+        :nth-child(7) {
+            animation-delay: 1.2s;
+        }
+    }
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px) scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 5px rgba(0,0,0,1);
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    
+    &__img {
+        position: absolute;
+        object-fit: cover;
+        bottom: 0;
+        left: 0;
+
+        @media (max-width: 1600px) {
+            left: -100px;
+        }
+        @media (max-width: 1500px) {
+            left: -300px;
+        }
+        @media (max-width: 1200px) {
+            left: -400px;
+        }
+        @media (max-width: 1024px) {
+            left: -165px;
+            height: 76%;
+        }
+    }
+
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    align-items: flex-start;
+    justify-content: end;
+    
+    &.active {
+        display: flex;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1600px;
+    padding: 0 15px;
+    margin: auto;
+}
+
+.close-page {
+    width: 50px;
+    // margin-top: 140px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 52px;
+    color: #fff;
+    position: fixed;
+    top: 50px;
+    // left: 50px;
+    cursor: pointer;
+
+    a {
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+
+        &.black {
+            display: none;
+        }
+    }
+}
+
+.not-click {
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        background-color: transparent;
+        position: fixed;
+        left: 0;
+        right: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+// Card animation
+.work-animation {
+    &.animation {
+        opacity: 0;
+        transform: translateY(150px);
+        transition: .4s;
+
+        &.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+.about-animation {
+    &.animation { 
+        opacity: 0;
+        transform: translateY(50px);
+        transition: .4s;
+
+        &.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+.contact-animation {
+    &.animation {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: .4s;
+
+        &.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

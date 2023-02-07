@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./../css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="bg">
+    </div>
+
+    <div class="load">
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+        <span class="load__item"></span>
+    </div>
+
+    <section class="detail">
+    </section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./../js/owl.carousel.min.js"></script>
+<script>
+function mobileOrDesktop() {
+    if( $(window).width() > 1024 ) {
+        window.location.href = './../';
+    }
+}
+mobileOrDesktop()
+$( window ).resize(function() {
+    mobileOrDesktop()
+});
+
+$(window).on('load', function(){
+    let item1;
+    let item2;
+    let item3;
+    let item4;
+    let item5;
+    let nextDataAll;
+    let dataNext;
+    $('.load').remove();
+
+    const localFilter = document.location.search;
+    const localId = localFilter.split('=');
+
+    function gallery(item) {
+        return (`
+            <div class="detail__gallery--item">
+                <img src="${item.url}"" />
+            </div>
+        `)
+    }
+
+    // console.log(localId)
+
+    function postedWork(){
+        const token = 'd820991ca43cc815adf1a0a4a2e08a';
+        fetch('https://graphql.datocms.com/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                    query: `{ 
+                        allPortfolios(filter: {id: {in: "${localId[1]}"}}) { 
+                            id, role, detailTitle, description, coverDetail {url}, link, 
+                            detailSectionTitle1, detailSectionTitle2, detailSectionTitle3, detailSectionTitle4,
+                            detailSectionDescription1, detailSectionDescription2, detailSectionDescription3, detailSectionDescription4,
+                            color1, color2, color3, color4,
+                            gallery {url},
+                        },
+                    }`
+                }),
+        })
+        .then(res => res.json())
+        .then((res) => {
+            let item = res.data.allPortfolios[0];
+            $('.detail').append(`
+            <div class="detail__head">
+                <div class="detail__head--left">
+                    <div class="detail__head--title">
+                        <div class="container">
+                            <div class="detail__head--text">
+                                ${item.detailTitle}
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+                <div class="detail__head--right">
+                    <img src="${item.coverDetail.url}" alt="" class="detail__head--cover">
+                </div>
+            </div>
+            <div class="container">
+                <button class="close-page close-work">
+                    <a href="./../">
+                        <img src="./../img/icons/back-arrow.svg" class="white" alt="">
+                        <img src="./../img/icons/back-arrow-black.svg" class="black" alt="">    
+                    </a>
+                </button>
+            </div>
+            <div class="detail__body">
+                ${item.detailSectionTitle1 && `
+                    <div class="detail__body--item 1">
+                        <div class="container">
+                            <div class="detail__body--item-in">
+                                <div class="detail__body--title">
+                                    <h1 class="detail__body--title-text 1">${item.detailSectionTitle1}</h1>
+                                </div>
+                                <div class="detail__body--desc">
+                                    ${item.detailSectionDescription1}
+
+                                    <div class="detail__colors">
+                                        ${item.color1}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `}
+                ${item.detailSectionTitle2 && `
+                    <div class="detail__body--item 2">
+                        <div class="container">
+                            <div class="detail__body--item-in">
+                                <div class="detail__body--title">
+                                    <h1 class="detail__body--title-text 2">${item.detailSectionTitle2}</h1>
+                                </div>
+                                <div class="detail__body--desc">
+                                    ${item.detailSectionDescription2}
+
+                                    <div class="detail__colors">
+                                        ${item.color2}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `}
+                ${item.detailSectionTitle3 && `
+                    <div class="detail__body--item 3">
+                        <div class="container">
+                            <div class="detail__body--item-in">
+                                <div class="detail__body--title">
+                                    <h1 class="detail__body--title-text 3">${item.detailSectionTitle3}</h1>
+                                </div>
+                                <div class="detail__body--desc">
+                                    ${item.detailSectionDescription3}
+
+                                    <div class="detail__colors">
+                                        ${item.color3}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `}
+                ${item.detailSectionTitle4 && `
+                    <div class="detail__body--item 4">
+                        <div class="container">
+                            <div class="detail__body--item-in">
+                                <div class="detail__body--title">
+                                    <h1 class="detail__body--title-text 4">${item.detailSectionTitle4}</h1>
+                                </div>
+                                <div class="detail__body--desc">
+                                    ${item.detailSectionDescription4}
+
+                                    <div class="detail__colors">
+                                        ${item.color4}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                `}
+                ${item.gallery && `   
+                    <div class="container">
+                        <div style="text-align: center">
+                            <h1 class="detail__body--title-text 5">Finaly</h1>
+                        </div>
+                        <div class="detail__gallery owl-carousel owl-theme owl-loaded">
+                            ${ item.gallery.map( i => gallery(i) ) }
+                        </div>
+                    </div>
+                `}
+                ${item.gallery && `   
+                    <div class="container">
+                        <div class="next-item"></div>
+                    </div>
+                `}
+            </div>
+            `)
+        }).finally((e) => {
+            AllnextPost()
+            gallerySlider()
+            item5 = $('.detail__body--title-text.5').offset().top;
+            item1 = $('.detail__body--title-text.1').offset().top;
+            item2 = $('.detail__body--title-text.2').offset().top;
+            item3 = $('.detail__body--title-text.3').offset().top;
+            item4 = $('.detail__body--title-text.4').offset().top;
+        })
+    }
+    postedWork()
+
+    $('.detail').scroll(function() {
+        var scroll;
+        scroll = ( $(this).scrollTop())
+        $('.detail__body--title-text').removeClass('active')
+        if( $(this).scrollTop() > (item1 - 100) && (    $(this).scrollTop() < ( (item2 - 400) || (item5 - 400) )   ) ) {
+            $('.detail__body--title-text.1').css({'transform': `translateY(${ (scroll - item1 + 100) }px)`})
+        }
+        
+        if($(this).scrollTop() > (item2 - 100) && $(this).scrollTop() < ( (item3 - 400) || (item5 - 400) ) ) {
+            $('.detail__body--title-text.2').css({'transform': `translateY(${ (scroll - item2 + 100) }px)`})
+        }
+        
+        if($(this).scrollTop() > (item3 - 100)  && $(this).scrollTop() <( (item4 - 400) || (item5 - 400) ) ) {
+            $('.detail__body--title-text.3').css({'transform': `translateY(${ (scroll - item3 + 100) }px)`})
+        }
+
+        if($(this).scrollTop() > (item4 - 100) && $(this).scrollTop() < ( (item5 - 400) || (item5 - 400) ) ) {
+            $('.detail__body--title-text.4').css({'transform': `translateY(${ (scroll - item4 + 100) }px)`})
+        }
+        
+        if($(this).scrollTop() > ($('.detail__head').height() - 100 ) ) {
+            $('.white').hide()
+            $('.black').show()
+        }else {
+            $('.white').show()
+            $('.black').hide()
+        }
+    });
+
+    function gallerySlider() {
+        $('.detail__gallery').owlCarousel({
+            loop:true,
+            margin:10,
+            responsiveClass:true,
+            navText: [
+                `
+                <svg width="82" height="82" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" fill-rule="evenodd">
+                        <path d="M0 0h82v82H0z"/>
+                        <path stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M69 41H13M36 18 13 41l23 23"/>
+                    </g>
+                </svg>
+                `,
+                `
+                <svg width="82" height="82" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" fill-rule="evenodd">
+                        <path d="M82 0H0v82h82z"/>
+                        <path stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M13 41h56M46 18l23 23-23 23"/>
+                    </g>
+                </svg>
+                `
+            ],
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                }
+            }
+        })
+    }
+
+
+    let nextItemKey;
+    // post api 
+    function AllnextPost(){
+        const token = 'd820991ca43cc815adf1a0a4a2e08a';
+        fetch('https://graphql.datocms.com/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                    query: `{ 
+                        allPortfolios { id, role, title, description, cover {url}, link },
+                    }`
+                }),
+        })
+        .then(res => res.json())
+        .then((res) => {
+            nextDataAll = res.data.allPortfolios;
+            console.log(nextDataAll)
+            nextDataAll.map( (item, index, all) => {
+                all.filter( (filterder, key) => {
+                    if(filterder.id === localId[1]) {
+                        nextItemKey = (key + 1)
+                    }
+                })
+            })
+        }).finally(() => {
+            for (let i = 0; i < nextDataAll.length; i++) {
+                dataNext = nextDataAll[nextItemKey];
+
+                $('.next-item').html(`
+                    <div class="next-item__content">
+                        <h1>${dataNext.title}</h1>
+                        <a href="/detail/?filter=${dataNext.id}">
+                            <img src="./../img/icons/back-arrow-blue.svg" alt="">
+                            Case Study
+                        </a>
+                    </div>
+                `)
+                console.log(dataNext)
+            }
+        })
+    }
+});
+</script>
+
+</body>
+</html>
