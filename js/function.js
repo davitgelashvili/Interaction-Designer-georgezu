@@ -1,6 +1,6 @@
 function mobileOrDesktop() {
     if( $(window).width() < 1024 ) {
-        window.location.href = './../m';
+        window.location.href = './m';
     }
 }
 mobileOrDesktop()
