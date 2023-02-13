@@ -347,6 +347,10 @@
         font-size: 38px;
         font-family: 'PPNeue-Book';
         color: #fff;
+
+        p {
+            padding: 28px 0 0 0;
+        }
     }
 
     &__footer {
@@ -356,6 +360,7 @@
         right: 0;
         display: flex;
         overflow: hidden;
+        bottom: 0;
 
         &--email {
             margin-right: 100px;
@@ -423,10 +428,6 @@
         position: absolute;
         bottom: 50px;
 
-        @media (max-width: 1024px) {
-            bottom: 100px;
-        }
-
         &--email {
             font-size: 24px;
             font-weight: normal;
@@ -437,9 +438,11 @@
             color: #fff;
             font-family: 'PPNeue-Book';
             position: absolute;
-            bottom: 50px;
-            // left: 50px;
+            bottom: 65px;
             z-index: 2;
+            width: 100%;
+            left: 0;
+            text-align: center;
         }
 
         &--right {
@@ -459,6 +462,7 @@
             font-family: 'PPNeue-Book';
             display: flex;
             align-items: center;
+            margin: 8px 0;
 
             img {
                 margin-right: 12px;

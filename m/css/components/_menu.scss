@@ -48,10 +48,14 @@ $animationTime: .8s;
           display: block !important;
           // top: 114px;
           z-index: -5;
-          font-size: 350px;
+          font-size: 442px;
           opacity: .08;
           text-align: center;
           top: 0;
+
+          &.contact {
+            font-size: 324px;
+          }
           
           &.menu__item--text {
             transform: translate(0%);

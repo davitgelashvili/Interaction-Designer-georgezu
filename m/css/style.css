@@ -257,12 +257,12 @@ body {
 .container {
   width: 100%;
   max-width: 1600px;
-  padding: 0 15px;
+  padding: 0 30px;
   margin: auto;
 }
 
 .close-page {
-  width: 50px;
+  width: 32px;
   background-color: transparent;
   outline: none;
   border: none;
@@ -423,10 +423,14 @@ body {
 .menu__item--text.page-active {
   display: block !important;
   z-index: -5;
-  font-size: 350px;
+  font-size: 442px;
   opacity: .08;
   text-align: center;
   top: 0;
+}
+
+.menu__item--text.page-active.contact {
+  font-size: 324px;
 }
 
 .menu__item--text.page-active.menu__item--text {
@@ -962,6 +966,10 @@ body {
   color: #fff;
 }
 
+.about-page--desc p {
+  padding: 28px 0 0 0;
+}
+
 .about-page__footer {
   width: 100vw;
   border: 1px solid #fff;
@@ -971,6 +979,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
+  bottom: 0;
 }
 
 .about-page__footer--email {
@@ -1052,12 +1061,6 @@ body {
   bottom: 50px;
 }
 
-@media (max-width: 1024px) {
-  .contact-page__footer {
-    bottom: 100px;
-  }
-}
-
 .contact-page__footer--email {
   font-size: 24px;
   font-weight: normal;
@@ -1068,8 +1071,11 @@ body {
   color: #fff;
   font-family: 'PPNeue-Book';
   position: absolute;
-  bottom: 50px;
+  bottom: 65px;
   z-index: 2;
+  width: 100%;
+  left: 0;
+  text-align: center;
 }
 
 .contact-page__footer--right {
@@ -1100,6 +1106,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 8px 0;
 }
 
 .contact-page__footer--soc img {

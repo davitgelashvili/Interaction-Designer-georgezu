@@ -345,12 +345,15 @@
         font-size: 62px;
         font-family: 'PPNeue-Book';
         color: #fff;
+
+        p {
+            max-width: 90%;
+            margin: auto;
+        }
     }
 
     &__footer {
         height: 100%;
-        border-radius: 35px;
-        border: 1px solid #fff;
         position: absolute;
         top: 0;
         right: 0;
@@ -444,7 +447,7 @@
             font-family: 'PPNeue-Book';
             position: absolute;
             bottom: 50px;
-            // left: 50px;
+            left: 50px;
             z-index: 2;
         }
 
