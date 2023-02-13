@@ -1098,9 +1098,13 @@ body {
 }
 
 .about-page__footer {
+  height: 100%;
+  border-radius: 35px;
+  border: 1px solid #fff;
   position: absolute;
   top: 0;
   right: 0;
+  overflow: hidden;
 }
 
 .about-page__footer--email {
@@ -1253,14 +1257,12 @@ body {
 }
 
 .slider__item--title {
-  padding: 14px 32px;
-  font-size: 32px;
+  padding: 18px;
+  font-size: 26px;
   font-family: 'PPNeue-Book';
   color: #fff;
   line-height: 1.09;
   letter-spacing: 0.37px;
-  border-radius: 35px;
-  border: 1px solid #fff;
   margin-bottom: 14px;
   word-break: break-all;
 }
