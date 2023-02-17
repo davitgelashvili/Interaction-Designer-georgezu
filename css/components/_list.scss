@@ -474,6 +474,81 @@
             }
         }
     }
+
+    .contact-soc {
+        position: absolute;
+        right: 0;
+        bottom: 50px;
+        display: flex;
+
+        a {
+            margin-right: 50px;
+            display: flex;
+            align-items: flex-end;
+            font-size: 32px;
+            line-height: 19px;
+            color: #4b18ef;
+            text-decoration: none;
+            list-style: disc;
+            position: relative;
+            font-family: 'PPMori-Extralight';
+            font-weight: 700;
+            
+            svg {
+                margin-left: 15px;
+            }
+
+            &::before {
+                content: "";
+                width: 4px;
+                height: 4px;
+                border: solid 1px #4b18ef;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+
+            &:hover {
+                color: #bcaaf5;
+
+                & svg {
+                    g {
+                        fill: #bcaaf5;
+                    }
+                }
+
+                &::before {
+                    content: "";
+                    width: 4px;
+                    height: 4px;
+                    border: solid 1px #bcaaf5;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    .date {
+        top: 100px;
+        right: 50px;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        
+        &__text {
+            color: #fff;
+            font-size: 32px;
+            font-family: 'PPNeue-Book';
+            display: flex;
+            justify-content: flex-end;
+        }
+    
+        &__city {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+    }
 }
 
 .slider {
@@ -493,7 +568,6 @@
         }
     }
 }
-
 
 @keyframes marqueeLine {
     from {

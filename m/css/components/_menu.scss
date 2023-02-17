@@ -53,6 +53,10 @@ $animationTime: .8s;
           text-align: center;
           top: 0;
 
+          &.work {
+            font-size: 500px;
+          }
+
           &.contact {
             font-size: 324px;
           }

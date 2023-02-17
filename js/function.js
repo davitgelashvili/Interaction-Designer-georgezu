@@ -68,6 +68,9 @@ $(window).on('load', function(){
     workAnimation();
     aboutAnimation();
     contactAnimation();
+
+    const date = new Date();
+    $('.js-time').html(`${date.getHours()}:${date.getMinutes()}`)
 });
 
 // menu click

@@ -197,7 +197,6 @@ body {
 
 .close-page {
     width: 32px;
-    // margin-top: 140px;
     background-color: transparent;
     outline: none;
     border: none;
@@ -205,7 +204,7 @@ body {
     color: #fff;
     position: fixed;
     top: 50px;
-    // left: 50px;
+    z-index: 2;
     cursor: pointer;
 
     a {

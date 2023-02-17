@@ -212,25 +212,6 @@ $(window).on('load', function(){
     postedWork()
 
     $('.detail').scroll(function() {
-        var scroll;
-        scroll = ( $(this).scrollTop())
-        $('.detail__body--title-text').removeClass('active')
-        if( $(this).scrollTop() > (item1 - 100) && (    $(this).scrollTop() < ( (item2 - 400) || (item5 - 400) )   ) ) {
-            $('.detail__body--title-text.1').css({'transform': `translateY(${ (scroll - item1 + 100) }px)`})
-        }
-        
-        if($(this).scrollTop() > (item2 - 100) && $(this).scrollTop() < ( (item3 - 400) || (item5 - 400) ) ) {
-            $('.detail__body--title-text.2').css({'transform': `translateY(${ (scroll - item2 + 100) }px)`})
-        }
-        
-        if($(this).scrollTop() > (item3 - 100)  && $(this).scrollTop() <( (item4 - 400) || (item5 - 400) ) ) {
-            $('.detail__body--title-text.3').css({'transform': `translateY(${ (scroll - item3 + 100) }px)`})
-        }
-
-        if($(this).scrollTop() > (item4 - 100) && $(this).scrollTop() < ( (item5 - 400) || (item5 - 400) ) ) {
-            $('.detail__body--title-text.4').css({'transform': `translateY(${ (scroll - item4 + 100) }px)`})
-        }
-        
         if($(this).scrollTop() > ($('.detail__head').height() - 100 ) ) {
             $('.white').hide()
             $('.black').show()
@@ -247,7 +228,7 @@ $(window).on('load', function(){
             responsiveClass:true,
             navText: [
                 `
-                <svg width="82" height="82" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
+                <svg width="41" height="41" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
                     <g fill="none" fill-rule="evenodd">
                         <path d="M0 0h82v82H0z"/>
                         <path stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M69 41H13M36 18 13 41l23 23"/>
@@ -255,7 +236,7 @@ $(window).on('load', function(){
                 </svg>
                 `,
                 `
-                <svg width="82" height="82" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
+                <svg width="41" height="41" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
                     <g fill="none" fill-rule="evenodd">
                         <path d="M82 0H0v82h82z"/>
                         <path stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M13 41h56M46 18l23 23-23 23"/>
@@ -307,10 +288,9 @@ $(window).on('load', function(){
 
                 $('.next-item').html(`
                     <div class="next-item__content">
-                        <h1>${dataNext.title}</h1>
+                        <span>${dataNext.title} ARY DIRECTION</span>
                         <a href="/detail/?filter=${dataNext.id}">
                             <img src="./../img/icons/back-arrow-blue.svg" alt="">
-                            Case Study
                         </a>
                     </div>
                 `)

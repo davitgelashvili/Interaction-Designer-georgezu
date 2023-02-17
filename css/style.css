@@ -1253,6 +1253,96 @@ body {
   margin-right: 12px;
 }
 
+.contact-page .contact-soc {
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contact-page .contact-soc a {
+  margin-right: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  font-size: 32px;
+  line-height: 19px;
+  color: #4b18ef;
+  text-decoration: none;
+  list-style: disc;
+  position: relative;
+  font-family: 'PPMori-Extralight';
+  font-weight: 700;
+}
+
+.contact-page .contact-soc a svg {
+  margin-left: 15px;
+}
+
+.contact-page .contact-soc a::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border: solid 1px #4b18ef;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.contact-page .contact-soc a:hover {
+  color: #bcaaf5;
+}
+
+.contact-page .contact-soc a:hover svg g {
+  fill: #bcaaf5;
+}
+
+.contact-page .contact-soc a:hover::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border: solid 1px #bcaaf5;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.contact-page .date {
+  top: 100px;
+  right: 50px;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.contact-page .date__text {
+  color: #fff;
+  font-size: 32px;
+  font-family: 'PPNeue-Book';
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.contact-page .date__city {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
 .slider__item {
   -webkit-writing-mode: vertical-lr;
       -ms-writing-mode: tb-lr;

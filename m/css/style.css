@@ -270,6 +270,7 @@ body {
   color: #fff;
   position: fixed;
   top: 50px;
+  z-index: 2;
   cursor: pointer;
 }
 
@@ -427,6 +428,10 @@ body {
   opacity: .08;
   text-align: center;
   top: 0;
+}
+
+.menu__item--text.page-active.work {
+  font-size: 500px;
 }
 
 .menu__item--text.page-active.contact {
@@ -731,7 +736,6 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding-top: 50px;
   position: relative;
   /* width */
   /* Track */
@@ -771,13 +775,14 @@ body {
   display: block;
   width: 100%;
   max-width: 100%;
-  padding: 40px;
+  padding: 16px;
   border: 2px solid transparent;
   margin-top: 50px;
 }
 
 .list__item--out {
   width: 100%;
+  margin-bottom: 40px;
   overflow: hidden;
 }
 
@@ -804,16 +809,6 @@ body {
 @media (max-width: 1024px) {
   .list__item--out:nth-of-type(1) .list__item {
     max-width: 100%;
-  }
-}
-
-.list__item--out:nth-of-type(1) .list__item--cover {
-  height: 580px;
-}
-
-@media (max-width: 1024px) {
-  .list__item--out:nth-of-type(1) .list__item--cover {
-    height: 400px;
   }
 }
 
@@ -844,19 +839,10 @@ body {
   }
 }
 
-.list__item--out:nth-of-type(2) .list__item--cover {
-  height: 580px;
-}
-
-@media (max-width: 1024px) {
-  .list__item--out:nth-of-type(2) .list__item--cover {
-    height: 400px;
-  }
-}
-
 .list__item--cover {
   width: 100%;
-  height: 400px;
+  max-height: 600px;
+  min-height: 300px;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -905,16 +891,17 @@ body {
 }
 
 .list__item--title {
-  margin-top: 20px;
+  margin-top: 16px;
   color: #fff;
-  font-size: 48px;
+  font-size: 38px;
+  line-height: 35px;
   font-family: 'PPNeue-Book';
   letter-spacing: 0.4px;
 }
 
 .list__item--desc {
   margin-top: 5px;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   color: #fff;
   font-size: 14px;
   font-family: 'PPNeue-Book';
@@ -924,7 +911,7 @@ body {
 }
 
 .list__item--link {
-  width: 0px;
+  width: 100%;
   height: 19px;
   display: block;
   color: #fff;
@@ -932,10 +919,6 @@ body {
   font-family: 'PPNeue-Italic';
   letter-spacing: 0.13px;
   overflow: hidden;
-}
-
-.list__item:hover .list__item--link {
-  width: 100%;
 }
 
 .page {
@@ -1113,6 +1096,68 @@ body {
   margin-right: 12px;
 }
 
+.contact-page .contact-soc {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contact-page .contact-soc a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-bottom: 40px;
+  font-size: 32px;
+  line-height: 19px;
+  color: #4b18ef;
+  text-decoration: none;
+  list-style: disc;
+  position: relative;
+  font-family: 'PPMori-Extralight';
+  font-weight: 700;
+}
+
+.contact-page .contact-soc a svg {
+  margin-left: 15px;
+}
+
+.contact-page .contact-soc a::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border: solid 1px #4b18ef;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.contact-page .date {
+  width: 100%;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  padding: 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.contact-page .date__text {
+  color: #fff;
+  font-size: 24px;
+  font-family: 'PPNeue-Book';
+}
+
 .slider__item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1163,10 +1208,13 @@ body {
 .detail__head {
   width: 100%;
   position: relative;
-  height: calc(100vh - 100px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -1176,7 +1224,7 @@ body {
 .detail__head--left {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1190,7 +1238,7 @@ body {
 }
 
 .detail__head--right {
-  width: 50%;
+  width: 100%;
   height: 100%;
   z-index: 1;
   display: -webkit-box;
@@ -1215,13 +1263,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 100px 0px 22px 0;
 }
 
 .detail__head--text {
-  width: 50%;
-  padding-right: 48px;
+  width: 100%;
   color: #fff;
-  font-size: 64px;
+  font-size: 40px;
   font-family: "PPNeue-Book";
   text-align: start;
 }
@@ -1248,34 +1296,33 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding: 119px 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .detail__body--title {
-  width: 40%;
+  width: 100%;
   position: relative;
+  margin: 40px 0;
 }
 
 .detail__body--title-text {
   top: 0;
-  padding-right: 20px;
-  font-size: 100px;
+  font-size: 40px;
   font-family: 'PPNeue-Bold';
 }
 
-.detail__body--title-text.active {
-  position: fixed;
-  z-index: 1;
-}
-
 .detail__body--desc {
-  width: 60%;
-  font-size: 24px;
+  width: 100%;
+  font-size: 16px;
   font-family: 'PPNeue-Book';
 }
 
 .detail__body--desc img {
   max-width: 100%;
+  margin: 24px 0;
 }
 
 .detail__body--desc h1 {
@@ -1283,7 +1330,7 @@ body {
 }
 
 .detail__gallery {
-  padding-bottom: 88px;
+  padding-bottom: 90px;
   position: relative;
 }
 
@@ -1302,7 +1349,7 @@ body {
 }
 
 .detail__gallery--item {
-  max-height: 696px;
+  max-height: 300px;
   height: 100vh;
 }
 
@@ -1321,6 +1368,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin: 40px 0 0 0;
 }
 
 .detail__colors > * {
@@ -1330,7 +1378,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 88px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 40px;
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
@@ -1341,26 +1393,25 @@ body {
 }
 
 .detail__colors > * img {
-  width: 328px;
-  height: 206px;
-  margin-right: 32px;
+  width: 100%;
+  max-width: 328px;
+  max-height: 206px;
+  margin: 8px 0;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 .owl-nav {
   width: 100%;
-  max-height: 696px;
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   position: absolute;
   margin-top: 0 !important;
-  top: 0;
+  bottom: 33px;
 }
 
 .owl-nav button {
@@ -1369,11 +1420,11 @@ body {
 }
 
 .owl-nav button.owl-prev {
-  right: 100%;
+  left: 0;
 }
 
 .owl-nav button.owl-next {
-  left: 100%;
+  right: 0;
 }
 
 .owl-nav button span {
@@ -1381,7 +1432,7 @@ body {
 }
 
 .owl-dots {
-  margin-top: 45px;
+  margin-top: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1408,20 +1459,7 @@ body {
 }
 
 .next-item {
-  margin-top: 144px;
-  margin-bottom: 144px;
-}
-
-.next-item__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  margin: 80px 0;
 }
 
 .next-item:hover {
@@ -1433,27 +1471,14 @@ body {
   max-width: 50%;
 }
 
-.next-item h1 {
-  font-size: 64px;
-  max-width: 50%;
+.next-item span {
+  font-size: 40px;
   font-family: 'PPNeue-Book';
   color: #805cf3;
 }
 
 .next-item a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  margin-left: 20px;
   color: #0a0a1b;
   font-size: 16px;
   font-family: 'PPNeue-Medium';
@@ -1462,6 +1487,6 @@ body {
 .next-item a img {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
-  margin-bottom: 19px;
+  width: 30px;
 }
 /*# sourceMappingURL=style.css.map */

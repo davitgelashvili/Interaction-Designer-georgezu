@@ -60,8 +60,8 @@ $(window).on('load', function(){
         }
     }
 
-
-
+    const date = new Date();
+    $('.js-time').html(`${date.getHours()}:${date.getMinutes()}`)
 
 });
 
