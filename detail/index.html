@@ -203,11 +203,11 @@ $(window).on('load', function(){
         }).finally((e) => {
             AllnextPost()
             gallerySlider()
-            item5 = $('.detail__body--title-text.5').offset().top;
-            item1 = $('.detail__body--title-text.1').offset().top;
-            item2 = $('.detail__body--title-text.2').offset().top;
-            item3 = $('.detail__body--title-text.3').offset().top;
-            item4 = $('.detail__body--title-text.4').offset().top;
+            item5 = $('.detail__body--item.5').offset().top + 119;
+            item1 = $('.detail__body--item.1').offset().top + 119;
+            item2 = $('.detail__body--item.2').offset().top + 119;
+            item3 = $('.detail__body--item.3').offset().top + 119;
+            item4 = $('.detail__body--item.4').offset().top + 119;
         })
     }
     postedWork()
@@ -215,21 +215,48 @@ $(window).on('load', function(){
     $('.detail').scroll(function() {
         var scroll;
         scroll = ( $(this).scrollTop())
-        $('.detail__body--title-text').removeClass('active')
-        if( $(this).scrollTop() > (item1 - 100) && (    $(this).scrollTop() < ( (item2 - 400) || (item5 - 400) )   ) ) {
-            $('.detail__body--title-text.1').css({'transform': `translateY(${ (scroll - item1 + 100) }px)`})
-        }
-        
-        if($(this).scrollTop() > (item2 - 100) && $(this).scrollTop() < ( (item3 - 400) || (item5 - 400) ) ) {
-            $('.detail__body--title-text.2').css({'transform': `translateY(${ (scroll - item2 + 100) }px)`})
-        }
-        
-        if($(this).scrollTop() > (item3 - 100)  && $(this).scrollTop() <( (item4 - 400) || (item5 - 400) ) ) {
-            $('.detail__body--title-text.3').css({'transform': `translateY(${ (scroll - item3 + 100) }px)`})
+        if( $(this).scrollTop() > item1 && $(this).scrollTop() < (item2 || item5) ){
+            // alert(1)
         }
 
-        if($(this).scrollTop() > (item4 - 100) && $(this).scrollTop() < ( (item5 - 400) || (item5 - 400) ) ) {
-            $('.detail__body--title-text.4').css({'transform': `translateY(${ (scroll - item4 + 100) }px)`})
+        if($(this).scrollTop() > item1 && $(this).scrollTop() < (item2 || item5)) {
+            $('.detail__body--title').addClass('active')
+            $('.detail__body--title-text.1').addClass('fix')
+        }else if($(this).scrollTop() < item1){
+            $('.detail__body--title').removeClass('active')
+            $('.detail__body--title-text.1').removeClass('fix')
+        }else {
+            $('.detail__body--title-text.1').removeClass('fix')
+        }
+        
+        if($(this).scrollTop() > item2 && $(this).scrollTop() < (item3 || item5)) {
+            $('.detail__body--title').addClass('active')
+            $('.detail__body--title-text.2').addClass('fix')
+        }else if($(this).scrollTop() < item2){
+            $('.detail__body--title').removeClass('active')
+            $('.detail__body--title-text.2').removeClass('fix')
+        }else{
+            $('.detail__body--title-text.2').removeClass('fix')
+        }
+        
+        if($(this).scrollTop() > item3  && $(this).scrollTop() < (item4 || item5)) {
+            $('.detail__body--title').addClass('active')
+            $('.detail__body--title-text.3').addClass('fix')
+        }else if($(this).scrollTop() < item3){
+            $('.detail__body--title').removeClass('active')
+            $('.detail__body--title-text.3').removeClass('fix')
+        }else{
+            $('.detail__body--title-text.3').removeClass('fix')
+        }
+
+        if($(this).scrollTop() > item4 && $(this).scrollTop() < (item5 || item5)) {
+            $('.detail__body--title').addClass('active')
+            $('.detail__body--title-text.4').addClass('fix')
+        }else if( $(this).scrollTop() < item4){
+            $('.detail__body--title').removeClass('active')
+            $('.detail__body--title-text.4').removeClass('fix')
+        }else{
+            $('.detail__body--title-text.4').removeClass('fix')
         }
         
         if($(this).scrollTop() > ($('.detail__head').height() - 100 ) ) {

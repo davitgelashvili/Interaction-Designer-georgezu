@@ -1476,31 +1476,41 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  padding: 119px 0;
 }
 
 .detail__body--title {
   width: 40%;
   position: relative;
+  padding: 119px 0;
+}
+
+.detail__body--title.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .detail__body--title-text {
-  top: 0;
+  top: 80px;
   padding-right: 20px;
   font-size: 100px;
   font-family: 'PPNeue-Bold';
+  position: -webkit-sticky;
+  position: sticky;
 }
 
-.detail__body--title-text.active {
+.detail__body--title-text.fix {
+  width: inherit;
   position: fixed;
   z-index: 1;
 }
 
 .detail__body--desc {
   width: 60%;
+  padding: 119px 0;
   font-size: 24px;
   font-family: 'PPNeue-Book';
 }

@@ -212,7 +212,7 @@ $(window).on('load', function(){
     postedWork()
 
     $('.detail').scroll(function() {
-        if($(this).scrollTop() > ($('.detail__head').height() - 100 ) ) {
+        if($(this).scrollTop() > ($('.detail__head--left').height() - 100 ) ) {
             $('.white').hide()
             $('.black').show()
         }else {
@@ -294,7 +294,6 @@ $(window).on('load', function(){
                         </a>
                     </div>
                 `)
-                console.log(dataNext)
             }
         })
     }
