@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'vf';
-  src: url(../fonts/Thunder-BlackLC.ttf);
+  src: url(../fonts/Thunder-BlackLC.woff);
 }
 
 @font-face {
@@ -269,7 +269,7 @@ body {
   font-size: 52px;
   color: #fff;
   position: fixed;
-  top: 50px;
+  top: 10px;
   z-index: 2;
   cursor: pointer;
 }
@@ -596,7 +596,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 120px;
+  margin-top: 60px;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -941,26 +941,26 @@ body {
 .about-page--desc {
   width: 100%;
   max-width: 964px;
-  margin: 120px auto 50px auto;
+  margin: 78px auto 50px auto;
   line-height: 41px;
   letter-spacing: 0.48px;
-  font-size: 38px;
+  font-size: 36px;
   font-family: 'PPNeue-Book';
   color: #fff;
 }
 
 .about-page--desc p {
-  padding: 28px 0 0 0;
+  padding: 0;
 }
 
 .about-page__footer {
-  width: 100vw;
+  width: 100%;
   border: 1px solid #fff;
   position: absolute;
   right: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   overflow: hidden;
   bottom: 0;
 }
@@ -970,13 +970,15 @@ body {
 }
 
 .about-page__footer--slider {
-  width: 100vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   position: relative;
   -webkit-animation: marqueeLine 7s linear infinite;
           animation: marqueeLine 7s linear infinite;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
 }
 
 .about-page__footer:hover .about-page__footer--slider {
@@ -989,7 +991,7 @@ body {
 }
 
 .contact-page--content {
-  margin-top: 120px;
+  margin-top: 78px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1010,7 +1012,7 @@ body {
   padding: 24px 0;
   border: 2px solid #fff;
   font-family: 'PPNeue-Book';
-  font-size: 70px;
+  font-size: 52px;
   line-height: 35px;
   letter-spacing: 0.8px;
   color: #fff;
@@ -1020,7 +1022,7 @@ body {
 .contact-page__desc {
   width: 100%;
   max-width: 832px;
-  margin: 40px auto 0 auto;
+  margin: 0 auto;
   font-family: 'PPNeue-Book';
   font-size: 24px;
   line-height: 1.33;
@@ -1141,7 +1143,7 @@ body {
 .contact-page .date {
   width: 100%;
   position: absolute;
-  bottom: 50px;
+  bottom: 24px;
   left: 0;
   padding: 0 30px;
   display: -webkit-box;
@@ -1182,8 +1184,8 @@ body {
             transform: translateX(0);
   }
   to {
-    -webkit-transform: translateX(-100vw);
-            transform: translateX(-100vw);
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
   }
 }
 
@@ -1193,8 +1195,8 @@ body {
             transform: translateX(0);
   }
   to {
-    -webkit-transform: translateX(-100vw);
-            transform: translateX(-100vw);
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
   }
 }
 
@@ -1448,7 +1450,7 @@ body {
   background-color: #d8d8d8 !important;
   width: 10px !important;
   height: 10px !important;
-  margin: 0 12px !important;
+  margin: 0 6px !important;
   border-radius: 0 !important;
 }
 

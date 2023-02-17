@@ -9,7 +9,8 @@
 
 @font-face {
     font-family: 'vf';
-    src: url(../fonts/Thunder-BlackLC.ttf);
+    // src: url(../fonts/Thunder-BlackLC.ttf);
+    src: url(../fonts/Thunder-BlackLC.woff);
 }
 @font-face {
     font-family: 'PPMori-Extralight';
@@ -203,7 +204,7 @@ body {
     font-size: 52px;
     color: #fff;
     position: fixed;
-    top: 50px;
+    top: 10px;
     z-index: 2;
     cursor: pointer;
 

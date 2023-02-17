@@ -178,7 +178,6 @@
     top: 0;
 
     & button {
-        background: red;
         position: absolute;
         
         &.owl-prev {
@@ -191,6 +190,18 @@
 
         & span {
             font-size: 100px !important;
+        }
+
+        &:hover {
+            background: transparent !important;
+
+            svg {
+                path {
+                    &:last-child {
+                        stroke: #805cf3
+                    }
+                }
+            }
         }
     }
 }
@@ -206,7 +217,7 @@
             background-color: #d8d8d8 !important;
             width: 10px !important;
             height: 10px !important;
-            margin: 0 12px !important;
+            margin: 0 6px !important;
             border-radius: 0 !important;
         }
 
@@ -230,20 +241,11 @@
         justify-content: space-between;
     }
 
-    &:hover {
-        cursor: pointer;
-
-        h1 {
-            color: #805cf3;
-            max-width: 50%;
-        }
-    }
-
     h1 {
         font-size: 64px;
         max-width: 50%;
         font-family: 'PPNeue-Book';
-        color: #805cf3;
+        color: #0a0a1b;
     }
 
     a {
@@ -251,15 +253,36 @@
         flex-direction: column;
         align-items: flex-end;
         justify-content: flex-end;
-
-        img {
-            transform: rotate(90deg);
-            margin-bottom: 19px;
-        }
-
         color: #0a0a1b;
         font-size: 16px;
         font-family: 'PPNeue-Medium';
+
+        svg {
+            transform: rotate(90deg);
+            margin-bottom: 19px;
+
+            path {
+                fill: #0a0a1b;
+            }
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        h1 {
+            color: #805cf3;
+        }
+
+        a {
+            color: #805cf3;
+
+            svg {
+                path {
+                    fill: #805cf3;
+                }
+            }
+        }
     }
 
 }

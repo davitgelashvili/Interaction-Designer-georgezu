@@ -1605,7 +1605,6 @@ body {
 }
 
 .owl-nav button {
-  background: red;
   position: absolute;
 }
 
@@ -1619,6 +1618,14 @@ body {
 
 .owl-nav button span {
   font-size: 100px !important;
+}
+
+.owl-nav button:hover {
+  background: transparent !important;
+}
+
+.owl-nav button:hover svg path:last-child {
+  stroke: #805cf3;
 }
 
 .owl-dots {
@@ -1638,7 +1645,7 @@ body {
   background-color: #d8d8d8 !important;
   width: 10px !important;
   height: 10px !important;
-  margin: 0 12px !important;
+  margin: 0 6px !important;
   border-radius: 0 !important;
 }
 
@@ -1665,20 +1672,11 @@ body {
           justify-content: space-between;
 }
 
-.next-item:hover {
-  cursor: pointer;
-}
-
-.next-item:hover h1 {
-  color: #805cf3;
-  max-width: 50%;
-}
-
 .next-item h1 {
   font-size: 64px;
   max-width: 50%;
   font-family: 'PPNeue-Book';
-  color: #805cf3;
+  color: #0a0a1b;
 }
 
 .next-item a {
@@ -1700,9 +1698,29 @@ body {
   font-family: 'PPNeue-Medium';
 }
 
-.next-item a img {
+.next-item a svg {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
   margin-bottom: 19px;
+}
+
+.next-item a svg path {
+  fill: #0a0a1b;
+}
+
+.next-item:hover {
+  cursor: pointer;
+}
+
+.next-item:hover h1 {
+  color: #805cf3;
+}
+
+.next-item:hover a {
+  color: #805cf3;
+}
+
+.next-item:hover a svg path {
+  fill: #805cf3;
 }
 /*# sourceMappingURL=style.css.map */
