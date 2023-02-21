@@ -411,14 +411,10 @@ body {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
-  width: 170px;
 }
 
 .menu__active--img {
-  width: unset;
-  height: unset;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  max-height: 100%;
 }
 
 .animation-avatar {
