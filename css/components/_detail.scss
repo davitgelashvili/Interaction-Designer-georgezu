@@ -56,6 +56,11 @@
     }
 
     &__body {
+        iframe {
+            width: 100%;
+            border: none;
+        }
+
         &--item {
             width: 100%;
 

@@ -82,7 +82,7 @@ $animationTime: .8s;
           }
           
           &--work {
-            top: 265px;
+            top: 20vh;
             animation-duration: 1s;
             
           &.page-active {
@@ -95,7 +95,7 @@ $animationTime: .8s;
         }
 
         &--about {
-          top: 436px;
+          top: calc(20vh + 170px);
           animation-duration: .8s;
 
           &.page-active {
@@ -111,7 +111,7 @@ $animationTime: .8s;
           }
         }
         &--contact {
-          top: 609px;
+          top: calc(20vh + 340px);
           animation-duration: 1s;
 
           &.page-active {
