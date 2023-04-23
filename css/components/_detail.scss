@@ -105,6 +105,8 @@
             padding: 119px 0;
             font-size: 24px;
             font-family: 'PPNeue-Book';
+            display: flex;
+            flex-direction: column;
 
             img {
                 max-width: 100%;

@@ -223,7 +223,7 @@ function aboutPageOpen(element){
         $(`.about-page__avatar`).addClass('active')
 
         if(loadingNumber == 680) {
-            aboutScrollAnimation();
+            postedWork();
         }
 
         if(loadingNumber == 714){
@@ -248,7 +248,7 @@ function contactPageOpen(element){
         $(`.contact-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.contact-page__avatar`).addClass('active')
         if(loadingNumber == 70){
-            contactScrollAnimation();
+            postedWork();
             clearInterval(LoadingInterval);
             $('body').removeClass('not-click'); 
         }
@@ -396,13 +396,18 @@ function postedWork(){
             body: JSON.stringify({
                 query: `{ 
                     allPortfolios { id, role, title, description, cover {url}, link },
+                    aboutContact { id, aboutDescription, contactDescription },
                 }`
             }),
     })
     .then(res => res.json())
     .then((res) => {
         let data = res.data.allPortfolios;
-        console.log(res)
+        let contactText = res.data.aboutContact.contactDescription;
+        let aboutText = res.data.aboutContact.aboutDescription;
+
+        $('.about-page--desc > p').html(aboutText)
+        $('.contact-page__desc').html(contactText)
 
         data.map( (item,id) => {
             console.log(id)
@@ -426,7 +431,11 @@ function postedWork(){
             </div>
             `)
         })
-    }).finally(() => workScrollAnimation())
+    }).finally(() => {
+        workScrollAnimation()
+        aboutScrollAnimation()
+        contactScrollAnimation()
+    })
 }
 
 // menu glich effect 
