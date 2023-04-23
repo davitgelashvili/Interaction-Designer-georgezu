@@ -340,12 +340,13 @@ body {
 }
 
 .avatar {
-  width: 100%;
+  width: 80%;
   height: 100%;
   position: absolute;
 }
 
 .avatar__cover {
+  width: 100%;
   position: absolute;
   -o-object-fit: cover;
      object-fit: cover;
@@ -379,9 +380,11 @@ body {
 
 .menu__item {
   list-style: none;
+  height: 80px;
 }
 
 .menu__item--link {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -389,6 +392,10 @@ body {
       -ms-flex-align: center;
           align-items: center;
   text-decoration: none;
+}
+
+.menu__item--link img {
+  height: 100%;
 }
 
 .menu__item--link.active {

@@ -1,11 +1,11 @@
 .avatar {
-    width: 100%;
+    width: 80%;
     height: 100%;
     position: absolute;
 
     &__cover {
         // დამატებული
-   
+        width: 100%;
         position: absolute;
         object-fit: cover;
         bottom: 0;
