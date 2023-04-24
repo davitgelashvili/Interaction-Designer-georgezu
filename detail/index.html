@@ -63,7 +63,11 @@ $(window).on('load', function(){
         if(item.url.split('.mp4')[1] !== undefined) {
             return (`
                 <div class="detail__gallery--item">
-                    <iframe class="detail__gallery--iframe" src="${item.url}" allowfullscreen></iframe>
+                    <video class="detail__gallery--iframe" controls >
+                        <source src="${item.url}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
                 </div>
             `)
         }else {
@@ -282,6 +286,14 @@ $(window).on('load', function(){
             $('.white').show()
             $('.black').hide()
         }
+
+        // console.log($('.detail__gallery--iframe').offset().top < $(window).innerHeight() )
+        // if( $('.detail__gallery--iframe').offset().top < $(window).innerHeight() ) {
+        //     console.log($('.detail__gallery--iframe').offset().top < $(window).innerHeight() )
+        //     $('.owl-item.active .detail__gallery--iframe').trigger('play');
+        // }else {
+        //     $('.owl-item.active .detail__gallery--iframe').trigger('pause');
+        // }
     });
 
     function gallerySlider() {

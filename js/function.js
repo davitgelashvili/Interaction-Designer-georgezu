@@ -260,6 +260,7 @@ function aboutPageOpen(element){
     }
 }
 function contactPageOpen(element){
+    $('.contact-soc').html('')
     setTimeout(() => {
         $(element).addClass('active');
     }, 1000);
@@ -462,7 +463,6 @@ function postedWork(){
         })
 
         socialData?.map( (item) => {
-            console.log(item)
             $('.contact-soc').append(`
                 <a href="${item.socialLink}" target="_blank">
                     ${item.socialTitle}

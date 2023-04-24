@@ -860,7 +860,13 @@ body {
   margin: auto;
 }
 
-@media (max-width: 1300px) and (min-width: 1024px) and (max-height: 850px) {
+@media (max-width: 1300px) and (min-width: 1024px) {
+  .about-page--desc p {
+    font-size: 50px;
+  }
+}
+
+@media (max-height: 850px) {
   .about-page--desc p {
     font-size: 50px;
   }
