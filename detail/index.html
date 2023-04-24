@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./../css/owl.carousel.min.css">
     <link rel="stylesheet" href="./../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="./../css/style.css">
+    <link rel="icon" type="image/png" href="./../img/icons/favicon.png">
+    <title>Giorgi Zhuzhiashvili - Interaction Designer</title>
     <style>
         br {   
             content: "A" !important;
@@ -17,20 +19,13 @@
             margin-bottom: 1.5em !important;
         }
     </style>
-    <title>Document</title>
 </head>
 <body>
     <div class="bg">
     </div>
 
     <div class="load">
-        <span class="load__item"></span>
-        <span class="load__item"></span>
-        <span class="load__item"></span>
-        <span class="load__item"></span>
-        <span class="load__item"></span>
-        <span class="load__item"></span>
-        <span class="load__item"></span>
+        <img src="./../img/icons/Loader.gif" alt="loading..." />
     </div>
 
     <section class="detail">
@@ -64,12 +59,22 @@ $(window).on('load', function(){
     const localId = localFilter.split('=');
 
     function gallery(item) {
-        return (`
-            <div class="detail__gallery--item">
-                <img src="${item.url}"" />
-            </div>
-        `)
+        console.log(item.url.split('.mp4')[1] )
+        if(item.url.split('.mp4')[1] !== undefined) {
+            return (`
+                <div class="detail__gallery--item">
+                    <iframe class="detail__gallery--iframe" src="${item.url}" allowfullscreen></iframe>
+                </div>
+            `)
+        }else {
+            return (`
+                <div class="detail__gallery--item">
+                    <img class="detail__gallery--img" src="${item.url}" />
+                </div>
+            `)
+        }
     }
+
 
     // console.log(localId)
 
@@ -97,6 +102,7 @@ $(window).on('load', function(){
         .then(res => res.json())
         .then((res) => {
             let item = res.data.allPortfolios[0];
+            console.log(item)
             $('.detail').append(`
             <div class="detail__head">
                 <div class="detail__head--left">
@@ -282,6 +288,7 @@ $(window).on('load', function(){
         $('.detail__gallery').owlCarousel({
             loop:true,
             margin:10,
+            video:true,
             responsiveClass:true,
             navText: [
                 `

@@ -25,8 +25,9 @@ var secondRender = `
 // $('.work-page').append(secondRender);
 
 $(window).on('load', function(){
-    $('.load').remove();
-   
+    setTimeout(() => {
+        $('.load').remove();
+    }, 1000);
 
     // თუ ინტრო ლოადინგი არ არის 
     setInterval(coverImage, intervalTime)
@@ -71,6 +72,31 @@ $(window).on('load', function(){
 
     const date = new Date();
     $('.js-time').html(`${date.getHours()}:${date.getMinutes()}`)
+
+    const token = 'd820991ca43cc815adf1a0a4a2e08a';
+    fetch('https://graphql.datocms.com/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+                query: `{ 
+                    aboutContact { eMail },
+                }`
+            }),
+    })
+    .then(res => res.json())
+    .then((res) => {
+        let eMail = res?.data?.aboutContact?.eMail;
+        
+        $('.email-js').append(`
+            <a href="mailto:${eMail}" class="contact-page__footer--email">
+                ${eMail}
+            </a>
+        `)
+    })
 });
 
 // menu click
@@ -396,21 +422,24 @@ function postedWork(){
             body: JSON.stringify({
                 query: `{ 
                     allPortfolios { id, role, title, description, cover {url}, link },
-                    aboutContact { id, aboutDescription, contactDescription },
+                    aboutContact { id, aboutDescription, contactDescription, contactTitle },
+                    allMySocialsNetworks { id, socialLink, socialTitle },
                 }`
             }),
     })
     .then(res => res.json())
     .then((res) => {
-        let data = res.data.allPortfolios;
-        let contactText = res.data.aboutContact.contactDescription;
-        let aboutText = res.data.aboutContact.aboutDescription;
+        let data = res?.data?.allPortfolios;
+        let socialData = res?.data?.allMySocialsNetworks;
+        let contactText = res?.data?.aboutContact?.contactDescription;
+        let contactTitle = res?.data?.aboutContact?.contactTitle;
+        let aboutText = res?.data?.aboutContact?.aboutDescription;
 
         $('.about-page--desc > p').html(aboutText)
         $('.contact-page__desc').html(contactText)
+        $('.contact-page__title').html(contactTitle)
 
-        data.map( (item,id) => {
-            console.log(id)
+        data?.map( (item,id) => {
             $('.list').append(`
             <div class="list__item--out">
                 <div class="list__item work-animation animation">
@@ -431,6 +460,24 @@ function postedWork(){
             </div>
             `)
         })
+
+        socialData?.map( (item) => {
+            console.log(item)
+            $('.contact-soc').append(`
+                <a href="${item.socialLink}" target="_blank">
+                    ${item.socialTitle}
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>7EC17BFC-2379-408F-95B0-000F8851C09B</title>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Contact-Mobile" transform="translate(-187.000000, -464.000000)" fill="#4B18EF">
+                                <polygon id="Path" points="202.095634 465.804022 202.095634 477.021308 203 477.021308 203 464.449011 203 464 202.547817 464 189.886689 464 189.886689 464.898022 201.40931 464.898022 187 479.206239 187.799355 480"></polygon>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            `)
+        } )
     }).finally(() => {
         workScrollAnimation()
         aboutScrollAnimation()
