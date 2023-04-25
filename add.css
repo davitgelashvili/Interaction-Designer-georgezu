@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 200px auto;
+}
+
+.form {
+    display: block;
+}
+
+.areal {
+    width: 100%;
+    border-bottom: 1px solid silver;
+    display: block;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.areal-title {
+    width: 100%;
+}
+
+.areal-label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+    margin: 5px 0;
+}
+.areal-text {
+    margin-bottom: 10px;
+}
+.areal-input {
+    display: block;
+    padding: 12px 7px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid silver;
+}
+
+.add-section {
+    cursor: pointer;
+    background-color: silver;
+    padding: 10px;
+    text-align: center;
+}

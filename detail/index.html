@@ -59,12 +59,12 @@ $(window).on('load', function(){
     const localId = localFilter.split('=');
 
     function gallery(item) {
-        console.log(item.url.split('.mp4')[1] )
-        if(item.url.split('.mp4')[1] !== undefined) {
+        console.log(item.split('.mp4')[1] )
+        if(item.split('.mp4')[1] !== undefined) {
             return (`
                 <div class="detail__gallery--item">
                     <video class="detail__gallery--iframe" controls >
-                        <source src="${item.url}" type="video/mp4">
+                        <source src="${item}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     
@@ -73,7 +73,7 @@ $(window).on('load', function(){
         }else {
             return (`
                 <div class="detail__gallery--item">
-                    <img class="detail__gallery--img" src="${item.url}" />
+                    <img class="detail__gallery--img" src="${item}" />
                 </div>
             `)
         }
@@ -83,29 +83,9 @@ $(window).on('load', function(){
     // console.log(localId)
 
     function postedWork(){
-        const token = 'd820991ca43cc815adf1a0a4a2e08a';
-        fetch('https://graphql.datocms.com/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify({
-                    query: `{ 
-                        allPortfolios(filter: {id: {in: "${localId[1]}"}}) { 
-                            id, role, detailTitle, description, coverDetail {url}, link, 
-                            detailSectionTitle1, detailSectionTitle2, detailSectionTitle3, detailSectionTitle4,
-                            detailSectionDescription1, detailSectionDescription2, detailSectionDescription3, detailSectionDescription4,
-                            color1, color2, color3, color4,
-                            gallery {url},
-                        },
-                    }`
-                }),
-        })
+        fetch(`https://6447b6007bb84f5a3e468fca.mockapi.io/v1/portfolio/${localId[1]}`)
         .then(res => res.json())
-        .then((res) => {
-            let item = res.data.allPortfolios[0];
+        .then((item) => {
             console.log(item)
             $('.detail').append(`
             <div class="detail__head">
@@ -113,13 +93,13 @@ $(window).on('load', function(){
                     <div class="detail__head--title">
                         <div class="container">
                             <div class="detail__head--text">
-                                ${item.detailTitle}
+                                ${item.detailbigtitle}
                             </div>    
                         </div>
                     </div>
                 </div>
                 <div class="detail__head--right">
-                    <img src="${item.coverDetail.url}" alt="" class="detail__head--cover">
+                    <img src="${item.detailcover}" alt="" class="detail__head--cover">
                 </div>
             </div>
             <div class="container">
@@ -131,72 +111,72 @@ $(window).on('load', function(){
                 </button>
             </div>
             <div class="detail__body">
-                ${item.detailSectionTitle1 && `
+                ${item.sectiontitle1 && `
                     <div class="detail__body--item 1">
                         <div class="container">
                             <div class="detail__body--item-in">
                                 <div class="detail__body--title">
-                                    <h1 class="detail__body--title-text 1">${item.detailSectionTitle1}</h1>
+                                    <h1 class="detail__body--title-text 1">${item.sectiontitle1}</h1>
                                 </div>
                                 <div class="detail__body--desc">
-                                    ${item.detailSectionDescription1}
+                                    ${item.sectiondesc1}
 
                                     <div class="detail__colors">
-                                        ${item.color1}
+                                        item.color1
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 `}
-                ${item.detailSectionTitle2 && `
+                ${item.sectiontitle2 && `
                     <div class="detail__body--item 2">
                         <div class="container">
                             <div class="detail__body--item-in">
                                 <div class="detail__body--title">
-                                    <h1 class="detail__body--title-text 2">${item.detailSectionTitle2}</h1>
+                                    <h1 class="detail__body--title-text 2">${item.sectiontitle2}</h1>
                                 </div>
                                 <div class="detail__body--desc">
-                                    ${item.detailSectionDescription2}
+                                    ${item.sectiondesc2}
 
                                     <div class="detail__colors">
-                                        ${item.color2}
+                                        item.color2
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 `}
-                ${item.detailSectionTitle3 && `
+                ${item.sectiontitle3 && `
                     <div class="detail__body--item 3">
                         <div class="container">
                             <div class="detail__body--item-in">
                                 <div class="detail__body--title">
-                                    <h1 class="detail__body--title-text 3">${item.detailSectionTitle3}</h1>
+                                    <h1 class="detail__body--title-text 3">${item.sectiontitle3}</h1>
                                 </div>
                                 <div class="detail__body--desc">
-                                    ${item.detailSectionDescription3}
+                                    ${item.sectiondesc3}
 
                                     <div class="detail__colors">
-                                        ${item.color3}
+                                        item.color3
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 `}
-                ${item.detailSectionTitle4 && `
+                ${item.sectiontitle4 && `
                     <div class="detail__body--item 4">
                         <div class="container">
                             <div class="detail__body--item-in">
                                 <div class="detail__body--title">
-                                    <h1 class="detail__body--title-text 4">${item.detailSectionTitle4}</h1>
+                                    <h1 class="detail__body--title-text 4">${item.sectiontitle4}</h1>
                                 </div>
                                 <div class="detail__body--desc">
-                                    ${item.detailSectionDescription4}
+                                    ${item.sectiondesc4}
 
                                     <div class="detail__colors">
-                                        ${item.color4}
+                                        item.color4
                                     </div>
                                 </div>
                             </div>
@@ -333,23 +313,10 @@ $(window).on('load', function(){
     let nextItemKey;
     // post api 
     function AllnextPost(){
-        const token = 'd820991ca43cc815adf1a0a4a2e08a';
-        fetch('https://graphql.datocms.com/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-                },
-                body: JSON.stringify({
-                    query: `{ 
-                        allPortfolios { id, role, title, description, cover {url}, link },
-                    }`
-                }),
-        })
+        fetch('https://6447b6007bb84f5a3e468fca.mockapi.io/v1/portfolio')
         .then(res => res.json())
         .then((res) => {
-            nextDataAll = res.data.allPortfolios;
+            nextDataAll = res;
             console.log(nextDataAll)
             nextDataAll.map( (item, index, all) => {
                 all.filter( (filterder, key) => {
@@ -364,7 +331,7 @@ $(window).on('load', function(){
 
                 $('.next-item').html(`
                     <div class="next-item__content">
-                        <h1>${dataNext.title}</h1>
+                        <h1>${dataNext.maintitle}</h1>
                         <a href="/detail/?filter=${dataNext.id}">
                             <svg width="50" height="50" viewBox="0 0 71 72" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4 8.036V58H0V0h58v4H7.036l63.732 63.732-3.536 3.536z" fill-rule="evenodd"/>

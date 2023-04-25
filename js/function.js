@@ -72,31 +72,6 @@ $(window).on('load', function(){
 
     const date = new Date();
     $('.js-time').html(`${date.getHours()}:${date.getMinutes()}`)
-
-    const token = 'd820991ca43cc815adf1a0a4a2e08a';
-    fetch('https://graphql.datocms.com/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-            body: JSON.stringify({
-                query: `{ 
-                    aboutContact { eMail },
-                }`
-            }),
-    })
-    .then(res => res.json())
-    .then((res) => {
-        let eMail = res?.data?.aboutContact?.eMail;
-        
-        $('.email-js').append(`
-            <a href="mailto:${eMail}" class="contact-page__footer--email">
-                ${eMail}
-            </a>
-        `)
-    })
 });
 
 // menu click
@@ -248,11 +223,8 @@ function aboutPageOpen(element){
         $(`.about-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.about-page__avatar`).addClass('active')
 
-        if(loadingNumber == 680) {
-            postedWork();
-        }
-
         if(loadingNumber == 714){
+            informationApi()
             clearInterval(LoadingInterval);
             $('body').removeClass('not-click'); 
         }
@@ -275,13 +247,12 @@ function contactPageOpen(element){
         $(`.contact-page__avatar--cover.${loadingNumber}`).addClass('active')
         $(`.contact-page__avatar`).addClass('active')
         if(loadingNumber == 70){
-            postedWork();
+            informationApi()
             clearInterval(LoadingInterval);
             $('body').removeClass('not-click'); 
         }
     }
 }
-
 
 // close page function 
 function workPageClose(element){
@@ -412,34 +383,9 @@ function bgChangeList(){
 
 // post api 
 function postedWork(){
-    const token = 'd820991ca43cc815adf1a0a4a2e08a';
-    fetch('https://graphql.datocms.com/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-            body: JSON.stringify({
-                query: `{ 
-                    allPortfolios { id, role, title, description, cover {url}, link },
-                    aboutContact { id, aboutDescription, contactDescription, contactTitle },
-                    allMySocialsNetworks { id, socialLink, socialTitle },
-                }`
-            }),
-    })
+    fetch('https://6447b6007bb84f5a3e468fca.mockapi.io/v1/portfolio')
     .then(res => res.json())
-    .then((res) => {
-        let data = res?.data?.allPortfolios;
-        let socialData = res?.data?.allMySocialsNetworks;
-        let contactText = res?.data?.aboutContact?.contactDescription;
-        let contactTitle = res?.data?.aboutContact?.contactTitle;
-        let aboutText = res?.data?.aboutContact?.aboutDescription;
-
-        $('.about-page--desc > p').html(aboutText)
-        $('.contact-page__desc').html(contactText)
-        $('.contact-page__title').html(contactTitle)
-
+    .then((data) => {
         data?.map( (item,id) => {
             $('.list').append(`
             <div class="list__item--out">
@@ -447,10 +393,10 @@ function postedWork(){
                     <div class="list__item--cat">${item.role}</div>
                     <div class="list__item--cover">
                         <p class="list__item--number">${(id+1) < 10 ? '0'+(id + 1) : id}</p>
-                        <img src="${item.cover.url}" alt="" class="list__item--img">
+                        <img src="${item.mainimage}" alt="" class="list__item--img">
                     </div>
-                    <h1 class="list__item--title">${item.title}</h1>
-                    <div class="list__item--desc">${item.description}</div>
+                    <h1 class="list__item--title">${item.maintitle}</h1>
+                    <div class="list__item--desc">${item.smalldesc}</div>
                     <li>
                         <a href="./detail/?filter=${item.id}" class="list__item--link">
                             Case Study
@@ -461,11 +407,29 @@ function postedWork(){
             </div>
             `)
         })
+    }).finally(() => {
+        workScrollAnimation()
+    })
+}
 
-        socialData?.map( (item) => {
+function informationApi(){
+    fetch('https://6447b6007bb84f5a3e468fca.mockapi.io/v1/information')
+    .then(res => res.json())
+    .then((res) => {
+        const data = res[0]
+        console.log(data)
+        let contactText = data.contactdescription;
+        let contactTitle = data.contacttitle;
+        let aboutText = data.aboutdescription;
+
+        $('.about-page--desc > p').html(aboutText)
+        $('.contact-page__desc').html(contactText)
+        $('.contact-page__title').html(contactTitle)
+
+        data.socnetwork?.map( (item) => {
             $('.contact-soc').append(`
-                <a href="${item.socialLink}" target="_blank">
-                    ${item.socialTitle}
+                <a href="${item}" target="_blank">
+                    ${item}
                     <?xml version="1.0" encoding="UTF-8"?>
                     <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>7EC17BFC-2379-408F-95B0-000F8851C09B</title>
@@ -479,10 +443,36 @@ function postedWork(){
             `)
         } )
     }).finally(() => {
-        workScrollAnimation()
         aboutScrollAnimation()
         contactScrollAnimation()
     })
+    // console.log(res)
+    // let data = res?.data?.allPortfolios;
+    // let socialData = res?.data?.allMySocialsNetworks;
+    // let contactText = res?.data?.aboutContact?.contactDescription;
+    // let contactTitle = res?.data?.aboutContact?.contactTitle;
+    // let aboutText = res?.data?.aboutContact?.aboutDescription;
+
+    // $('.about-page--desc > p').html(aboutText)
+    // $('.contact-page__desc').html(contactText)
+    // $('.contact-page__title').html(contactTitle)
+
+    // socialData?.map( (item) => {
+    //     $('.contact-soc').append(`
+    //         <a href="${item.socialLink}" target="_blank">
+    //             ${item.socialTitle}
+    //             <?xml version="1.0" encoding="UTF-8"?>
+    //             <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    //                 <title>7EC17BFC-2379-408F-95B0-000F8851C09B</title>
+    //                 <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    //                     <g id="Contact-Mobile" transform="translate(-187.000000, -464.000000)" fill="#4B18EF">
+    //                         <polygon id="Path" points="202.095634 465.804022 202.095634 477.021308 203 477.021308 203 464.449011 203 464 202.547817 464 189.886689 464 189.886689 464.898022 201.40931 464.898022 187 479.206239 187.799355 480"></polygon>
+    //                     </g>
+    //                 </g>
+    //             </svg>
+    //         </a>
+    //     `)
+    // } )
 }
 
 // menu glich effect 
