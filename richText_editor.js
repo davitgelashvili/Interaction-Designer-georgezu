@@ -105,6 +105,8 @@ $(document).ready(function () {
                             $(".editor_dataModal").css("display", 'none')
                             $(".createUrl_dataModal_content").css("display", 'none')
                         })
+                    } else if (cmd == 'colorDiv') {
+                        console.log('ssssss')
                     } else {
                         document.execCommand(cmd);
                     }

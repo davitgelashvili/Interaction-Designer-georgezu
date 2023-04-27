@@ -446,33 +446,6 @@ function informationApi(){
         aboutScrollAnimation()
         contactScrollAnimation()
     })
-    // console.log(res)
-    // let data = res?.data?.allPortfolios;
-    // let socialData = res?.data?.allMySocialsNetworks;
-    // let contactText = res?.data?.aboutContact?.contactDescription;
-    // let contactTitle = res?.data?.aboutContact?.contactTitle;
-    // let aboutText = res?.data?.aboutContact?.aboutDescription;
-
-    // $('.about-page--desc > p').html(aboutText)
-    // $('.contact-page__desc').html(contactText)
-    // $('.contact-page__title').html(contactTitle)
-
-    // socialData?.map( (item) => {
-    //     $('.contact-soc').append(`
-    //         <a href="${item.socialLink}" target="_blank">
-    //             ${item.socialTitle}
-    //             <?xml version="1.0" encoding="UTF-8"?>
-    //             <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    //                 <title>7EC17BFC-2379-408F-95B0-000F8851C09B</title>
-    //                 <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-    //                     <g id="Contact-Mobile" transform="translate(-187.000000, -464.000000)" fill="#4B18EF">
-    //                         <polygon id="Path" points="202.095634 465.804022 202.095634 477.021308 203 477.021308 203 464.449011 203 464 202.547817 464 189.886689 464 189.886689 464.898022 201.40931 464.898022 187 479.206239 187.799355 480"></polygon>
-    //                     </g>
-    //                 </g>
-    //             </svg>
-    //         </a>
-    //     `)
-    // } )
 }
 
 // menu glich effect 

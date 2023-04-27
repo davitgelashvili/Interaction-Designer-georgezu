@@ -58,25 +58,27 @@ $(window).on('load', function(){
     const localFilter = document.location.search;
     const localId = localFilter.split('=');
 
-    function gallery(item) {
-        console.log(item.split('.mp4')[1] )
-        if(item.split('.mp4')[1] !== undefined) {
-            return (`
-                <div class="detail__gallery--item">
-                    <video class="detail__gallery--iframe" controls >
-                        <source src="${item}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    
-                </div>
-            `)
-        }else {
-            return (`
-                <div class="detail__gallery--item">
-                    <img class="detail__gallery--img" src="${item}" />
-                </div>
-            `)
-        }
+    function gallery(items) {
+        items.map(item => {
+            if(item.split('.mp4')[1] !== undefined) {
+                return (`
+                    <div class="detail__gallery--item">
+                        <video class="detail__gallery--iframe" controls >
+                            <source src="${item}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                    </div>
+                `)
+            }else {
+                return (`
+                    <div class="detail__gallery--item">
+                        <img class="detail__gallery--img" src="${item}" />
+                    </div>
+                `)
+            }
+        })
+        
     }
 
 
@@ -119,10 +121,14 @@ $(window).on('load', function(){
                                     <h1 class="detail__body--title-text 1">${item.sectiontitle1}</h1>
                                 </div>
                                 <div class="detail__body--desc">
-                                    ${item.sectiondesc1}
-
+                                    <div class="detail__body--text">
+                                        ${item.sectiondesc1.first}
+                                    </div>
                                     <div class="detail__colors">
-                                        item.color1
+                                        ${item.color1}
+                                    </div>
+                                    <div class="detail__body--text">
+                                        ${item.sectiondesc1.second}
                                     </div>
                                 </div>
                             </div>
@@ -137,10 +143,14 @@ $(window).on('load', function(){
                                     <h1 class="detail__body--title-text 2">${item.sectiontitle2}</h1>
                                 </div>
                                 <div class="detail__body--desc">
-                                    ${item.sectiondesc2}
-
+                                    <div class="detail__body--text">
+                                        ${item.sectiondesc2.first}
+                                    </div>
                                     <div class="detail__colors">
-                                        item.color2
+                                        ${item.color2}
+                                    </div>
+                                    <div class="detail__body--text">
+                                        ${item.sectiondesc2.second}
                                     </div>
                                 </div>
                             </div>
@@ -155,10 +165,14 @@ $(window).on('load', function(){
                                     <h1 class="detail__body--title-text 3">${item.sectiontitle3}</h1>
                                 </div>
                                 <div class="detail__body--desc">
-                                    ${item.sectiondesc3}
-
+                                    <div class="detail__body--text">
+                                        ${item.sectiondesc3.first}
+                                    </div>
                                     <div class="detail__colors">
-                                        item.color3
+                                        ${item.color3}
+                                    </div>
+                                    <div class="detail__body--text">
+                                        ${item.sectiondesc3.second}
                                     </div>
                                 </div>
                             </div>
@@ -173,10 +187,14 @@ $(window).on('load', function(){
                                     <h1 class="detail__body--title-text 4">${item.sectiontitle4}</h1>
                                 </div>
                                 <div class="detail__body--desc">
-                                    ${item.sectiondesc4}
-
+                                    <div class="detail__body--text">
+                                        ${item.sectiondesc4.first}
+                                    </div>
                                     <div class="detail__colors">
-                                        item.color4
+                                        ${item.color4}
+                                    </div>
+                                    <div class="detail__body--text">
+                                        ${item.sectiondesc4.second}
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +207,7 @@ $(window).on('load', function(){
                             <h1 class="detail__body--title-text 5">Finaly</h1>
                         </div>
                         <div class="detail__gallery owl-carousel owl-theme owl-loaded">
-                            ${ item.gallery.map( i => gallery(i) ) }
+                            ${gallery(item.gallery)}
                         </div>
                     </div>
                 `}

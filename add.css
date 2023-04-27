@@ -8,6 +8,10 @@
     margin: 200px auto;
 }
 
+summary {
+    display: flex;
+}
+
 .form {
     display: block;
 }
