@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hey There, Excited to share my work!">
+    <meta name="keywords" content="Porfolio">
+    <meta name="author" content="Davit Gelashvili">
+    <link href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css" rel=" stylesheet">
+    <link href="./richText_editor.css" rel=" stylesheet">
+    <link rel="stylesheet" href="./add.css">
+    <link rel="icon" type="image/png" href="./img/icons/favicon.png">
+    <title>Giorgi Zhuzhiashvili - Interaction Designer</title>
+</head>
+<body>
+
+    <div class="editor_dataModal flex_c">
+        <div class="imgUrl_dataModal_content">
+            <div style="margin-bottom:40px;">Insert image</div>
+            <input class="img_url_inp" type="url">
+            <p>Only select images that you have confirmed that you have the license to use.</p>
+            <div class="insert_btns flex_c">
+                <button class="img_cancleBtn" style="margin-right:20px">Cancel</button>
+                <button class="img_insertBtn">Insert</button>
+            </div>
+        </div>
+        <div class="createUrl_dataModal_content">
+            <div style="margin-bottom:40px;">Insert url</div>
+            <input class="createUrl_inp" type="url">
+            <p>Please put a valid url</p>
+            <div class="createUrl_btns flex_c">
+                <button class="createUrl_cancleBtn" style="margin-right:20px">Cancel</button>
+                <button class="createUrl_insertBtn">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <ul>
+        <a href="./index.html">პროექტები </a>
+        <a href="./add.html">პროექტის დამატება</a>
+        <a href="./info.html">ინფორმაციის შეცვლა</a>
+    </ul>
+   
+    <div class="container">
+        <form class="form" onsubmit="stopsend(event)">
+            <div class="areal">
+                <h1 class="areal-title">სიახლის ვიზუალი</h1>
+                <select name="itemVisual" onchange="change(event)" >
+                    <option value="">
+                        აირჩიე
+                    </option>
+                    <option value="horizontal">
+                        ჰორიზინტალური
+                    </option>
+                    <option value="vertical">
+                        ვერტიკალური
+                    </option>
+                </select>
+            </div>
+            <div class="areal">
+                <h1 class="areal-title">Card</h1>
+                <label class="areal-label">
+                    <p class="areal-text">role</p>
+                    <input class="areal-input" type="text" value="" placeholder="text" name="role" onchange="change(event)" />
+                </label>
+                <label class="areal-label">
+                    <p class="areal-text">main title</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="maintitle" onchange="change(event)"/>
+                </label>
+                <label class="areal-label">
+                    <p class="areal-text">main image</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="mainimage" onchange="change(event)"/>
+                </label>
+                <label class="areal-label">
+                    <p class="areal-text">small description</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="smalldesc" onchange="change(event)"/>
+                </label>
+                <label class="areal-label">
+                    <p class="areal-text">project link</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="projectlink" onchange="change(event)"/>
+                </label>
+            </div>
+            <div class="areal">
+                <h1 class="areal-title">Detail</h1>
+                <label class="areal-label">
+                    <p class="areal-text">cover</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="detailcover" onchange="change(event)"/>
+                </label>
+                <label class="areal-label">
+                    <p class="areal-text">big title</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="detailbigtitle" onchange="change(event)"/>
+                </label>
+            </div>
+            <details class="areal">
+                <summary>
+                    <h2 class="areal-title">section 1</h2>
+                </summary>
+                <label class="areal-label">
+                    <p class="areal-text">title</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="sectiontitle1" onchange="change(event)"/>
+                </label>
+                <div class="areal-label">
+                    <p class="areal-text">description</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="sectiondesc1" data-desc="first"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="areal-label">
+                    <p class="areal-text">Color 1</p>
+                    <p class="areal-text" style="color:red">ინფორმაციის შეყვანამდე დააჭირე ერთხელ ენთერს</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="color1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="areal-label">
+                    <p class="areal-text">description</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="sectiondesc1" data-desc="second"></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </details>
+            <details class="areal">
+                <summary>
+                    <h2 class="areal-title">section 2</h2>
+                </summary>
+                <label class="areal-label">
+                    <p class="areal-text">title</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="sectiontitle2" onchange="change(event)"/>
+                </label>
+                <div class="areal-label">
+                    <p class="areal-text">description</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="sectiondesc2" data-desc="first"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="areal-label">
+                    <p class="areal-text">Color 1</p>
+                    <p class="areal-text" style="color:red">ინფორმაციის შეყვანამდე დააჭირე ერთხელ ენთერს</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="color2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="areal-label">
+                    <p class="areal-text">description</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="sectiondesc2" data-desc="second"></div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+            <details class="areal">
+                <summary>
+                    <h2 class="areal-title">section 3</h2>
+                </summary>
+                <label class="areal-label">
+                    <p class="areal-text">title</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="sectiontitle3" onchange="change(event)"/>
+                </label>
+                <div class="areal-label">
+                    <p class="areal-text">description</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="sectiondesc3" data-desc="first"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="areal-label">
+                    <p class="areal-text">Color 1</p>
+                    <p class="areal-text" style="color:red">ინფორმაციის შეყვანამდე დააჭირე ერთხელ ენთერს</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="color3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="areal-label">
+                    <p class="areal-text">description</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="sectiondesc3" data-desc="second"></div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+            <details class="areal">
+                <summary>
+                    <h2 class="areal-title">section 4</h2>
+                </summary>
+                <label class="areal-label">
+                    <p class="areal-text">title</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="sectiontitle4" onchange="change(event)"/>
+                </label>
+                <div class="areal-label">
+                    <p class="areal-text">description</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="sectiondesc4" data-desc="first"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="areal-label">
+                    <p class="areal-text">Color 1</p>
+                    <p class="areal-text" style="color:red">ინფორმაციის შეყვანამდე დააჭირე ერთხელ ენთერს</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="color4"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="areal-label">
+                    <p class="areal-text">description</p>
+
+                    <div class="blog_textEditorWrapper">
+                        <div class="blog_textEditor_toolbar">
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="bold" tooltip="Bold"><i class="fal fa-bold"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="italic" tooltip="Italic"><i class="fal fa-italic"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="underline" tooltip="Underline"><i class="fal fa-underline"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="strikeThrough" tooltip="Strike Through"><i class="fal fa-strikethrough"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="colorDiv" tooltip="Insert Image">1<i class="fal fa-paragraph"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="H1" tooltip="Heading 1" style="font-size:18px"><i class="fal fa-h1"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H2" tooltip="Heading 2" style="font-size:18px"><i class="fal fa-h2"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                                <button class="toolbar_btn flex_c" data-cmd="H3" tooltip="Heading 3" style="font-size:18px"><i class="fal fa-h3"></i></button>
+                                <div class="toolbar_btn_wrapSpace"></div>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="justifyLeft" tooltip="Align Left"><i class="fal fa-align-left"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyCenter" tooltip="Align Center"><i class="fal fa-align-center"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyFull" tooltip="Justify"><i class="fal fa-align-justify"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="justifyRight" tooltip="Align Right"><i class="fal fa-align-right"></i></button>
+                            </div>
+            
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertUnorderedList" tooltip="Unordered List"><i class="fal fa-list"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="insertOrderedList" tooltip="Ordered List"><i class="fal fa-list-ol"></i></button>
+                            </div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="insertImage" tooltip="Insert Image" status="off"><i class="fal fa-image"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="createLink" tooltip="Create Link"><i class="fal fa-link"></i></button>
+            
+            
+                                <div class="insertImg_btn_dropdown">
+                                    <div class="img_dropdown_menu imgFile flex_c" style="border-bottom: 2px solid #b378ff;">
+                                        <div class="menu_text">Upload from PC</div>
+                                        <div class="menu_icon"><i class="fal fa-arrow-to-top"></i></div>
+                                    </div>
+                                    <div class="img_dropdown_menu imgUrl flex_c">
+                                        <div class="menu_text">Insert by url</div>
+                                        <div class="menu_icon"><i class="fal fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="toolbar_btn flex_c" data-cmd="veiwCode" status="off" tooltip="HTML Code"><i class="fal fa-code"></i></div>
+            
+                            <div class="toolbar_btn_wrap flex_c">
+                                <button class="toolbar_btn flex_c" data-cmd="undo" tooltip="Undo"><i class="fal fa-undo"></i></button>
+                                <button class="toolbar_btn flex_c" data-cmd="redo" tooltip="Redo"><i class="fal fa-redo"></i></button>
+                            </div>
+            
+                        </div>
+            
+                        <div class="editor_container flex_c">
+                            <div class="lineNumber"></div>
+                            <div class="editor_body" id="blog_editor" contenteditable="true" data-name="sectiondesc4" data-desc="second"></div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+            <div class="areal">
+                <label class="areal-label">
+                    <p class="areal-text">gallery</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="gallery" onchange="change(event)"/>
+                </label>
+                <div class="add-section" onclick="addImage()">სურატის დამატება</div>
+                <div class="js-gallery">
+                </div>
+            </div>
+            <div>
+                <button onclick="addNewPost(event)">
+                    დამატება
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/76c40a5f57.js" crossorigin="anonymous"></script>
+    <script src="./richText_editor.js"></script>
+    <script>
+    function stopsend(e){
+        e.preventDefault()
+        console.log('ddddddd')
+    }
+    const data = {
+        role: "",
+        maintitle: "",
+        mainimage: "",
+        smalldesc: "",
+        projectlink: "",
+        detailcover: "",
+        detailbigtitle: "",
+        sectiontitle1: "",
+        sectiondesc1: {
+            first: '',
+            second: '',
+        },
+        sectiontitle2: "",
+        sectiondesc2: {
+            first: '',
+            second: '',
+        },
+        sectiontitle3: "",
+        sectiondesc3: {
+            first: '',
+            second: '',
+        },
+        sectiontitle4: "",
+        sectiondesc4: {
+            first: '',
+            second: '',
+        },
+        gallery: [],
+        color1: "",
+        color2: "",
+        color3: "",
+        color4: "",
+        itemVisual: ""
+    }
+
+    function change(e){
+        const name = e.srcElement.name
+        const value = e.target.value
+        console.log(e)
+
+        
+        if(name === 'gallery'){
+            data[name].push(value)
+            console.log(data)
+        }else {
+            data[name] = value
+            console.log(data)
+        }
+    }
+
+    let name
+    let value
+    let descValue
+    $("body").on('keyup', '.editor_body', (e) => {
+        descValue = e.target.dataset.desc
+        name = e.target.dataset.name
+        value = e.target.innerHTML
+
+        if(name === 'sectiondesc1'){
+            data[name][descValue] = value
+        }else if(name === 'sectiondesc2'){
+            data[name][descValue] = value
+        }else if(name === 'sectiondesc3'){
+            data[name][descValue] = value
+        }else if(name === 'sectiondesc4'){
+            data[name][descValue] = value
+        }else {
+            data[name] = value
+        }
+        console.log(data)
+    })
+
+    function addNewPost(e) {
+        e.preventDefault()
+        console.log('gagzavnilia')
+        fetch('https://6447b6007bb84f5a3e468fca.mockapi.io/v1/portfolio', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+    }
+
+    let imgSectionCount = 1
+    function addImage() {
+       imgSectionCount = imgSectionCount + 1
+        $('.js-gallery').append(`
+            <label class="areal-label">
+                <p class="areal-text">gallery${imgSectionCount}</p>
+                <input class="areal-input" type="text" value="" placeholder="text"  name="gallery" onchange="change(event)"/>
+            </label>
+        `)
+    }
+
+    </script>
+</body>
+</html>

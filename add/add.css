@@ -2,10 +2,18 @@
     margin: 0;
 }
 
+body > ul {
+    display: flex;
+}
+
+body > ul > a{
+    margin: 10px;
+}
+
 .container {
     width: 100%;
     max-width: 800px;
-    margin: 200px auto;
+    margin: 80px auto;
 }
 
 summary {
@@ -51,4 +59,15 @@ summary {
     background-color: silver;
     padding: 10px;
     text-align: center;
+}
+
+.list > li {
+    list-style: none;
+    border-bottom: 1px solid red;
+    padding: 10px 0;
+}
+
+.list > li > a {
+    color: #000;
+    text-decoration: none;
 }
