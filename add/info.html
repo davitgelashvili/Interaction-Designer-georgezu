@@ -61,7 +61,6 @@
     <script>
     function stopsend(e){
         e.preventDefault()
-        console.log('ddddddd')
     }
     const data = {
         contacttitle: "",
@@ -97,6 +96,8 @@
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
+        }).finally(()=> {
+            window.location.href = "./index.html";
         })
     }
 

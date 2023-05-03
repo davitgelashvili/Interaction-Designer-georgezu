@@ -14,6 +14,28 @@
     <title>Giorgi Zhuzhiashvili - Interaction Designer</title>
 </head>
 <body>
+    
+    <div class="editor_dataModal flex_c">
+        <div class="imgUrl_dataModal_content">
+            <div style="margin-bottom:40px;">Insert image</div>
+            <input class="img_url_inp" type="url">
+            <p>Only select images that you have confirmed that you have the license to use.</p>
+            <div class="insert_btns flex_c">
+                <button class="img_cancleBtn" style="margin-right:20px">Cancel</button>
+                <button class="img_insertBtn">Insert</button>
+            </div>
+        </div>
+        <div class="createUrl_dataModal_content">
+            <div style="margin-bottom:40px;">Insert url</div>
+            <input class="createUrl_inp" type="url">
+            <p>Please put a valid url</p>
+            <div class="createUrl_btns flex_c">
+                <button class="createUrl_cancleBtn" style="margin-right:20px">Cancel</button>
+                <button class="createUrl_insertBtn">Create</button>
+            </div>
+        </div>
+    </div>
+
     <ul>
         <a href="./index.html">პროექტები </a>
         <a href="./add.html">პროექტის დამატება</a>
@@ -1066,6 +1088,8 @@
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
+        }).finally(()=> {
+            window.location.href = "./index.html";
         })
     }
 

@@ -37,14 +37,25 @@
         res.map(item => {
             $('.list').append(`
             <li>
-                <a href="./edit.html?edit=${item.id}">
-                    <h1>${item.maintitle}</h1>
-                </a>
+                <h1>${item.maintitle}</h1>
+                <div>
+                    <a href="./edit.html?edit=${item.id}">
+                        Edit
+                    </a>
+                    <button onclick="itemDelete(${item.id})">delete</button>
+                </div>
             </li>
             `)
-        })
-       
+        }) 
     })
+
+    function itemDelete(id){
+        fetch(`https://6447b6007bb84f5a3e468fca.mockapi.io/v1/portfolio/${id}`, {
+            method: 'DELETE',
+        }).finally(()=> {
+            window.location.href = "./index.html";
+        })
+    }
 
     </script>
 </body>
