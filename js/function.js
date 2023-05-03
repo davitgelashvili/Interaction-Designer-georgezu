@@ -170,6 +170,7 @@ function openPage(element){
 }
 
 function closePage(element) {
+    $('.list').html('')
     $('body').addClass('not-click');
     changeUnSetBg();
     $(element).removeClass('active')
@@ -386,9 +387,10 @@ function postedWork(){
     fetch('https://6447b6007bb84f5a3e468fca.mockapi.io/v1/portfolio')
     .then(res => res.json())
     .then((data) => {
+        $('.list').html('')
         data?.map( (item,id) => {
             $('.list').append(`
-            <div class="list__item--out">
+            <div class="list__item--out ${item.itemVisual}">
                 <div class="list__item work-animation animation">
                     <div class="list__item--cat">${item.role}</div>
                     <div class="list__item--cover">
@@ -421,32 +423,36 @@ function informationApi(){
         let contactText = data.contactdescription;
         let contactTitle = data.contacttitle;
         let aboutText = data.aboutdescription;
+        let email = data.email;
 
         $('.about-page--desc > p').html(aboutText)
         $('.contact-page__desc').html(contactText)
         $('.contact-page__title').html(contactTitle)
+        $('.email-js').html(email)
 
-        data.socnetwork?.map( (item) => {
-            $('.contact-soc').append(`
-                <a href="${item}" target="_blank">
-                    ${item}
-                    <?xml version="1.0" encoding="UTF-8"?>
-                    <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <title>7EC17BFC-2379-408F-95B0-000F8851C09B</title>
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g id="Contact-Mobile" transform="translate(-187.000000, -464.000000)" fill="#4B18EF">
-                                <polygon id="Path" points="202.095634 465.804022 202.095634 477.021308 203 477.021308 203 464.449011 203 464 202.547817 464 189.886689 464 189.886689 464.898022 201.40931 464.898022 187 479.206239 187.799355 480"></polygon>
-                            </g>
-                        </g>
-                    </svg>
-                </a>
-            `)
-        } )
+        // data.socnetwork?.map( (item) => {
+        //     console.log(item)
+        //     $('.contact-soc').append(`
+        //         <a href="${item}" target="_blank">
+        //             ${item}
+        //             <?xml version="1.0" encoding="UTF-8"?>
+        //             <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        //                 <title>7EC17BFC-2379-408F-95B0-000F8851C09B</title>
+        //                 <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        //                     <g id="Contact-Mobile" transform="translate(-187.000000, -464.000000)" fill="#4B18EF">
+        //                         <polygon id="Path" points="202.095634 465.804022 202.095634 477.021308 203 477.021308 203 464.449011 203 464 202.547817 464 189.886689 464 189.886689 464.898022 201.40931 464.898022 187 479.206239 187.799355 480"></polygon>
+        //                     </g>
+        //                 </g>
+        //             </svg>
+        //         </a>
+        //     `)
+        // } )
     }).finally(() => {
         aboutScrollAnimation()
         contactScrollAnimation()
     })
 }
+informationApi()
 
 // menu glich effect 
 $('.menu__item--text').on("mouseenter", function(){

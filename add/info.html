@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hey There, Excited to share my work!">
+    <meta name="keywords" content="Porfolio">
+    <meta name="author" content="Davit Gelashvili">
+    <link href="https://pro.fontawesome.com/releases/v5.1.0/css/all.css" rel=" stylesheet">
+    <link href="./richText_editor.css" rel=" stylesheet">
+    <link rel="stylesheet" href="./add.css">
+    <link rel="icon" type="image/png" href="./img/icons/favicon.png">
+    <title>Giorgi Zhuzhiashvili - Interaction Designer</title>
+</head>
+<body>
+
+   
+    <div class="container">
+        <form class="form" onsubmit="stopsend(event)">
+            <div class="areal">
+                <h1 class="areal-title">Contact</h1>
+                <label class="areal-label">
+                    <p class="areal-text">Title</p>
+                    <input class="areal-input" type="text" value="" placeholder="text" name="contacttitle" onchange="change(event)" />
+                </label>
+                <label class="areal-label">
+                    <p class="areal-text">Description</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="contactdescription" onchange="change(event)"/>
+                </label>
+            </div>
+            <div class="areal">
+                <h1 class="areal-title">About</h1>
+                <label class="areal-label">
+                    <p class="areal-text">Description</p>
+                    <input class="areal-input" type="text" value="" placeholder="text" name="aboutdescription" onchange="change(event)" />
+                </label>
+            </div>
+            <div class="areal">
+                <!-- <h1 class="areal-title">About</h1> -->
+                <label class="areal-label">
+                    <p class="areal-text">E-mail</p>
+                    <input class="areal-input" type="text" value="" placeholder="text" name="email" onchange="change(event)" />
+                </label>
+            </div>
+            <div>
+                <button onclick="addNewPost(event)">
+                    დამატება
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/76c40a5f57.js" crossorigin="anonymous"></script>
+    <script src="./richText_editor.js"></script>
+    <script>
+    function stopsend(e){
+        e.preventDefault()
+        console.log('ddddddd')
+    }
+    const data = {
+        contacttitle: "",
+        contactdescription: "",
+        aboutdescription: "",
+        email: "",
+        socnetwork: {
+            first: '',
+            second: '',
+        }
+    }
+
+    function change(e){
+        const name = e.srcElement.name
+        const value = e.target.value
+        console.log(e)
+
+        
+        if(name === 'gallery'){
+            data[name].push(value)
+            console.log(data)
+        }else {
+            data[name] = value
+            console.log(data)
+        }
+    }
+
+    function addNewPost(e) {
+        e.preventDefault()
+        fetch('https://6447b6007bb84f5a3e468fca.mockapi.io/v1/information/1', {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+    }
+
+    let imgSectionCount = 1
+    function addImage() {
+       imgSectionCount = imgSectionCount + 1
+        $('.js-gallery').append(`
+            <label class="areal-label">
+                <p class="areal-text">gallery${imgSectionCount}</p>
+                <input class="areal-input" type="text" value="" placeholder="text"  name="gallery" onchange="change(event)"/>
+            </label>
+        `)
+    }
+
+
+    fetch('https://6447b6007bb84f5a3e468fca.mockapi.io/v1/information/1')
+    .then(res => res.json())
+    .then(res => {
+        data.contacttitle = res.contacttitle
+        data.contactdescription = res.contactdescription
+        data.aboutdescription = res.aboutdescription
+        data.email = res.email
+    }).finally(()=>{
+        $('.areal-input[name=contacttitle]').val(data.contacttitle)
+        $('.areal-input[name=contactdescription]').val(data.contactdescription)
+        $('.areal-input[name=aboutdescription]').val(data.aboutdescription)
+        $('.areal-input[name=email]').val(data.email)
+    })
+
+    </script>
+</body>
+</html>
