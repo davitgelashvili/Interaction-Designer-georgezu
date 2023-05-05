@@ -89,3 +89,7 @@ summary {
     border: none;
     cursor: pointer;
 }
+
+.send-text {
+    color: green;
+}

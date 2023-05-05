@@ -158,11 +158,6 @@
                     </div>
                 </div>
 
-                <label class="areal-label">
-                    <p class="areal-text">video</p>
-                    <input class="areal-input" type="text" value="" placeholder="text"  name="video1" onchange="change(event)"/>
-                </label>
-
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
                     <p class="areal-text" style="color:red">ინფორმაციის შეყვანამდე დააჭირე ერთხელ ენთერს</p>
@@ -307,6 +302,11 @@
                         </div>
                     </div>
                 </div>
+
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video1" onchange="change(event)"/>
+                </label>
                 
             </details>
             <details class="areal">
@@ -388,11 +388,6 @@
                         </div>
                     </div>
                 </div>
-
-                <label class="areal-label">
-                    <p class="areal-text">video</p>
-                    <input class="areal-input" type="text" value="" placeholder="text"  name="video2" onchange="change(event)"/>
-                </label>
 
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
@@ -538,6 +533,12 @@
                         </div>
                     </div>
                 </div>
+
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video2" onchange="change(event)"/>
+                </label>
+
             </details>
             <details class="areal">
                 <summary>
@@ -618,11 +619,6 @@
                         </div>
                     </div>
                 </div>
-
-                <label class="areal-label">
-                    <p class="areal-text">video</p>
-                    <input class="areal-input" type="text" value="" placeholder="text"  name="video3" onchange="change(event)"/>
-                </label>
 
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
@@ -768,6 +764,12 @@
                         </div>
                     </div>
                 </div>
+
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video3" onchange="change(event)"/>
+                </label>
+
             </details>
             <details class="areal">
                 <summary>
@@ -848,11 +850,6 @@
                         </div>
                     </div>
                 </div>
-
-                <label class="areal-label">
-                    <p class="areal-text">video</p>
-                    <input class="areal-input" type="text" value="" placeholder="text"  name="video4" onchange="change(event)"/>
-                </label>
 
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
@@ -998,17 +995,21 @@
                         </div>
                     </div>
                 </div>
+
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video4" onchange="change(event)"/>
+                </label>
             </details>
             <div class="areal">
-                <label class="areal-label">
-                    <p class="areal-text">gallery</p>
-                    <input class="areal-input" type="text" value="" placeholder="text"  name="gallery" onchange="change(event)"/>
-                </label>
+                <div class="list-gallery">
+                </div>
                 <div class="add-section" onclick="addImage()">სურატის დამატება</div>
                 <div class="js-gallery">
                 </div>
             </div>
             <div>
+                <p class="send-text"></p>
                 <button onclick="addNewPost(event)">
                     დამატება
                 </button>
@@ -1106,6 +1107,7 @@
 
     function addNewPost(e) {
         e.preventDefault()
+        $('.send-text').html('წარმატებულია')
         fetch(`https://6447b6007bb84f5a3e468fca.mockapi.io/v1/portfolio/${localId[1]}`, {
             method: 'PUT',
             body: JSON.stringify(data),
@@ -1169,6 +1171,8 @@
         data.video3 = res.video3
         data.video4 = res.video4
 
+        data.gallery = res.gallery
+
     }).finally(()=>{
         $('.areal-input[name=role]').val(data.role)
         $('.areal-input[name=maintitle]').val(data.maintitle)
@@ -1206,6 +1210,16 @@
         $('.areal-input[name=video2]').val(data.video2)
         $('.areal-input[name=video3]').val(data.video3)
         $('.areal-input[name=video4]').val(data.video4)
+
+        data.gallery.map((item, key) => {
+            $('.list-gallery').append(`
+                <label class="areal-label">
+                    <p class="areal-text">gallery ${key + 1}</p>
+                    <input class="areal-input" type="text" value="${item}" placeholder="text"  name="gallery" onchange="change(event)"/>
+                </label>
+            `)
+        })
+
     })
 
     </script>

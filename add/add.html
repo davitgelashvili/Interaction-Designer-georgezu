@@ -172,11 +172,6 @@
                     </div>
                 </div>
 
-                <label class="areal-label">
-                    <p class="areal-text">video</p>
-                    <input class="areal-input" type="text" value="" placeholder="text"  name="video1" onchange="change(event)"/>
-                </label>
-
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
                     <p class="areal-text" style="color:red">ინფორმაციის შეყვანამდე დააჭირე ერთხელ ენთერს</p>
@@ -321,6 +316,11 @@
                         </div>
                     </div>
                 </div>
+
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video1" onchange="change(event)"/>
+                </label>
                 
             </details>
             <details class="areal">
@@ -402,11 +402,6 @@
                         </div>
                     </div>
                 </div>
-
-                <label class="areal-label">
-                    <p class="areal-text">video</p>
-                    <input class="areal-input" type="text" value="" placeholder="text"  name="video2" onchange="change(event)"/>
-                </label>
 
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
@@ -552,6 +547,12 @@
                         </div>
                     </div>
                 </div>
+
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video2" onchange="change(event)"/>
+                </label>
+
             </details>
             <details class="areal">
                 <summary>
@@ -632,11 +633,6 @@
                         </div>
                     </div>
                 </div>
-
-                <label class="areal-label">
-                    <p class="areal-text">video</p>
-                    <input class="areal-input" type="text" value="" placeholder="text"  name="video3" onchange="change(event)"/>
-                </label>
 
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
@@ -782,6 +778,11 @@
                         </div>
                     </div>
                 </div>
+
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video3" onchange="change(event)"/>
+                </label>
             </details>
             <details class="areal">
                 <summary>
@@ -862,11 +863,6 @@
                         </div>
                     </div>
                 </div>
-
-                <label class="areal-label">
-                    <p class="areal-text">video</p>
-                    <input class="areal-input" type="text" value="" placeholder="text"  name="video4" onchange="change(event)"/>
-                </label>
 
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
@@ -1012,6 +1008,12 @@
                         </div>
                     </div>
                 </div>
+
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video4" onchange="change(event)"/>
+                </label>
+
             </details>
             <div class="areal">
                 <label class="areal-label">
@@ -1115,6 +1117,7 @@
     })
 
     function addNewPost(e) {
+        $('.send-text').html('წარმატებულია')
         e.preventDefault()
         fetch('https://6447b6007bb84f5a3e468fca.mockapi.io/v1/portfolio', {
             method: 'POST',

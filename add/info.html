@@ -89,6 +89,7 @@
     }
 
     function addNewPost(e) {
+        $('.send-text').html('წარმატებულია')
         e.preventDefault()
         fetch('https://6447b6007bb84f5a3e468fca.mockapi.io/v1/information/1', {
             method: 'PUT',
