@@ -44,19 +44,27 @@
    
     <div class="container">
         <form class="form" onsubmit="stopsend(event)">
-            <div class="areal">
-                <h1 class="areal-title">სიახლის ვიზუალი</h1>
-                <select name="itemVisual" onchange="change(event)" >
-                    <option value="">
-                        აირჩიე
-                    </option>
-                    <option value="horizontal">
-                        ჰორიზინტალური
-                    </option>
-                    <option value="vertical">
-                        ვერტიკალური
-                    </option>
-                </select>
+            <div class="areal" style="display: flex; align-items: center;">
+                <div>
+                    <p class="areal-text">სიიახლის ვიზუალი</p>
+                    <select name="itemVisual" onchange="change(event)" >
+                        <option value="">
+                            აირჩიე
+                        </option>
+                        <option value="horizontal">
+                            ჰორიზინტალური
+                        </option>
+                        <option value="vertical">
+                            ვერტიკალური
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <label class="areal-label">
+                        <p class="areal-text">პოზიცია</p>
+                        <input class="areal-input" type="text" value="" placeholder="text" name="sort" onchange="change(event)" />
+                    </label>
+                </div>
             </div>
             <div class="areal">
                 <h1 class="areal-title">Card</h1>
@@ -1076,7 +1084,8 @@
         video1: "",
         video2: "",
         video3: "",
-        video4: ""
+        video4: "",
+        sort: 11
     }
 
     function change(e){

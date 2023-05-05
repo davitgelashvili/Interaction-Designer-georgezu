@@ -388,7 +388,9 @@ function postedWork(){
     .then(res => res.json())
     .then((data) => {
         $('.list').html('')
-        data?.map( (item,id) => {
+        data.sort((a,b) => console.log(a.sort - b.sort))
+        const sorted = data.sort((a,b) => a.sort - b.sort)
+        sorted?.map( (item,id) => {
             $('.list').append(`
             <div class="list__item--out ${item.itemVisual}">
                 <div class="list__item work-animation animation">

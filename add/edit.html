@@ -1008,6 +1008,12 @@
                 <div class="js-gallery">
                 </div>
             </div>
+            <div class="areal">
+                <label class="areal-label">
+                    <p class="areal-text">პოზიცია</p>
+                    <input class="areal-input" type="text" value="" placeholder="text" name="sort" onchange="change(event)" />
+                </label>
+            </div>
             <div>
                 <p class="send-text"></p>
                 <button onclick="addNewPost(event)">
@@ -1066,6 +1072,7 @@
         video2: "",
         video3: "",
         video4: "",
+        sort: "",
     }
 
     function change(e){
@@ -1172,6 +1179,7 @@
         data.video4 = res.video4
 
         data.gallery = res.gallery
+        data.sort = res.sort
 
     }).finally(()=>{
         $('.areal-input[name=role]').val(data.role)
@@ -1210,6 +1218,8 @@
         $('.areal-input[name=video2]').val(data.video2)
         $('.areal-input[name=video3]').val(data.video3)
         $('.areal-input[name=video4]').val(data.video4)
+
+        $('.areal-input[name=sort]').val(data.sort)
 
         data.gallery.map((item, key) => {
             $('.list-gallery').append(`
