@@ -158,6 +158,11 @@
                     </div>
                 </div>
 
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video1" onchange="change(event)"/>
+                </label>
+
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
                     <p class="areal-text" style="color:red">ინფორმაციის შეყვანამდე დააჭირე ერთხელ ენთერს</p>
@@ -384,6 +389,11 @@
                     </div>
                 </div>
 
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video2" onchange="change(event)"/>
+                </label>
+
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
                     <p class="areal-text" style="color:red">ინფორმაციის შეყვანამდე დააჭირე ერთხელ ენთერს</p>
@@ -608,6 +618,11 @@
                         </div>
                     </div>
                 </div>
+
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video3" onchange="change(event)"/>
+                </label>
 
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
@@ -834,6 +849,11 @@
                     </div>
                 </div>
 
+                <label class="areal-label">
+                    <p class="areal-text">video</p>
+                    <input class="areal-input" type="text" value="" placeholder="text"  name="video4" onchange="change(event)"/>
+                </label>
+
                 <div class="areal-label">
                     <p class="areal-text">Color 1</p>
                     <p class="areal-text" style="color:red">ინფორმაციის შეყვანამდე დააჭირე ერთხელ ენთერს</p>
@@ -1040,7 +1060,11 @@
         color2: "",
         color3: "",
         color4: "",
-        itemVisual: ""
+        itemVisual: "",
+        video1: "",
+        video2: "",
+        video3: "",
+        video4: "",
     }
 
     function change(e){
@@ -1139,6 +1163,12 @@
         data.color2 = res.color2
         data.color3 = res.color3
         data.color4 = res.color4
+
+        data.video1 = res.video1
+        data.video2 = res.video2
+        data.video3 = res.video3
+        data.video4 = res.video4
+
     }).finally(()=>{
         $('.areal-input[name=role]').val(data.role)
         $('.areal-input[name=maintitle]').val(data.maintitle)
@@ -1154,7 +1184,6 @@
         $('.areal-input[name=sectiontitle3]').val(data.sectiontitle3)
         $('.areal-input[name=sectiontitle4]').val(data.sectiontitle4)
 
-        console.log($('[data-name=color1]')[0])
         $('[data-name=color1]')[0].innerHTML = data.color1
         $('[data-name=color2]')[0].innerHTML = data.color2
         $('[data-name=color3]')[0].innerHTML = data.color3
@@ -1172,6 +1201,11 @@
 
         $('[data-name=sectiondesc4]')[0].innerHTML = data.sectiondesc4.first
         $('[data-name=sectiondesc4]')[1].innerHTML = data.sectiondesc4.second
+
+        $('.areal-input[name=video1]').val(data.video1)
+        $('.areal-input[name=video2]').val(data.video2)
+        $('.areal-input[name=video3]').val(data.video3)
+        $('.areal-input[name=video4]').val(data.video4)
     })
 
     </script>

@@ -46,6 +46,7 @@ $( window ).resize(function() {
 });
 
 $(window).on('load', function(){
+    let itemData;
     let item1;
     let item2;
     let item3;
@@ -58,9 +59,15 @@ $(window).on('load', function(){
     const localFilter = document.location.search;
     const localId = localFilter.split('=');
 
-    function gallery(items) {
-        items.map(item => {
-            if(item.split('.mp4')[1] !== undefined) {
+    function gallery() {
+        return itemData.gallery.map(item => {
+            if(item.split('.mp4')[1] === undefined) {
+                return (`
+                    <div class="detail__gallery--item">
+                        <img class="detail__gallery--img" src="${item}" />
+                    </div>
+                `)
+            }else {
                 return (`
                     <div class="detail__gallery--item">
                         <video class="detail__gallery--iframe" controls >
@@ -70,25 +77,16 @@ $(window).on('load', function(){
                         
                     </div>
                 `)
-            }else {
-                return (`
-                    <div class="detail__gallery--item">
-                        <img class="detail__gallery--img" src="${item}" />
-                    </div>
-                `)
             }
         })
-        
     }
-
-
-    // console.log(localId)
 
     function postedWork(){
         fetch(`https://6447b6007bb84f5a3e468fca.mockapi.io/v1/portfolio/${localId[1]}`)
         .then(res => res.json())
         .then((item) => {
-            console.log(item)
+            itemData = item
+        }).finally((item = itemData) => {
             $('.detail').append(`
             <div class="detail__head">
                 <div class="detail__head--left">
@@ -124,9 +122,17 @@ $(window).on('load', function(){
                                     <div class="detail__body--text">
                                         ${item.sectiondesc1.first}
                                     </div>
-                                    <div class="detail__colors">
-                                        ${item.color1}
-                                    </div>
+                                    ${item.video1 && `
+                                        <video class="detail__gallery--iframe" controls >
+                                            <source src="${item.video1}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    `}
+                                    ${item.color1 && `
+                                        <div class="detail__colors">
+                                            ${item.color1}
+                                        </div>
+                                    `}
                                     <div class="detail__body--text">
                                         ${item.sectiondesc1.second}
                                     </div>
@@ -146,9 +152,17 @@ $(window).on('load', function(){
                                     <div class="detail__body--text">
                                         ${item.sectiondesc2.first}
                                     </div>
-                                    <div class="detail__colors">
-                                        ${item.color2}
-                                    </div>
+                                    ${item.video2 && `
+                                        <video class="detail__gallery--iframe" controls >
+                                            <source src="${item.video2}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    `}
+                                    ${item.color2 && `
+                                        <div class="detail__colors">
+                                            ${item.color2}
+                                        </div>
+                                    `}
                                     <div class="detail__body--text">
                                         ${item.sectiondesc2.second}
                                     </div>
@@ -168,9 +182,17 @@ $(window).on('load', function(){
                                     <div class="detail__body--text">
                                         ${item.sectiondesc3.first}
                                     </div>
-                                    <div class="detail__colors">
-                                        ${item.color3}
-                                    </div>
+                                    ${item.video3 && `
+                                        <video class="detail__gallery--iframe" controls >
+                                            <source src="${item.video3}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    `}
+                                    ${item.color3 && `
+                                        <div class="detail__colors">
+                                            ${item.color3}
+                                        </div>
+                                    `}
                                     <div class="detail__body--text">
                                         ${item.sectiondesc3.second}
                                     </div>
@@ -190,9 +212,17 @@ $(window).on('load', function(){
                                     <div class="detail__body--text">
                                         ${item.sectiondesc4.first}
                                     </div>
-                                    <div class="detail__colors">
-                                        ${item.color4}
-                                    </div>
+                                    ${item.video4 && `
+                                        <video class="detail__gallery--iframe" controls >
+                                            <source src="${item.video4}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    `}
+                                    ${item.color4 && `
+                                        <div class="detail__colors">
+                                            ${item.color4}
+                                        </div>
+                                    `}
                                     <div class="detail__body--text">
                                         ${item.sectiondesc4.second}
                                     </div>
@@ -207,7 +237,7 @@ $(window).on('load', function(){
                             <h1 class="detail__body--title-text 5">Finaly</h1>
                         </div>
                         <div class="detail__gallery owl-carousel owl-theme owl-loaded">
-                            ${gallery(item.gallery)}
+                            ${gallery()}
                         </div>
                     </div>
                 `}
@@ -218,14 +248,13 @@ $(window).on('load', function(){
                 `}
             </div>
             `)
-        }).finally((e) => {
-            AllnextPost()
             gallerySlider()
-            item5 = $('.detail__body--item.5').offset().top + 119;
-            item1 = $('.detail__body--item.1').offset().top + 119;
-            item2 = $('.detail__body--item.2').offset().top + 119;
-            item3 = $('.detail__body--item.3').offset().top + 119;
-            item4 = $('.detail__body--item.4').offset().top + 119;
+            AllnextPost()
+            item5 = $('.detail__body--item.5')?.offset()?.top + 119;
+            item1 = $('.detail__body--item.1')?.offset()?.top + 119;
+            item2 = $('.detail__body--item.2')?.offset()?.top + 119;
+            item3 = $('.detail__body--item.3')?.offset()?.top + 119;
+            item4 = $('.detail__body--item.4')?.offset()?.top + 119;
         })
     }
     postedWork()
