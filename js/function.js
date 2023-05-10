@@ -1,3 +1,8 @@
+$('body').on('click', '.back-work', function(e){
+    e.preventDefault()
+    window.location.href = '/?=back';
+})
+
 function mobileOrDesktop() {
     if( $(window).width() < 1024 ) {
         window.location.href = './m';
@@ -25,8 +30,20 @@ var secondRender = `
 // $('.work-page').append(secondRender);
 
 $(window).on('load', function(){
+    const localFilter = document.location.search;
+   
     setTimeout(() => {
         $('.load').remove();
+
+        if(localFilter === '?=back') {
+            console.log(localFilter)
+            $('.menu__item--text').hide();
+            $('.menu__item--work').addClass('page-active');
+            $('.work-page.work.page').addClass('active');
+            openPage('.work-page.work.page')
+            workPageOpen('.work-page.work.page')
+            postedWork();
+        }
     }, 1000);
 
     // თუ ინტრო ლოადინგი არ არის 

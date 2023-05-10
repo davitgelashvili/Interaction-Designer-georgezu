@@ -297,22 +297,6 @@
     }
 }
 
-.vertical:nth-of-type(2){
-    margin-top: 0;
-
-    @media (max-width:1024px) {
-        margin-top: 0;
-    }
-}
-
-.vertical:nth-of-type(3){
-    margin-top: 390px;
-
-    @media (max-width:1024px) {
-        margin-top: 0;
-    }
-}
-
 
 .page {
     width: 100%;
