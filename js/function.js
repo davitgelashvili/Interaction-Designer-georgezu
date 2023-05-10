@@ -392,7 +392,7 @@ function postedWork(){
         const sorted = data.sort((a,b) => a.sort - b.sort)
         sorted?.map( (item,id) => {
             $('.list').append(`
-            <div class="list__item--out ${item.itemVisual}">
+            <a href="./detail/?filter=${item.id}" class="list__item--out ${item.itemVisual}">
                 <div class="list__item work-animation animation">
                     <div class="list__item--cat">${item.role}</div>
                     <div class="list__item--cover">
@@ -401,14 +401,12 @@ function postedWork(){
                     </div>
                     <h1 class="list__item--title">${item.maintitle}</h1>
                     <div class="list__item--desc">${item.smalldesc}</div>
-                    <li>
-                        <a href="./detail/?filter=${item.id}" class="list__item--link">
-                            Case Study
-                            <img src="./img/icons/link-arrow.svg" alt="">
-                        </a>
-                    </li>
+                    <div class="list__item--link">
+                        Case Study
+                        <img src="./img/icons/link-arrow.svg" alt="">
+                    </div>
                 </div>
-            </div>
+            </a>
             `)
         })
     }).finally(() => {

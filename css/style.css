@@ -1071,7 +1071,7 @@ body {
   font-family: "PPNeue-Book";
   color: #0a0a1b;
 }
-.next-item a {
+.next-item div {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -1080,11 +1080,11 @@ body {
   font-size: 16px;
   font-family: "PPNeue-Medium";
 }
-.next-item a svg {
+.next-item div svg {
   transform: rotate(90deg);
   margin-bottom: 19px;
 }
-.next-item a svg path {
+.next-item div svg path {
   fill: #0a0a1b;
 }
 .next-item:hover {

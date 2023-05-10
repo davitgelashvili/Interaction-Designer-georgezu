@@ -248,13 +248,13 @@ $(window).on('load', function(){
                 `}
             </div>
             `)
-            gallerySlider()
             AllnextPost()
-            item5 = $('.detail__body--item.5')?.offset()?.top + 119;
-            item1 = $('.detail__body--item.1')?.offset()?.top + 119;
-            item2 = $('.detail__body--item.2')?.offset()?.top + 119;
-            item3 = $('.detail__body--item.3')?.offset()?.top + 119;
-            item4 = $('.detail__body--item.4')?.offset()?.top + 119;
+            gallerySlider()
+            item5 = $('.detail__body--item.5').offset().top + 119;
+            item1 = $('.detail__body--item.1').offset().top + 119;
+            item2 = $('.detail__body--item.2').offset().top + 119;
+            item3 = $('.detail__body--item.3').offset().top + 119;
+            item4 = $('.detail__body--item.4').offset().top + 119;
         })
     }
     postedWork()
@@ -377,15 +377,15 @@ $(window).on('load', function(){
                 dataNext = nextDataAll[nextItemKey];
 
                 $('.next-item').html(`
-                    <div class="next-item__content">
+                    <a href="/detail/?filter=${dataNext.id}" class="next-item__content">
                         <h1>${dataNext.maintitle}</h1>
-                        <a href="/detail/?filter=${dataNext.id}">
+                        <div>
                             <svg width="50" height="50" viewBox="0 0 71 72" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4 8.036V58H0V0h58v4H7.036l63.732 63.732-3.536 3.536z" fill-rule="evenodd"/>
                             </svg>
 
                             Case Study
-                        </a>
+                        </div>
                     </div>
                 `)
                 console.log(dataNext)

@@ -1095,11 +1095,11 @@
 
         
         if(name === 'gallery'){
-            data[name].push(value)
-            console.log(data)
+            if(item.length > 1){
+                data[name].push(value)
+            }
         }else {
             data[name] = value
-            console.log(data)
         }
     }
 

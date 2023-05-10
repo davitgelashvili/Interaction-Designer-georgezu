@@ -1136,7 +1136,6 @@
             </label>
         `)
     }
-    console.log($('[data-name=sectiondesc1]')[0].innerHTML = 1)
 
     fetch(`https://6447b6007bb84f5a3e468fca.mockapi.io/v1/portfolio/${localId[1]}`)
     .then(res => res.json())
@@ -1222,12 +1221,14 @@
         $('.areal-input[name=sort]').val(data.sort)
 
         data.gallery.map((item, key) => {
-            $('.list-gallery').append(`
-                <label class="areal-label">
-                    <p class="areal-text">gallery ${key + 1}</p>
-                    <input class="areal-input" type="text" value="${item}" placeholder="text"  name="gallery" onchange="change(event)"/>
-                </label>
-            `)
+            if(item.length > 1) {
+                $('.list-gallery').append(`
+                    <label class="areal-label">
+                        <p class="areal-text">gallery ${key + 1}</p>
+                        <input class="areal-input" type="text" value="${item}" placeholder="text"  name="gallery" onchange="change(event)"/>
+                    </label>
+                `)
+            }
         })
 
     })
