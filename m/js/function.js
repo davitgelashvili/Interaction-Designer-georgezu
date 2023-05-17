@@ -83,86 +83,87 @@ $(window).on('load', function(){
     .then((res) => {
         let eMail = res?.data?.aboutContact?.eMail;
         
-        $('.email-js').append(`
-            <a href="mailto:${eMail}" class="contact-page__footer--email">
-                ${eMail}
-            </a>
-        `)
     })
 });
 
 // post api 
 function postedWork(){
-    const token = 'd820991ca43cc815adf1a0a4a2e08a';
-    fetch('https://graphql.datocms.com/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-            body: JSON.stringify({
-                query: `{ 
-                    allPortfolios { id, role, title, description, cover {url}, link },
-                    aboutContact { id, aboutDescription, contactDescription, contactTitle },
-                    allMySocialsNetworks { id, socialLink, socialTitle },
-                }`
-            }),
-    })
+    fetch('https://6447b6007bb84f5a3e468fca.mockapi.io/v1/portfolio')
     .then(res => res.json())
-    .then((res) => {
-        let data = res?.data?.allPortfolios;
-        let socialData = res?.data?.allMySocialsNetworks;
-        let contactText = res?.data?.aboutContact?.contactDescription;
-        let contactTitle = res?.data?.aboutContact?.contactTitle;
-        let aboutText = res?.data?.aboutContact?.aboutDescription;
-
-        $('.about-page--desc > p').html(aboutText)
-        $('.contact-page__desc').html(contactText)
-        $('.contact-page__title').html(contactTitle)
-        
-        data?.map( (item,id) => {
-            console.log(id)
+    .then((data) => {
+        $('.list').html('')
+        data.sort((a,b) => console.log(a.sort - b.sort))
+        const sorted = data.sort((a,b) => a.sort - b.sort)
+        sorted?.map( (item,id) => {
             $('.list').append(`
-            <div class="list__item--out">
+            <a href="./detail/?filter=${item.id}" class="list__item--out ${item.itemVisual}">
                 <div class="list__item work-animation animation">
                     <div class="list__item--cat">${item.role}</div>
                     <div class="list__item--cover">
                         <p class="list__item--number">${(id+1) < 10 ? '0'+(id + 1) : id}</p>
-                        <img src="${item.cover.url}" alt="" class="list__item--img">
+                        <img src="${item.mainimage}" alt="" class="list__item--img">
                     </div>
-                    <h1 class="list__item--title">${item.title}</h1>
-                    <div class="list__item--desc">${item.description}</div>
-                    <li>
-                        <a href="./detail/?filter=${item.id}" class="list__item--link">
-                            Case Study
-                            <img src="./img/icons/link-arrow.svg" alt="">
-                        </a>
-                    </li>
+                    <h1 class="list__item--title">${item.maintitle}</h1>
+                    <div class="list__item--desc">${item.smalldesc}</div>
+                    <div class="list__item--link">
+                        Case Study
+                        <img src="./img/icons/link-arrow.svg" alt="">
+                    </div>
                 </div>
-            </div>
+            </a>
             `)
         })
-
-        socialData?.map( (item) => {
-            console.log(item)
-            $('.contact-soc').append(`
-                <a href="${item.socialLink}" target="_blank">
-                    ${item.socialTitle}
-                    <?xml version="1.0" encoding="UTF-8"?>
-                    <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <title>7EC17BFC-2379-408F-95B0-000F8851C09B</title>
-                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g id="Contact-Mobile" transform="translate(-187.000000, -464.000000)" fill="#4B18EF">
-                                <polygon id="Path" points="202.095634 465.804022 202.095634 477.021308 203 477.021308 203 464.449011 203 464 202.547817 464 189.886689 464 189.886689 464.898022 201.40931 464.898022 187 479.206239 187.799355 480"></polygon>
-                            </g>
-                        </g>
-                    </svg>
-                </a>
-            `)
-        } )
-    }).finally(() => workScrollAnimation())
+    }).finally(() => {
+        workScrollAnimation()
+    })
 }
+
+
+function informationApi(){
+    fetch('https://6447b6007bb84f5a3e468fca.mockapi.io/v1/information')
+    .then(res => res.json())
+    .then((res) => {
+        const data = res[0]
+        console.log(data)
+        let contactText = data.contactdescription;
+        let contactTitle = data.contacttitle;
+        let aboutText = data.aboutdescription;
+        let email = data.email;
+
+        $('.about-page--desc > p').html(aboutText)
+        $('.contact-page__desc').html(contactText)
+        $('.contact-page__title').html(contactTitle)
+        $('.email-js').html(`
+        <a href="mailto:${email}" class="contact-page__footer--email">
+                ${email}
+            </a>
+        `)
+        
+
+        // data.socnetwork?.map( (item) => {
+        //     console.log(item)
+        //     $('.contact-soc').append(`
+        //         <a href="${item}" target="_blank">
+        //             ${item}
+        //             <?xml version="1.0" encoding="UTF-8"?>
+        //             <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        //                 <title>7EC17BFC-2379-408F-95B0-000F8851C09B</title>
+        //                 <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        //                     <g id="Contact-Mobile" transform="translate(-187.000000, -464.000000)" fill="#4B18EF">
+        //                         <polygon id="Path" points="202.095634 465.804022 202.095634 477.021308 203 477.021308 203 464.449011 203 464 202.547817 464 189.886689 464 189.886689 464.898022 201.40931 464.898022 187 479.206239 187.799355 480"></polygon>
+        //                     </g>
+        //                 </g>
+        //             </svg>
+        //         </a>
+        //     `)
+        // } )
+    }).finally(() => {
+        aboutScrollAnimation()
+        contactScrollAnimation()
+    })
+}
+informationApi()
+
 
 // menu glich effect 
 $('.menu__item--text').on("mouseenter", function(){
